@@ -60,7 +60,7 @@ class SubsController < ApplicationController
   
   def require_owner
     @sub = Sub.find(params[:id])
-    unless @sub.owner == current_user
+    unless @sub.manager == current_user
       flash[:errors] = ["You don't have the authority to perform this action!"]
 
       redirect_to subs_url
