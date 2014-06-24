@@ -33,10 +33,10 @@ class SubsController < ApplicationController
   end
   
   def show
-    
+ 
     @sub = Sub.find(params[:id])
     if @sub
-      redirect_to subs_url(@sub)
+      render :show
     else
       flash.now[:errors] = @sub.errors.full_messages
       redirect_to subs_url
