@@ -1,8 +1,9 @@
 class SubsController < ApplicationController
-  before_action :require_owner, only: [:new, :create, :destroy, :edit, :update]
+  before_action :require_owner, only: [ :destroy, :edit, :update]
   before_action :require_current_user, except: [:index]
+  
   def new
-    @sub = Sub.new
+    @sub = current_user.subs.new
   end
   
   def create
@@ -32,6 +33,7 @@ class SubsController < ApplicationController
   end
   
   def show
+    
     @sub = Sub.find(params[:id])
     if @sub
       redirect_to subs_url(@sub)

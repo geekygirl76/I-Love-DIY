@@ -2,11 +2,11 @@
 <br>
 <ul>
 <% @subs.each do |sub| %>
- <li><%= link_to sub.title, subs_url(sub)  %>
-   <%= button_to "Delete Subforum", subs_url, method: :delete %>
+ <li><%= link_to sub.title, sub_url(sub)  %>
+   <%= button_to "Delete Subforum", sub_url(sub), method: :delete %>
  </li>
 <% end  %>
 <ul>
 <br>
-<% link_to "Create Subforum", new_sub_url %>
+<%= link_to "Create Subforum", new_sub_url %>
    
