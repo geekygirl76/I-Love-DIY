@@ -8,17 +8,12 @@ development:
   adapter: postgresql
   database: diy_development
   host: localhost
-  username: appacademy
+  
   
 
 test:
   adapter: postgresql
-  database: diy_development
+  database: diy_test
   host: localhost
-  username: appacademy
   
-production:
-  adapter: postgresql
-  database: diy_development
-  host: localhost
-  username: appacademy 
+  
