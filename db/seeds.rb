@@ -16,3 +16,9 @@ Sub.create!(user_id: 1, title: "Food")
 Sub.create!(user_id: 1, title: "Play")
 Sub.create!(user_id: 1, title: "Outside")
 
+Post.create!(title: "Decorate My Own Kitchen", body: "I did it all by myself!", user_id: 1, sub_id: 1)
+Post.create!(title: "Decorate My Own Bathroom", body: "I did it all by myself!", user_id: 1, sub_id: 1)
+Post.create!(title: "Make My Own Coffee Table", body: "I did it all by myself!", user_id: 1, sub_id: 1)
+
+
+

@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
-  resources :subs
-
+  resources :posts, only: [:show, :edit, :update, :destroy]
+  
+  resources :subs do 
+    resources :posts, only: [:new, :create, :index]
+  end
+  
   resources :users, only:[:new, :create, :show, :update]
   resource :session, only: [:new, :create, :destroy]
+  
   root "subs#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
