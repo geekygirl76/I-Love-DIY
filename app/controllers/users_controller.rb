@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     if @user.save
      
       log_in(@user)
-      redirect_to user_url(@user)
+      redirect_to subs_url
     else
       flash.now[:errors] = @user.errors.full_messages
       render:new
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      redirect_to @user
+      redirect_to subs_url
     else
       flash.now[:errors] = @user.errors.full_messages
     end

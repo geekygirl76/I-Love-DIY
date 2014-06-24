@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   
   before_validation :ensure_session_token
   
+  has_many :subs, class_name: "Sub", foreign_key: :user_id
+  
   def self.find_by_credentials(username, password)
     user = User.find_by_username(username)
     return nil unless user

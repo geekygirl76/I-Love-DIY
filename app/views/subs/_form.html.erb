@@ -1,0 +1,19 @@
+<% action_url = (action == :edit ? sub_url(sub) : subs_url) %>
+
+<form action="<%= action_url %>" method="post">
+  <input type="hidden" name="authenticity_token" 
+         value="<%= form_authenticity_token %>" />
+         
+   <% if action == :edit %>
+       <input type="hidden" name="_method" value="put">
+     <% end %>  
+     
+  <label for="sub_title">Username</label>
+  <input
+    type="text"
+    name="sub[title]"
+    value="<%= sub.title %>"
+    id="sub_title">
+    <br>
+     
+</form>

@@ -8,3 +8,11 @@
 User.create!(username:"tomato", password:"tomato", email:"tomato@abc")
 User.create!(username:"pepper", password:"pepper", email:"pepper@abc")
 User.create!(username:"potato", password:"potato", email:"potato@abc")
+
+Sub.create!(user_id: 1, title: "Living")
+Sub.create!(user_id: 1, title: "Technology")
+Sub.create!(user_id: 1, title: "Workshop")
+Sub.create!(user_id: 1, title: "Food")
+Sub.create!(user_id: 1, title: "Play")
+Sub.create!(user_id: 1, title: "Outside")
+
