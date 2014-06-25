@@ -1,7 +1,59 @@
-<h1><%= @sub.title %></h1>
-<h2>Created By <%= @sub.manager.username %></h2>
+<head>
+  <style>
+    html, body, header, main, footer, nav, h1, a, ul, li, section, p, small{
+      margin: 0;
+      padding: 0;
+      border: 0;
+      font: inherit;
+    }
+
+  nav{
+    display:block;
+    color: red;
+    border: 1px solid black;
+    background: lightblue;
+    width: 80%;
+    height: 50px;
+  margin: auto;
+  }
+
+  .navbar {
+    float:left;
+  margin: auto;
+  }
+
+  .navbar >li {
+    float:right;
+  }
+  </style>
+
+</head>
 
 
+<body>
+<nav>
+  <ul class="navbar">
+  <li><h1>Subforum: <%= @sub.title %></h1></li>
+  <li><h2>Created By: <%= @sub.manager.username %></h2></li>
+  </ul>
+</nav>
+<br>
+
+<ul class="group">
+  <% @sub.posts.each do |post| %>
+   <li><%= link_to post.title, post_url(post) %></li>
+   <br>
+ <% end %>
+</ul>
+
+<br>
+
+<footer>
 <%= link_to "Edit Subforum", edit_sub_url %>
 <br>
 <%= link_to "Subforum List", subs_url %>
+<br>
+<br>
+<%= link_to "Publish A Post!", new_sub_post_url(@sub) %>
+</footer>
+</body>

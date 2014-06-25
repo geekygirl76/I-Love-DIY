@@ -1,0 +1,62 @@
+<head>
+  <style>
+  html, body, header, main, footer, nav, h1, a, ul, li, section, p, small{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+  }
+
+
+  .article {
+    display: block;
+    border: 1px solid black;
+    font-size: 10px;
+    color: red;
+    width: 500px;
+    height: 500px;
+    margin: auto;
+    padding: 20px;
+  }
+
+
+  </style>
+
+</head>
+
+<body>
+<h1>Publish New Post</h1>
+
+<form action="<%= sub_posts_url(@post.sub) %>" method="post">
+  <input type="hidden" name="authenticity_token"
+         value="<%= form_authenticity_token %>" />
+
+
+
+  <label for="post_title">
+    Title
+  <input
+    type="text"
+    name="post[title]"
+    value="<%= @post.title %>"
+    id="post_title">
+  </label>
+    <br>
+
+  <label for="post_body" >
+    Article
+  <input class="article"
+    type="textarea"
+    name="post[body]"
+    value="<%= @post.body %>"
+    id="post_body">
+  </label>
+    <br>
+
+  <h4>Submit To This Sub: <%= @post.sub.title %></h4>
+
+
+  <input type="submit" value="submit">
+
+</form>
+</body>
