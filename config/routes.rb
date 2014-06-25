@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
   
+  resources :channels, only: [:show, :destroy]
+  
 
-  resources :posts, only: [:show, :edit, :update, :destroy]
+  resources :posts
   
   resources :subs do 
-    resources :posts, only: [:new, :create, :index]
+    resources :channels, only: [:new, :create]
   end
+   
+  
   
   resources :users, only:[:new, :create, :show, :update] do
     get :activate, on: :collection

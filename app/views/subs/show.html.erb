@@ -4,7 +4,7 @@
 <body>
 <nav>
   <ul class="navbar">
-  <li><h1>Subforum: <%= @sub.title %></h1></li>
+  <li><h1>Category: <%= @sub.title %></h1></li>
   <li><h2>Created By: <%= @sub.manager.username %></h2></li>
   </ul>
 </nav>
@@ -18,13 +18,18 @@
 </ul>
 
 <br>
+<ul>
+  <% @sub.channels.each do |channel| %>
+    <li><%= link_to channel.title, channel_url(channel) %></li>
+  <% end %>
+</ul>
+
 
 <footer>
-<%= link_to "Edit Subforum", edit_sub_url %>
+
+<%= link_to "Create New Channels", new_sub_channel_url(@sub) %>
 <br>
-<%= link_to "Subforum List", subs_url %>
 <br>
-<br>
-<%= link_to "Publish A Post!", new_sub_post_url(@sub) %>
+
 </footer>
 </body>

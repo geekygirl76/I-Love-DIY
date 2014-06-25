@@ -3,8 +3,12 @@
 
 
 <h4 >Subforum: <%= @post.sub.title %></h4>
+<h4 >Channel: <%= @post.channel.title %></h4>
+
  
-  <%= @post.title %>
+  <h1><%= @post.title %></h1>
+  <br>
+   author: <%= User.find(@post.user_id).username %>
  
   <br>
  
@@ -12,4 +16,7 @@
    
 <br>
 
-<a href="<%= sub_url(@post.sub) %>">Back to Subforum:<%= @post.sub.title %><a>
+<%= link_to "Edit Instructable", edit_post_url %>
+<%= button_to "Delete Instructable", post_url, method: :delete %>
+
+

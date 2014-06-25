@@ -3,4 +3,5 @@ class Sub < ActiveRecord::Base
   validates :user_id, presence: true
   belongs_to :manager, class_name: "User", foreign_key: :user_id
   has_many :posts
+  has_many :channels
 end

@@ -16,6 +16,12 @@ Sub.create!(user_id: 1, title: "Food")
 Sub.create!(user_id: 1, title: "Play")
 Sub.create!(user_id: 1, title: "Outside")
 
+Channel.create!(sub_id: 1, title: "Furnishing")
+Channel.create!(sub_id: 1, title: "Decorating")
+Channel.create!(sub_id: 1, title: "Cleaning")
+Channel.create!(sub_id: 2, title: "Cell Phones")
+Channel.create!(sub_id: 2, title: "Computers")
+
 Post.create!(title: "Decorate My Own Kitchen", body: "I did it all by myself!", user_id: 1, sub_id: 1)
 Post.create!(title: "Decorate My Own Bathroom", body: "I did it all by myself!", user_id: 1, sub_id: 1)
 Post.create!(title: "Make My Own Coffee Table", body: "I did it all by myself!", user_id: 1, sub_id: 1)
