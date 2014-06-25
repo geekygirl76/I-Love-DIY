@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140624212539) do
+ActiveRecord::Schema.define(version: 20140625175922) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,13 @@ ActiveRecord::Schema.define(version: 20140624212539) do
     t.integer  "user_id",    null: false
     t.string   "title",      null: false
     t.text     "body",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sub_posts", force: true do |t|
+    t.integer  "sub_id"
+    t.integer  "post_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -35,12 +42,18 @@ ActiveRecord::Schema.define(version: 20140624212539) do
   add_index "subs", ["title"], name: "index_subs_on_title", unique: true, using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "username",        null: false
-    t.string   "password_digest", null: false
-    t.string   "session_token",   null: false
-    t.string   "email",           null: false
+    t.string   "username",                         null: false
+    t.string   "password_digest",                  null: false
+    t.string   "session_token",                    null: false
+    t.string   "email",                            null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "activated",        default: false
+    t.string   "activation_token"
+    t.string   "confirm_password"
+    t.integer  "age"
+    t.string   "gender"
+    t.integer  "zip"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

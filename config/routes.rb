@@ -1,11 +1,17 @@
 Rails.application.routes.draw do
+  
+
   resources :posts, only: [:show, :edit, :update, :destroy]
   
   resources :subs do 
     resources :posts, only: [:new, :create, :index]
   end
   
-  resources :users, only:[:new, :create, :show, :update]
+  resources :users, only:[:new, :create, :show, :update] do
+    get :activate, on: :collection
+  end
+  
+  
   resource :session, only: [:new, :create, :destroy]
   
   root "subs#index"

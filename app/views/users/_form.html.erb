@@ -8,6 +8,14 @@
        <input type="hidden" name="_method" value="put">
      <% end %>    
     
+    
+  <label for="user_email">Email</label>
+  <input
+    type="email"
+    name="user[email]"
+    id="user_email">
+    <br>
+      
   <label for="user_username">Username</label>
   <input
     type="text"
@@ -24,12 +32,46 @@
 
   <br>
   
-  <label for="user_email">Email</label>
+  <label for="user_confirm_password">Confirm Password</label>
   <input
-    type="email"
-    name="user[email]"
-    id="user_email">
-    <br>
+    type="password"
+    name="user[confirm_password]"
+    id="user_confirm_password">
 
-  <input type="submit">
+  <br>
+  
+  <label for="user_age">Age</label>
+  <input
+    type="text"
+    name="user[age]"
+    id="user_age">
+
+  <br>
+  
+  <label for="user_gender">Gender</label>
+  <select name="user[gender]" id="user_gender">
+    <option>(select)</option>
+    <% User::GENDERS.each do |gender| %>
+      <option
+        <%= user.gender == gender ? "selected" : "" %>
+        value="<%= gender %>">
+        <%= gender %>
+      </option>
+    <% end %>
+  </select>
+  <br>
+  
+  <label for="user_zip">
+    Zip
+    <input
+      type="text"
+      name="user[zip]"
+      id="user_zip">or Postal Code if you are outside US.
+  </label>
+  
+
+  <br>
+  
+
+  <input type="submit" value="SIGN UP!">
 </form>

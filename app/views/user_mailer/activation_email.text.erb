@@ -1,0 +1,10 @@
+Welcome to mycooldiy.herokuapp.com, <%= @user.username %>
+
+===========================================================
+
+You have successfully signed up to mycooldiy.herokuapp.com,
+your username is: <%= @user.username %>.
+
+To activate your account, just follow this link: <%= activate_users_url(activation_token: @user.activation_token) %>
+
+Thanks for joining and have a great day!

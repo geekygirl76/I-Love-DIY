@@ -39,6 +39,7 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'debugger', group: [:development, :test]
 
 group :development do
+  gem 'letter_opener'
   # Run 'annotate' in Terminal to add helpful comments to models.
   gem 'annotate'
   # These two give you a great error handling page.

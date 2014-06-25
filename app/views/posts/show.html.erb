@@ -1,72 +1,15 @@
-<head>
-  <style>
-  html, body, header, main, footer, nav, h1, a, ul, li, section, p, small{
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-  }
-
-  p{
-    display: block;
-    border: 2px solid black;
-    background: lightgrey;
-    width: 500px;
-    height: 300px;
-    margin: auto;
-  color:black;
-  padding: 10px;
-  }
-
-  .title{
-    display: block;
-    background: lightgrey;
-    border: 1px solid black;
-    width: 500px;
-    height: 50px;
-    margin: auto;
-    color:black;
-  padding: 30px;
-  }
-
-  a {
-    border: 1px solid black;
-    display: block;
-    text-decoration: none;
-    float: left;
-    color: red;
-  background: lightblue;
-  border-radius: 5px;
-  }
-
-  a :hover{
-    color: green;
-  }
-
-  h4{
-    display: block;
-    margin: auto;
-    color: blue;
-  float: right;
-  }
-
-  </style>
-</head>
 
 
 
 
-<body>
-<h4 class="header">Subforum: <%= @post.sub.title %></h4>
- <section class="title">
+<h4 >Subforum: <%= @post.sub.title %></h4>
+ 
   <%= @post.title %>
- </section>
+ 
   <br>
-  <p class="article">
+ 
   <%= @post.body %>
-    </p>
+   
 <br>
-<footer class="footer">
+
 <a href="<%= sub_url(@post.sub) %>">Back to Subforum:<%= @post.sub.title %><a>
-</footer>
-</body>
