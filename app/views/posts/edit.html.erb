@@ -26,21 +26,6 @@
   </label>
     <br>
 
-  <label for="post_sub_id">Category</label>
-  <select name="post[sub_id]" id="post_sub_id">
-    <option value="">Choose Category(Sub)</option>
-    
-   <% Sub.all.each do |sub| %>
-     <option
-       <%= @post.sub_id == sub.id ? "selected" : nil  %>
-       value="<%= sub.id %>"
-       >
-       
-       <%= sub.title %>
-     </option>
-    <% end %>
-  </select>
-  <br>
 
 
   <input type="submit" value="submit">

@@ -5,15 +5,18 @@
 <h4 >Subforum: <%= @post.sub.title %></h4>
 <h4 >Channel: <%= @post.channel.title %></h4>
 
- 
+
   <h1><%= @post.title %></h1>
   <br>
    author: <%= User.find(@post.user_id).username %>
- 
+
   <br>
- 
+  <br>
+
   <%= @post.body %>
-   
+
+<br>
+<br>
 <br>
 
 <%= link_to "Edit Instructable", edit_post_url %>

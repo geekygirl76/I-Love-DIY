@@ -5,7 +5,7 @@
 <ul>
 <% @subs.each do |sub| %>
  <li><%= link_to sub.title, sub_url(sub)  %>
-   <%= button_to "Delete Subforum", sub_url(sub), method: :delete %>
+
  </li>
 <% end  %>
 <ul>
@@ -13,4 +13,3 @@
 
 
 
-   
