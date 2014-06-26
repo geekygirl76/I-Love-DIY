@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 
 gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'uuidtools'
+
 gem "paperclip"
 gem "aws-sdk"
 gem "figaro"
