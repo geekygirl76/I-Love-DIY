@@ -1,0 +1,9 @@
+<ul>
+  <% post.comments_hash[c1.id].each do |c2|  %>
+
+      <%= c2.body %><%= button_to "Reply", new_comment_comment_url(c2), method: :get %>
+      <%= render "comments/comment", c1: c2, post: post %>
+
+  <% end  %>
+
+</ul>

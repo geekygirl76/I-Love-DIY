@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  
+  resources :comments, except: [:new, :create] do
+    resources :comments, only: [:new, :create, :show]
+  end
 
   resources :channels, only: [:show, :destroy]
 

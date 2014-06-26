@@ -9,4 +9,18 @@ class Post < ActiveRecord::Base
   belongs_to :sub
   belongs_to :channel
   has_one :manager, through: :sub, source: :manager
+  
+  def top_level_comments
+    comments.select { |comment| comment.parent_comment_id.nil? }
+  end
+
+  def comments_hash
+    hash = Hash.new { |hash, key| hash[key] = [] }
+
+    self.comments.each do |comment|
+      hash[comment.parent_comment_id] << comment
+    end
+
+    hash
+  end
 end

@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
   has_many :subs, class_name: "Sub", foreign_key: :user_id
   has_many :posts, through: :subs, source: :posts
   has_many :posts
+  has_many :comments, inverse_of: :user
 
   before_create :add_activation_token
 
