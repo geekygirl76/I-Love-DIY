@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: "contact@ilovediy.ninja"
+  default from: "noreply@ilovediy.ninja"
 
   def activation_email(user)
     @user = user
