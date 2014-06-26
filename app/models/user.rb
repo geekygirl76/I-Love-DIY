@@ -19,6 +19,23 @@ class User < ActiveRecord::Base
   has_many :comments, inverse_of: :user
 
   before_create :add_activation_token
+  
+  
+  def self.find_or_create_by_auth_hash(auth_hash)
+     user = self.find_by(uid: auth_hash[:uid], provider: auth_hash[:provider])
+ 
+     unless user
+       user = self.create!(
+         uid: auth_hash[:uid],
+         provider: auth_hash[:provider],
+         email: auth_hash[:info][:email],
+         password_digest: SecureRandom::urlsafe_base64(16)
+       )
+     end
+ 
+     user
+   end
+  
 
   def password_match
      self.password == self.confirm_password

@@ -3,6 +3,14 @@ class SessionsController < ApplicationController
     @user = User.new
   end
   
+  def facebook_login
+     user = User.find_or_create_by_auth_hash(request.env['omniauth.auth'])
+     log_in(user)
+
+     flash.now[:success] = ["Logged in with facebook!"]
+     redirect_to user
+   end
+  
   def create
     @user = User.find_by_credentials(user_params[:username],user_params[:password])
     

@@ -1,1 +1,4 @@
-config.omniauth :facebook, "266389573552711", "ecb01cb9ef995e88fcf97eb946f76441"
+Rails.application.config.middleware.use OmniAuth::Builder do
+  provider :facebook, ENV['771887046166094'], ENV['b3a1f49c3d6620e3e89432f25f04f8bb']
+end
+

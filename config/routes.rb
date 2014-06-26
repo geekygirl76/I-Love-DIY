@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  
+  get '/auth/facebook/callback', to: 'sessions#facebook_login'
 
   resources :comments, except: [:new, :create] do
     resources :comments, only: [:new, :create, :show]
