@@ -1,6 +1,6 @@
 <% action_url = (action == :edit ? user_url(user) : users_url) %>
 
-<form action="<%= action_url %>" method="post" >
+<form action="<%= action_url %>" method="post" enctype="multipart/form-data">
   <input type="hidden" name="authenticity_token"
          value="<%= form_authenticity_token %>" />
 
@@ -71,16 +71,14 @@
 
 
   <br>
-
+  <label>
+    Upload Picture
+ 
+    <input type="file" name="user[photo]">
+  
+  </label>
 
   <input type="submit" value="SIGN UP!">
 </form>
 
-<form enctype="multipart/form-data">
-  <label>
-    Upload Picture
-  <%= form_for user, :url => users_url, :html => { :multipart => true } do |form| %>
-    <%= form.file_field :photo %>
-  <% end %>
-  </label>
- </form>
+

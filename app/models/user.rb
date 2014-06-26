@@ -1,9 +1,6 @@
 class User < ActiveRecord::Base
-  has_attached_file :photo, :styles => {
-    :big => "600x600>",
-    :small => "50x50#"
-  }
-
+  has_attached_file :photo, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+  validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/
 
   GENDERS = ["Bloke", "Female", "Gal", "Guy","Male", "Miss", "None of your business", "Robot"]
 

@@ -3,7 +3,7 @@
 <body>
 <h1>Create Instructable</h1>
 
-<form action="<%= posts_url %>" method="post">
+<form action="<%= posts_url %>" method="post" enctype="multipart/form-data">
   <input type="hidden" name="authenticity_token"
          value="<%= form_authenticity_token %>" />
 
@@ -58,6 +58,13 @@
     <% end %>
   </select>
   <br>
+  
+  <label>
+    Upload Picture
+ 
+    <input type="file" name="post[photo]">
+  
+  </label>
   
 
   <input type="submit" value="submit">

@@ -67,6 +67,7 @@ GEM
     figaro (0.7.0)
       bundler (~> 1.0)
       rails (>= 3, < 5)
+    hashie (2.1.2)
     hike (1.2.3)
     i18n (0.6.9)
     jbuilder (2.1.1)
@@ -90,6 +91,9 @@ GEM
     multi_json (1.10.1)
     nokogiri (1.6.2.1)
       mini_portile (= 0.6.0)
+    omniauth (1.2.1)
+      hashie (>= 1.2, < 3)
+      rack (~> 1.0)
     paperclip (4.1.1)
       activemodel (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -177,6 +181,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   letter_opener
+  omniauth
   paperclip
   pg
   pry-rails

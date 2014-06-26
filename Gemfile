@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'omniauth'
 gem "paperclip"
 gem "aws-sdk"
 gem "figaro"

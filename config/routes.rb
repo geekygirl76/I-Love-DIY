@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
 
+  
+
   resources :channels, only: [:show, :destroy]
 
 
-  resources :posts
+  resources :posts do 
+    resources :comments, only: [:new, :create, :destroy]
+  end
 
   resources :subs do
     resources :channels, only: [:new, :create]

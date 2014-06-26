@@ -2,19 +2,7 @@ Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
-  config.cache_classes = true
-
-  config.paperclip_defaults = {
-    :storage => :s3,
-    :s3_protocol => 'http',
-    :url =>':s3_domain_url',
-    :path => '/:class/:attachment/:id_partition/:style/:filename',
-    :s3_credentials => {
-      :bucket => ENV['AWS_BUCKET'], #these values safely stored in application.yml thanks to figaro!
-      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
-      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
-    }
-  }
+  
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
