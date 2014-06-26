@@ -1,21 +1,21 @@
 <% action_url = (action == :edit ? user_url(user) : users_url) %>
 
-<form action="<%= action_url %>" method="post">
-  <input type="hidden" name="authenticity_token" 
+<form action="<%= action_url %>" method="post" >
+  <input type="hidden" name="authenticity_token"
          value="<%= form_authenticity_token %>" />
-         
+
    <% if action == :edit %>
        <input type="hidden" name="_method" value="put">
-     <% end %>    
-    
-    
+     <% end %>
+
+
   <label for="user_email">Email</label>
   <input
     type="email"
     name="user[email]"
     id="user_email">
     <br>
-      
+
   <label for="user_username">Username</label>
   <input
     type="text"
@@ -31,7 +31,7 @@
     id="user_password">
 
   <br>
-  
+
   <label for="user_confirm_password">Confirm Password</label>
   <input
     type="password"
@@ -39,7 +39,7 @@
     id="user_confirm_password">
 
   <br>
-  
+
   <label for="user_age">Age</label>
   <input
     type="text"
@@ -47,7 +47,7 @@
     id="user_age">
 
   <br>
-  
+
   <label for="user_gender">Gender</label>
   <select name="user[gender]" id="user_gender">
     <option>(select)</option>
@@ -60,7 +60,7 @@
     <% end %>
   </select>
   <br>
-  
+
   <label for="user_zip">
     Zip
     <input
@@ -68,10 +68,19 @@
       name="user[zip]"
       id="user_zip">or Postal Code if you are outside US.
   </label>
-  
+
 
   <br>
-  
+
 
   <input type="submit" value="SIGN UP!">
 </form>
+
+<form enctype="multipart/form-data">
+  <label>
+    Upload Picture
+  <%= form_for user, :url => users_url, :html => { :multipart => true } do |form| %>
+    <%= form.file_field :photo %>
+  <% end %>
+  </label>
+ </form>
