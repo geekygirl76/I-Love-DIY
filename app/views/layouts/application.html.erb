@@ -131,14 +131,14 @@
     <nav class="group">
       <ul class="header-ul-left group">
         <li><a href="<%= new_post_url %>">Create Instructables</a></li>
-        <li><a href="<%= subs_url %>">Explore Instructables</a></li>
-        <li><a href="<%= posts_url %>">Explore All Categories</a></li>
+        <li><a href="<%= subs_url %>">Explore All Categories</a></li>
+        <li><a href="<%= posts_url %>">Explore Instructables</a></li>
       </ul>
       
       <% if current_user %>
       
         <ul class="header-ul-right group">
-          <li><a href="user_url(current_user)">User Profile</a></li>
+          <li><a href="<%= user_url(current_user) %>">User Profile</a></li>
           <li>
             <form class="ul-right-form" action="<%= session_url %>" method="post">
               <input type="hidden" name="authenticity_token"

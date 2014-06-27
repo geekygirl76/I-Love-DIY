@@ -21,12 +21,17 @@ class CommentsController < ApplicationController
       @comment.post_id = @parent_comment.post_id
       @post = Post.find(@parent_comment.post_id)
     end
-
+ 
     if @comment.save
       redirect_to @post
     else
       flash[:errors] = @comment.errors.full_messages
-      render :new
+      if @comment.post_id
+        redirect_to @post
+      else
+        render :new
+      end
+      
     end
   end
   
