@@ -8,7 +8,7 @@
 
   <h1><%= @post.title %></h1>
   <br>
-   author: <%= User.find(@post.user_id).username %>
+   author: <%= User.find(@post.user_id).username || "Guest" %>
 
   <br>
   <br>
@@ -45,7 +45,7 @@
   <% @all_comments.each do |comment| %>
     <% if comment.parent_comment_id.nil? %>
     
-      <li><%= comment.body %><%= button_to "Reply", new_comment_comment_url(comment), method: :get %>
+      <li><%= comment.body %>(By: <%= comment.user.username || "Guest" %>)<%= button_to "Reply", new_comment_comment_url(comment), method: :get %>
         <%= render "comments/comment", c1:comment, all_comments:@all_comments, post:@post %>
       </li>
     

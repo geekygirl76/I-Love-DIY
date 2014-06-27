@@ -4,6 +4,7 @@ class SessionsController < ApplicationController
   end
   
   def facebook_login
+    
      user = User.find_or_create_by_auth_hash(request.env['omniauth.auth'])
      log_in(user)
 
@@ -12,7 +13,7 @@ class SessionsController < ApplicationController
    end
   
   def create
-    @user = User.find_by_credentials(user_params[:username],user_params[:password])
+    @user = User.find_by_credentials(user_params[:email],user_params[:password])
     
     if @user
       log_in(@user)

@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   GENDERS = ["Bloke", "Female", "Gal", "Guy","Male", "Miss", "None of your business", "Robot"]
 
   attr_reader :password
-  validates :username, presence: true, uniqueness: true
+  
   validates :email, presence: true, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
   validates :password_digest, :session_token, presence: true
@@ -45,8 +45,8 @@ class User < ActiveRecord::Base
     self.activation_token = SecureRandom.base64(16)
   end
 
-  def self.find_by_credentials(username, password)
-    user = User.find_by_username(username)
+  def self.find_by_credentials(email, password)
+    user = User.find_by_email(email)
     return nil unless user
     BCrypt::Password.new(user.password_digest).is_password?(password) ? user : nil
   end
