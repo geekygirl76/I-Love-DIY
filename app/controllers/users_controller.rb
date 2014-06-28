@@ -4,8 +4,8 @@ class UsersController < ApplicationController
   end
 
   def create
-    
-    
+
+
     @user = User.new(user_params)
 
     if !@user.password_match
@@ -63,6 +63,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:username, :password, :email, :activation_token, :activated,:confirm_password, :photo)
+    params.require(:user).permit(:username, :password, :email, :activation_token, :activated,:confirm_password, :photo, :age, :gender, :zip)
   end
 end

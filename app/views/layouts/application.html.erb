@@ -3,16 +3,16 @@
 <html>
 <head>
   <style>
-  
-  html, body, header, nav, ul, li, a,form{
+
+  html, body, header, nav, ul, li, h2, a,form{
     margin: 0;
     border: 0;
     padding: 0;
     font: inherit;
   }
-  
-  
- 
+
+
+
   input[type="submit"] {
     -webkit-appearance: none;
     display: inline-block;
@@ -29,82 +29,82 @@
     cursor: pointer;
   }
 
-  
+
   ul{
     list-style: none;
   }
-  
+
   .group:after{
     content: "";
     display: block;
     clear: both;
   }
-  
+
   body{
     background: lightgrey;
     display: block;
     font-family: sans-serif;
   }
-  
+
   .header{
-    background: red;
+    background: rgb(233, 235, 235);
     width: 100%;
-   
+
     display: block;
   }
-  
+
   .header > nav {
-    
+
   }
-  
+
   .header-ul-left {
     float: left;
   }
-  
+
   .header-ul-left > li {
     float: right;
     padding: 30px;
   }
-  
+
   .header-ul-left > li > a {
-   
+
   }
-  
+
   .header-ul-left > li > a:hover {
-    
+
   }
-  
+
   .header-ul-right {
     float: right;
   }
-  
+
   .header-ul-right > li {
     float: left;
     padding: 30px;
   }
-  
+
   .header-ul-right > li > a {
-   
+
   }
-  
+
   .header-ul-right > li > a:hover {
-   
+
   }
-  
+
   .header-ul-right > li > form {
-    
+
   }
-  
+
   .header-ul-right > li > form > input {
-    
+
   }
-  
-  
+
+
   .header-ul-right > li > form > input:hover {
-    
-  } 
-  
-  .header input, 
+
+  }
+
+  .header input,
   .header a {
     color: white;
     background: blue;
@@ -113,13 +113,41 @@
     border-radius: 5px;
     text-decoration: none;
   }
-  
-  .header input:hover, 
+
+  .header input:hover,
   .header a:hover {
     color: darkgrey;
     text-decoration: underline;
   }
- 
+
+  .header-dropdown:hover{
+    display: block;
+    z-index: 1000;
+
+  }
+
+  .header-dropdown{
+    position:absolute;
+    display: none;
+  }
+
+  li:hover .header-dropdown{
+    display: block;
+  width: 180px;
+  }
+
+  h2{
+    display: block;
+    width: 700px;
+    height: 60px;
+    background: white;
+  color: red;
+  font-weight: bold;
+  font-size: 24px;
+  border-radius: 10px;
+  border: 3px solid red;
+  }
+
   </style>
   <title>Diy</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
@@ -131,12 +159,22 @@
     <nav class="group">
       <ul class="header-ul-left group">
         <li><a href="<%= new_post_url %>">Create Instructables</a></li>
-        <li><a href="<%= subs_url %>">Explore All Categories</a></li>
+        <li>
+      <a href="<%= subs_url %>">Explore All Categories</a>
+          <ul class="header-dropdown">
+            <li><a href="<%= sub_url(Sub.find_by_title("Living"))%>">Living</a></li>
+            <li><a href="<%= sub_url(Sub.find_by_title("Technology"))%>">Technology</a></li>
+            <li><a href="<%= sub_url(Sub.find_by_title("Workshop"))%>">Workshop</a></li>
+            <li><a href="<%= sub_url(Sub.find_by_title("Food"))%>">Food</a></li>
+            <li><a href="<%= sub_url(Sub.find_by_title("Play"))%>">Play</a></li>
+            <li><a href="<%= sub_url(Sub.find_by_title("Outside"))%>">Outside</a></li>
+          </ul>
+    </li>
         <li><a href="<%= posts_url %>">Explore Instructables</a></li>
       </ul>
-      
+
       <% if current_user %>
-      
+
         <ul class="header-ul-right group">
           <li><a href="<%= user_url(current_user) %>">User Profile</a></li>
           <li>
@@ -148,29 +186,25 @@
             </form>
           </li>
         </ul>
-        
+
       <% else %>
-        
+
           <ul class="header-ul-right group">
             <li><a href="<%= new_session_url %>">Log In</a></li>
             <li><a href="<%= new_user_url %>">Sign Up</a></li>
           </ul>
-        
+
       <% end  %>
     </nav>
   </header>
-  
-  
-  
-  
-  
-  
-  
-  
+
+  <% if flash[:errors] %>
+    <h2><%=  flash[:errors].join(", ").html_safe %></h2>
+  <% elsif flash[:notice] %>
+    <h2><%=  flash[:notice].html_safe %></h2>
+  <% end %>
 
 
-  <%=  flash[:errors].join(", ").html_safe if flash[:errors]%>
-  <%=  flash[:notice].html_safe if flash[:notice]%>
 <%= yield %>
 
 </body>

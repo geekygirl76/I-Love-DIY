@@ -44,7 +44,6 @@ ActiveRecord::Schema.define(version: 20140627155150) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
-    t.integer  "vote_value"
   end
 
   create_table "sub_posts", force: true do |t|
@@ -85,14 +84,5 @@ ActiveRecord::Schema.define(version: 20140627155150) do
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-
-  create_table "votes", force: true do |t|
-    t.integer  "value"
-    t.integer  "user_id"
-    t.integer  "votable_id"
-    t.string   "votable_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
 end
