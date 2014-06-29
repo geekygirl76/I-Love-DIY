@@ -2,10 +2,10 @@ class User < ActiveRecord::Base
   has_attached_file :photo, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
   validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/
 
-  GENDERS = ["Bloke", "Female", "Gal", "Guy","Male", "Miss", "None of your business", "Robot"]
+  GENDERS = [ "Female", "Male", "None of your business", "Robot"]
 
   attr_reader :password
-  
+
   validates :email, presence: true, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
   validates :password_digest, :session_token, presence: true
@@ -19,11 +19,11 @@ class User < ActiveRecord::Base
   has_many :comments, inverse_of: :user
 
   before_create :add_activation_token
-  
-  
+
+
   def self.find_or_create_by_auth_hash(auth_hash)
      user = self.find_by(uid: auth_hash[:uid], provider: auth_hash[:provider])
- 
+
      unless user
        user = self.create!(
          uid: auth_hash[:uid],
@@ -32,10 +32,10 @@ class User < ActiveRecord::Base
          password_digest: SecureRandom::urlsafe_base64(16)
        )
      end
- 
+
      user
    end
-  
+
 
   def password_match
      self.password == self.confirm_password

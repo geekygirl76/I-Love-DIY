@@ -1,20 +1,46 @@
+<head>
+  <style>
+
+  .post-article{
+    width: 500px;
+    height: 500px;
+    border: 5px solid black;
+  background: #F5ECCE;
+    font-weight: bold;
+  margin: auto;
+  padding: 20px;
+  }
+
+  body{
+    padding: 20px;
+  }
+
+  .title{
+
+    font-weight: bold;
+    font-size: 24px;
+  }
+
+  .post-header {
+    text-align: center;
+  }
+  </style>
+</head>
 
 
-
-
+<body>
 <h4 >Subforum: <%= @post.sub.title %></h4>
 <h4 >Channel: <%= @post.channel.title %></h4>
 
+<header class="post-header">
+  <h1 class="title"><%= @post.title %></h1>
 
-  <h1><%= @post.title %></h1>
-  <br>
-   author: <%= User.find(@post.user_id).username || "Guest" %>
+   <p>author: <%= User.find(@post.user_id).username || "Guest" %></p>
 
-  <br>
-  <br>
-
+ </header>
+<article class="post-article">
   <%= @post.body %>
-
+</article>
 <br>
 
 <%= image_tag @post.photo.url(:medium) %>
@@ -23,17 +49,17 @@
 <form action="<%= post_comments_url(@post) %>" method="post">
   <input type="hidden" name="authenticity_token"
          value="<%= form_authenticity_token %>" />
-         
+
   <label for="comment_body">
-    Comment On This Instructable
+    Comment On This Post
   <input
     type="text"
     name="comment[body]"
-    
+
     id="comment_body">
   </label>
     <br>
-    
+
     <input type="submit" value="Submit">
 </form>
 
@@ -41,14 +67,14 @@
 <h5>Comments:</h5>
 <ul>
   <% @all_comments = Comment.where(post_id: @post.id) %>
-  
+
   <% @all_comments.each do |comment| %>
     <% if comment.parent_comment_id.nil? %>
-    
+
       <li><%= comment.body %>(By: <%= comment.user.username || "Guest" %>)<%= button_to "Reply", new_comment_comment_url(comment), method: :get %>
         <%= render "comments/comment", c1:comment, all_comments:@all_comments, post:@post %>
       </li>
-    
+
     <% end %>
   <%  end %>
 </ul>
@@ -56,5 +82,5 @@
 <br>
 <%= link_to "Edit Instructable", edit_post_url %>
 <%= button_to "Delete Instructable", post_url, method: :delete %>
-
+</body>
 

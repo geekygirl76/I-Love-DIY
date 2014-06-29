@@ -1,17 +1,35 @@
+<head>
+  <style>
 
+  body{
+    padding: 20px;
+  }
+
+  .posts > ul{
+    float: right;
+  }
+
+  .posts > ul > li > a{
+    display: block;
+    float: left;
+  }
+
+
+  </style>
+</head>
 
 
 <body>
 <nav>
-  <ul class="navbar">
-  <li><h1>Category: <%= @sub.title %></h1></li>
 
-  </ul>
+  <h1>Subforum: <%= @sub.title %></h1>
+
+
 </nav>
 <br>
 
-<ul class="group">
-  <h3>Instructables</h3>
+<ul class="posts group">
+  <h3>Posts</h3>
   <% @sub.posts.each do |post| %>
    <li><%= link_to post.title, post_url(post) %>
      <%= image_tag post.photo.url(:thumb) %>
@@ -32,8 +50,7 @@
 <footer>
 
 
-<br>
-<br>
+
 
 </footer>
 </body>

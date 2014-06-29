@@ -1,9 +1,9 @@
-<h1>Category: <%= @channel.sub.title %></h1>
+<h1>Subforum: <%= @channel.sub.title %></h1>
 
 <h3>Channel: <%= @channel.title %></h3>
 <br>
 <ul>
-  <h3>Instructables</h3>
+  <h3>Posts</h3>
   <% @channel.posts.each do |post| %>
    <li><%= link_to post.title, post_url(post) %>
      <%= image_tag post.photo.url(:thumb) %>

@@ -1,9 +1,60 @@
 
+<head>
+  <style>
+  header{
+    margin: 30px;
+
+  }
+
+  header > h1{
+    font-weight: bold;
+    font-size: 48px;
+    text-align: center;
+  }
+
+  .post-form {
+    margin: auto;
+    width: 700px;
+    border: 5px solid black;
+  background: white;
+  padding: 20px;
+  }
+
+  .post-form > label{
+    display: block;
+    margin: 20px 0 5px 0;
+  }
+
+  input[type="text"],
+  input[type="textarea"]{
+    display: inline-block;
+    width: 400px;
+    border: 1px solid lightgrey;
+
+    padding: 5px 10px;
+  }
+
+  input[type="textarea"]{
+    height: 100px;
+  }
+
+  button.create-post{
+    background: green;
+    color: white;
+    font-weight: bold;
+    padding: 5px 10px;
+  }
+
+  </style>
+</head>
+
 
 <body>
-<h1>Create Instructable</h1>
+  <header>
+      <h1>Create Post</h1>
+   </header>
 
-<form action="<%= posts_url %>" method="post" enctype="multipart/form-data">
+<form class="post-form" action="<%= posts_url %>" method="post" enctype="multipart/form-data">
   <input type="hidden" name="authenticity_token"
          value="<%= form_authenticity_token %>" />
 
@@ -29,7 +80,7 @@
   </label>
     <br>
 
-  <label for="post_sub_id">Category</label>
+  <label for="post_sub_id">Subforum</label>
   <select name="post[sub_id]" id="post_sub_id">
     <option value="">Choose Category(Sub)</option>
     <% Sub.all.each do |sub| %>
@@ -37,13 +88,13 @@
         <%= @post.sub_id == sub.id ? "selected" : nil  %>
         value="<%= sub.id %>"
         >
-        
+
         <%= sub.title %>
       </option>
     <% end %>
   </select>
   <br>
-  
+
   <label for="post_channel_id">Channel</label>
   <select name="post[channel_id]" id="post_channel_id">
     <option value="">Choose Channel</option>
@@ -52,22 +103,23 @@
         <%= @post.channel_id == channel.id ? "selected" : nil  %>
         value="<%= channel.id %>"
         >
-        
+
         <%= channel.title %> (<%= channel.sub.title %>)
       </option>
     <% end %>
   </select>
   <br>
-  
+
   <label>
     Upload Picture
- 
+
     <input type="file" name="post[photo]">
-  
+
   </label>
-  
+ <button class="create-post">
 
   <input type="submit" value="submit">
+  </button>
 
 </form>
 </body>

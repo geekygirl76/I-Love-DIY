@@ -1,20 +1,38 @@
 
+<head>
+  <style>
+  ul{
+    float:right;
+  }
+  main{
+    padding: 0 20px 20px 20px;
+
+  }
+
+  main >ul >li> a{
+    font-weight: bold;
+
+  }
+
+  </style>
+
+</head>
+<body>
+<main>
+  <h1>Do It Yourself, Make It Unique!</h1>
 
 
 
-<h1>Do It Yourself, Make It Unique!</h1>
+  <ul class="group">
+  <% @subs.each do |sub| %>
+   <li><%= link_to sub.title, sub_url(sub)  %>
 
+   </li>
+  <% end  %>
+</ul>
+</main>
 
-<br>
-<ul>
-<% @subs.each do |sub| %>
- <li><%= link_to sub.title, sub_url(sub)  %>
-
- </li>
-<% end  %>
-<ul>
-<br>
-
+</body>
 
 
 
