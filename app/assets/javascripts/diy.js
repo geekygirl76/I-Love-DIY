@@ -4,10 +4,13 @@ window.Diy = {
   Views: {},
   Routers: {},
   initialize: function() {
-    alert('Hello from Backbone!');
+    // alert('Hello from Backbone!');
+    Diy.posts = new Diy.Collections.Posts();
+    Diy.posts.fetch({
+      $rootEl: $("#content"),
+      posts: Diy.posts
+    });
+    Backbone.history.start();
   }
 };
 
-$(document).ready(function(){
-  Diy.initialize();
-});

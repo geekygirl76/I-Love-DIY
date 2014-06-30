@@ -39,6 +39,12 @@ input[type="submit"] {
   cursor: pointer;
 }
 
+textarea{
+  width:500px;
+  height: 500px;
+  padding: 20px;
+}
+
 a{
   text-decoration: none;
   color: blue;
@@ -74,8 +80,8 @@ body{
   background: lightgrey;
   display: block;
   font-family: sans-serif;
-color: black;
-padding: 20px;
+  color: black;
+  padding: 20px;
 }
 
 .header{
@@ -182,7 +188,7 @@ border: 3px solid red;
 
 .post-article{
   width: 500px;
-  height: 500px;
+  min-height: 350px;
   border: 5px solid black;
 background: #F5ECCE;
   font-weight: bold;
