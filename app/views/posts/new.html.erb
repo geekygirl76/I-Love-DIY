@@ -72,11 +72,12 @@
 
   <label for="post_body" >
     Article
-  <input class="article"
-    type="textarea"
+  <textarea class="article"
+
     name="post[body]"
-    value="<%= @post.body %>"
-    id="post_body">
+
+    id="post_body"><%= @post.body %>
+    </textarea>
   </label>
     <br>
 
