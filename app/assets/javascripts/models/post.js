@@ -5,29 +5,9 @@ Diy.Models.Post = Backbone.Model.extend({
     }
   },
 
-  initialize: function(){
-    this.comments();
-  },
 
-  parse: function(responsefunction ){}(args) {
-    if (response["comments"]){
-      this.comments().set(reponse["comments"]);
-      delete response["comments"];
-    }
-    return response;
-  },
 
-  comments: function(){
-    if (!this.get("comments")){
-      var postComments = new Diy.Collections.PostComments([], {
-        posts: this
-      });
-      this.set({
-        comments: postComments
-      });
-    }
-    return this.get("entries");
-  }
+
 
 
 });

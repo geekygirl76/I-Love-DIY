@@ -6,11 +6,19 @@ window.Diy = {
   initialize: function() {
     // alert('Hello from Backbone!');
     Diy.posts = new Diy.Collections.Posts();
+
     Diy.posts.fetch({
-      $rootEl: $("#content"),
-      posts: Diy.posts
+      success: function(){
+
+        new Diy.Routers.Router({
+          $rootEl: $("#content"),
+          posts: Diy.posts
+        });
+        Backbone.history.start();
+      }
+
     });
-    Backbone.history.start();
+
   }
 };
 

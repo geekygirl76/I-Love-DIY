@@ -2,74 +2,19 @@
 
 
 
-<h4 >Subforum: <%= @post.sub.title %></h4>
-<h4 >Channel: <%= @post.channel.title %></h4>
+
 
 <header class="post-header">
-  <h1 class="title"><%= @post.title %></h1>
+  <h1 class="title"><%= post.escape("title") %></h1>
 
-   <p>
-     author: <%= User.find(@post.user_id).username || "Guest" %>
-     Published at: <%= @post.created_at.to_s %>
-   </p>
 
  </header>
 <article class="post-article">
-  <%= @post.body %>
+  <%= post.escape("body") %>
 </article>
 
-<figure class="post-picture">
-<%= image_tag @post.photo.url(:medium) %>
-</figure>
+<img src="<%= post.get("photo_display_url") %>">
 
-
-<form class="post-form" action="<%= post_comments_url(@post) %>" method="post">
-  <input type="hidden" name="authenticity_token"
-         value="<%= form_authenticity_token %>" />
-
-  <label for="comment_body">
-    Comment On This Post
-  <input
-    type="text"
-    name="comment[body]"
-
-    id="comment_body">
-  </label>
-
-   <button>Submit</button>
-
-</form>
-
-
-
-<comments class="post-comments">
-<h5>Comments:</h5>
-<ul class="comments">
-  <% @all_comments = Comment.where(post_id: @post.id) %>
-
-  <% @all_comments.each do |comment| %>
-    <% if comment.parent_comment_id.nil? %>
-
-      <li class="root-comment"><%= comment.body %>(By: <%= comment.user.username || "Guest" %>, Published at:<%= comment.created_at.to_s %>)
-
-        <button class="comment-button">
-        <%= button_to "Reply", new_comment_comment_url(comment), method: :get %>
-        </button>
-
-        <%= render "comments/comment", c1:comment, all_comments:@all_comments, post:@post %>
-      </li>
-
-    <% end %>
-  <%  end %>
-</ul>
-
-</comments>
-
-<footer class="post-footer">
-
-<%= link_to "Edit Instructable", edit_post_url %>
-<%= button_to "Delete Instructable", post_url, method: :delete %>
-</footer>
 
 
 
