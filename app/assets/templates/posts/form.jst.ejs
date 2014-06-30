@@ -1,0 +1,28 @@
+<h1>New Post</h1>
+
+<form>
+
+<label for="post_title">
+  Title
+<input
+  type="text"
+  name="post[title]"
+  value="<%= post.escape("title") %>"
+  id="post_title">
+</label>
+
+ <label for="post_body" >
+   Article
+ <textarea class="article"
+
+   name="post[body]"
+
+   id="post_body"><%= post.escape("body") %>
+   </textarea>
+ </label>
+
+
+
+
+ <button class="create-post">Submit</button>
+</form>

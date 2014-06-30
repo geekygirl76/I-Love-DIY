@@ -17,7 +17,7 @@ Diy.Views.PostsIndex = Backbone.View.extend({
   },
 
   render:function(){
-    
+    console.log("In backbone post index");
     var content = this.template({
       posts: this.collection
     });

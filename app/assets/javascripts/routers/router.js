@@ -38,6 +38,7 @@ Diy.Routers.Router = Backbone.Router.extend({
   },
 
   new: function () {
+    console.log("here in posts new router");
     var that = this;
     var newPost = new Diy.Models.Post();
     var formView = new Diy.Views.PostForm({
