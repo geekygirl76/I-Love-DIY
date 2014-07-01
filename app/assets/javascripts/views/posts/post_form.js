@@ -8,7 +8,10 @@ Diy.Views.PostForm = Backbone.View.extend({
   render: function(){
     console.log("here in backbone post form");
     var content = this.template({
-      post: this.model
+      post: this.model,
+      
+      subs: Diy.subs,
+      channels: Diy.channels
     });
     
     this.$el.html(content);

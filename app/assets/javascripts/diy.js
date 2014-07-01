@@ -5,15 +5,14 @@ window.Diy = {
   Routers: {},
   initialize: function() {
     // alert('Hello from Backbone!');
-    Diy.subs = new Diy.Collections.Subs({
-      
-    });
+    subsData = JSON.parse(($("#bootstrapped-data")).html()).subs;
+    Diy.subs = new Diy.Collections.Subs(subsData);
     
-    Diy.subs = JSON.parse(($("#bootstrapped-data")).html()).subs;
+    channelsData = JSON.parse(($("#bootstrapped-data")).html()).channels;
     
-    Diy.channels = new Diy.Collections.Channels({});
-    Diy.channels = JSON.parse(($("#bootstrapped-data")).html()).channels;
-    console.log(Diy.channels);
+    Diy.channels = new Diy.Collections.Channels(channelsData);
+    
+   
     Diy.posts = new Diy.Collections.Posts();
 
     Diy.posts.fetch({

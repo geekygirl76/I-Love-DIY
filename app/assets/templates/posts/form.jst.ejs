@@ -22,6 +22,25 @@
  </label>
 
 
+ <label for="post_sub_id">Subforum</label>
+ <select name="post[sub_id]" id="post_sub_id">
+   <option value="">Choose Category(Sub)</option>
+   <% subs.each(function(sub){ %>
+     <option
+       <%= post.sub_id == sub.id ? "selected" : nil  %>
+       value="<%= sub.id %>"
+       >
+
+       <%= sub.title %>
+     </option>
+     
+  <% }) %>
+     
+   
+ </select>
+ <br>
+ 
+ 
 
 
  <button class="create-post">Submit</button>
