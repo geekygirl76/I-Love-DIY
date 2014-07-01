@@ -30,7 +30,7 @@ Diy.Routers.Router = Backbone.Router.extend({
   },
 
   index: function () {
-
+    console.log("In Post Index Router");
     var indexView = new Diy.Views.PostsIndex({
       collection: this.posts
     });
