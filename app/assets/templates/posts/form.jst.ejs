@@ -27,11 +27,30 @@
    <option value="">Choose Category(Sub)</option>
    <% subs.each(function(sub){ %>
      <option
-       <%= post.sub_id == sub.id ? "selected" : nil  %>
+       <%= post.escape("sub_id") == sub.id ? "selected" : null  %>
        value="<%= sub.id %>"
        >
 
-       <%= sub.title %>
+       <%= sub.escape("title") %>
+     </option>
+     
+  <% }) %>
+     
+   
+ </select>
+ <br>
+ 
+ 
+ <label for="post_channel_id">Channel</label>
+ <select name="post[channel_id]" id="post_channel_id">
+   <option value="">Choose Channel</option>
+   <% channels.each(function(channel){ %>
+     <option
+       <%= post.escape("channel_id") == channel.id ? "selected" : null  %>
+       value="<%= channel.id %>"
+       >
+
+       <%= channel.escape("title") %> 
      </option>
      
   <% }) %>
