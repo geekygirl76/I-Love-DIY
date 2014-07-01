@@ -9,26 +9,12 @@ Diy.Routers.Router = Backbone.Router.extend({
    
     "posts/new" : "new",
     "posts/:id" : "show",
+    "posts/:id/edit" : "edit",
    
-    "posts/:post_id/comments/:id": "comment"
     },
 
 
-  comment: function(post_id, id){
-    
-    this.posts._getPost(post_id, function(post){
-      var comment = post.comments().get(id);
-      
-      var commentShowView = new Diy.Views.CommentShow({ 
-        model: comment
-       });
-       
-       this._swapView(commentShowView);
-    });
-     
-    
-  },
-
+  
   
 
   index: function () {
@@ -50,7 +36,15 @@ Diy.Routers.Router = Backbone.Router.extend({
     });
   },
 
-  
+  new: function(){
+    console.log(" In router new");
+    var newPost = new Diy.Models.Post();
+    var formView = new Diy.Views.PostForm({
+      model: newPost,
+      collection: this.posts
+    });
+    this._swapView(formView);
+  },
 
 
 

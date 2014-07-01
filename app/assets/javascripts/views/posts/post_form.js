@@ -10,6 +10,7 @@ Diy.Views.PostForm = Backbone.View.extend({
     var content = this.template({
       post: this.model
     });
+    
     this.$el.html(content);
     return this;
   },
@@ -18,8 +19,11 @@ Diy.Views.PostForm = Backbone.View.extend({
     console.log("backbone submit");
     var that = this;
       event.preventDefault();
-      var attrs = this.$el.serializeJSON();
+      
+      var attrs = this.$el.find("#new-post-form").serializeJSON();
+      console.log(attrs);
       this.model.collection = this.collection;
+      
       this.model.save(attrs, {
         success: function (post) {
           that.collection.add(post);

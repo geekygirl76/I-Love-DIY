@@ -6,15 +6,14 @@ module Api
 
 
     def create
+      @post = current_user.posts.new(post_params)
 
-      @post = Post.new(post_params)
-
-      @post.user_id = current_user.id
       if (@post.sub && @post.channel.nil?)
         render json: { errors: @post.errors.full_messages }, status: 422
       else
         if @post.save
-          render json: @post
+          
+          render json: @post.to_json(include: :comments)
         else
           render json: { errors: @post.errors.full_messages }, status: 422
 
@@ -24,6 +23,7 @@ module Api
 
     def index
       @posts = Post.all
+      
       render json: @posts.as_json(methods: :photo_display_url)
     end
 

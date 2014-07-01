@@ -1,5 +1,13 @@
 
 <div id="content" class="container"></div>
+
+<script id="bootstrapped-data" type="application/json">
+  {
+    "subs": <%= Sub.all.to_json.html_safe %>,
+    "channels": <%= Channel.all.to_json.html_safe %>
+  }
+</script>
+
 <script>
    $(function () {
       Diy.initialize();
