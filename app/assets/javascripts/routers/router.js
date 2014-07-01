@@ -6,60 +6,51 @@ Diy.Routers.Router = Backbone.Router.extend({
 
   routes: {
     "": 'index',
+   
     "posts/new" : "new",
     "posts/:id" : "show",
-    "posts/:id/edit" : "edit",
+   
     "posts/:post_id/comments/:id": "comment"
     },
 
 
   comment: function(post_id, id){
-
-  },
-
-  edit: function (id) {
-    var that = this;
-    this._getPost(id, function (post) {
-      var formView = new Diy.Views.PostForm({
-        collection: that.posts,
-        model: post
-      });
-
-      that._swapView(formView);
+    
+    this.posts._getPost(post_id, function(post){
+      var comment = post.comments().get(id);
+      
+      var commentShowView = new Diy.Views.CommentShow({ 
+        model: comment
+       });
+       
+       this._swapView(commentShowView);
     });
+     
+    
   },
+
+  
 
   index: function () {
-    console.log("In Post Index Router");
+    console.log(" In router index");
     var indexView = new Diy.Views.PostsIndex({
       collection: this.posts
     });
     this._swapView(indexView);
   },
 
-  new: function () {
-    console.log("here in posts new router");
-    var that = this;
-    var newPost = new Diy.Models.Post();
-    var formView = new Diy.Views.PostForm({
-      collection: this.posts,
-      model: newPost
-    });
-
-    that._swapView(formView);
-  },
-
+  
   show: function (id) {
     var that = this;
     this._getPost(id, function (post) {
-      var formView = new Diy.Views.PostShow({
+      var showView = new Diy.Views.PostShow({
         model: post
       });
-      that._swapView(formView);
+      that._swapView(showView);
     });
   },
 
-
+  
 
 
 

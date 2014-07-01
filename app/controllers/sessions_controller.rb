@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
      log_in(user)
 
      flash.now[:success] = ["Logged in with facebook!"]
-     redirect_to user
+     redirect_to "/"
    end
   
   def create
@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
     
     if @user
       log_in(@user)
-      redirect_to subs_url
+      redirect_to "/"
     else
       flash.now[:errors] = ["Invalid Username Or Password"]
       @user = User.new

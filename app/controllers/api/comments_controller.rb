@@ -31,7 +31,10 @@ module Api
       end
     end
 
-
+    def
+      post = Post.find(params[:post_id])
+      render :json => post.comments
+    end
 
     private
     def comment_params
@@ -39,4 +42,3 @@ module Api
     end
 
   end
-end

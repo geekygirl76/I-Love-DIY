@@ -3,13 +3,13 @@ Rails.application.routes.draw do
   root to: "static_pages#root"
 
   namespace :api, defaults: { format: :json } do
-    resources :posts, only: [:index, :show, :destoy] do
-      resources :comments, only: [:new, :create]
+    resources :posts, only: [:index, :show, :create, :destroy] do
+      resources :comments, only: [:index, :create]
     end
   end
 
   resources :posts do
-    resources :comments, only: [:new, :create, :destroy]
+    resources :comments
   end
 
 

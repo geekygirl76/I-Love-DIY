@@ -3,8 +3,10 @@ Diy.Views.PostShow = Backbone.View.extend({
 
   render: function(){
     console.log("In backbone post show view");
+   
     var content = this.template({
-      post: this.model
+      post: this.model,
+      
     });
     this.$el.html(content);
     return this;
