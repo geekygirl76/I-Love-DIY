@@ -3,7 +3,17 @@ Diy.Views.PostsIndex = Backbone.View.extend({
   template: JST["posts/index"],
 
   events: {
+    "click button#refresh" : "refresh",
     "click .delete": "destroyPost"
+  },
+
+  refresh: function(){
+    var view = this;
+    this.collection.fetch({
+      success: function(){
+        view.render();
+      }
+    });
   },
 
   initialize: function(){
@@ -11,11 +21,11 @@ Diy.Views.PostsIndex = Backbone.View.extend({
   },
 
   destroyPost:function(event){
-    
+
     var $target = $(event.target);
-   
+
     var post = this.collection.get($target.attr("data-id"));
-  
+
     post.destroy();
   },
 
