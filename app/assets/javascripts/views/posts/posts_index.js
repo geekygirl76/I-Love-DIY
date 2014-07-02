@@ -8,16 +8,13 @@ Diy.Views.PostsIndex = Backbone.View.extend({
   },
 
   refresh: function(){
-    var view = this;
-    this.collection.fetch({
-      success: function(){
-        view.render();
-      }
-    });
+
+    this.collection.fetch(
+  );
   },
 
   initialize: function(){
-    this.listenTo(this.collection, "add change: title remove reset", this.render);
+    this.listenTo(this.collection, "sync add change:title remove reset", this.render);
   },
 
   destroyPost:function(event){
