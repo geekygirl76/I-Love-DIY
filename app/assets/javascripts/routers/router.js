@@ -14,7 +14,11 @@ Diy.Routers.Router = Backbone.Router.extend({
     "subs/:id": "subShow"
     },
 
-
+    subShow: function(id){
+      var sub = Diy.subs.get(id);
+      var subShowView = new Diy.Views.SubShow({ model: sub });
+      this._swapView(subShowView);
+    },
 
 
     subsIndex: function(){

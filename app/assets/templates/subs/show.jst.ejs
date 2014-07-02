@@ -5,9 +5,11 @@
 
 <ul>
   <% posts.each(function(post){ %>
-    <% if(post.escape("sub_id") === sub.id){ %>
 
-     <li><a href="#/posts/post.id"><%= post.escape("title") %></a></li>
+
+    <% if(post.get("sub_id") === sub.id){ %>
+
+     <li><a href="#/posts/<%= post.id %>"><%= post.escape("title") %></a></li>
 
   <% } %>
 
