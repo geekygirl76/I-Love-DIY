@@ -1,7 +1,7 @@
 module Api
   class CommentsController < ApiController
     def create
-      @comment = Comment.new(params[:comment])
+      @comment = current_user.comments.new(comment_params)
       if @comment.save
         render :json=> @comment
       else
@@ -18,6 +18,11 @@ module Api
     def show
       @comment = Comment.find(params[:id])
       render :json => @comment
+    end
+
+    private
+    def comment_params
+      params.require(:comment).permit(:body, :post_id, :parent_comment_id)
     end
   end
 end
