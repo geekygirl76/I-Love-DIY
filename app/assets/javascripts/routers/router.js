@@ -6,16 +6,18 @@ Diy.Routers.Router = Backbone.Router.extend({
 
   routes: {
     "": 'index',
-   
+
     "posts/new" : "new",
     "posts/:id" : "show",
     "posts/:id/edit" : "edit",
-   
+    "subs" : "subsIndex"
     },
 
 
-  
-  
+    subsIndex: function(){
+
+    },
+
 
   index: function () {
     console.log(" In router index");
@@ -25,7 +27,7 @@ Diy.Routers.Router = Backbone.Router.extend({
     this._swapView(indexView);
   },
 
-  
+
   show: function (id) {
     var that = this;
     this._getPost(id, function (post) {
