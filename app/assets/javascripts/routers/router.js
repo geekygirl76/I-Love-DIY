@@ -6,12 +6,12 @@ Diy.Routers.Router = Backbone.Router.extend({
 
   routes: {
     "": 'index',
-
     "posts/new" : "new",
     "posts/:id" : "show",
     "posts/:id/edit" : "edit",
     "subs" : "subsIndex",
     "subs/:id": "subShow"
+
     },
 
     subShow: function(id){
