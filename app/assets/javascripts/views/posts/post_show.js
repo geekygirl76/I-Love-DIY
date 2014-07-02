@@ -3,14 +3,28 @@ Diy.Views.PostShow = Backbone.View.extend({
 
 
   events: {
-
+    "click button#post-comment" : "submit"
   },
 
+
+  submit: function(event){
+    var view = this;
+    event.preventDefault;
+
+    var attrs = this.$el.find(".post-comment-form").serializeJSON();
+    var newComment = new Diy.Models.Comment(attrs["comment"]);
+    newComment.save({}, {
+      success: function(){
+        view.model.comments().add(comment);
+        view.render();
+      }
+    });
+  },
 
 
   initialize: function(){
     this.listenTo(this.model, "sync", this.render);
-    this.listenTo(this.model.comments(), "sync", this.render);
+    this.listenTo(this.model.comments(), "sync add", this.render);
   },
 
   render: function(){

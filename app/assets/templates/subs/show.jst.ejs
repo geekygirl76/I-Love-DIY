@@ -1,0 +1,16 @@
+<a href="#/">Explore All Posts</a>
+
+
+<h1><%= sub.escape("title") %></h1>
+
+<ul>
+  <% posts.each(function(post){ %>
+    <% if(post.escape("sub_id") === sub.id){ %>
+
+     <li><a href="#/posts/post.id"><%= post.escape("title") %></a></li>
+
+  <% } %>
+
+
+  <% }); %>
+</ul>

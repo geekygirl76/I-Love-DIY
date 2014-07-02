@@ -1,5 +1,5 @@
 
-
+<a href="#/">Explore All Posts</a>
 
 
 
@@ -17,8 +17,10 @@
 <img src="<%= post.get("photo_display_url") %>">
 
 
-<form class="post-form" id="post-comment">
-
+<form class="post-comment-form" >
+  <input type="hidden"
+         name="comment[post_id]"
+         value="<%= post.escape("id") %>">
 
   <label for="comment_body">
     Comment On This Post
@@ -33,7 +35,9 @@
 
 </form>
 
+<ul class="comments"></ul>
 
+<div class="comments-new"></div>
 
 <ul>
   <% post.comments().each(function(comment){ %>

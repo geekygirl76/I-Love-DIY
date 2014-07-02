@@ -10,11 +10,22 @@ Diy.Routers.Router = Backbone.Router.extend({
     "posts/new" : "new",
     "posts/:id" : "show",
     "posts/:id/edit" : "edit",
-    "subs" : "subsIndex"
+    "subs" : "subsIndex",
+    "subs/:id": "subShow"
     },
 
 
+
+
     subsIndex: function(){
+
+      var subIndexView = new Diy.Views.SubsIndex({
+
+        collection: Diy.subs
+      });
+
+
+      this._swapView(subIndexView);
 
     },
 

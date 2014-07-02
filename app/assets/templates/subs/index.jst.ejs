@@ -1,0 +1,12 @@
+  <h1>Do It Yourself, Make It Unique!</h1>
+
+
+
+  <ul class="group">
+  <% subs.each(function(sub){  %>
+
+    <li><a href="#/subs/<%= sub.id %>"><%= sub.escape("title") %></a>
+
+    </li>
+ <% }); %>
+
