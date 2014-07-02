@@ -10,8 +10,8 @@ Diy.Routers.Router = Backbone.Router.extend({
     "posts/:id" : "show",
     "posts/:id/edit" : "edit",
     "subs" : "subsIndex",
-    "subs/:id": "subShow"
-
+    "subs/:id": "subShow",
+    "channels/:id" : "channelShow"
     },
 
     subShow: function(id){
@@ -20,6 +20,11 @@ Diy.Routers.Router = Backbone.Router.extend({
       this._swapView(subShowView);
     },
 
+    channelShow: function(id){
+      var channel = Diy.channels.get(id);
+      var channelShowView = new Diy.Views.ChannelShow({ model: channel });
+      this._swapView(channelShowView);
+    },
 
     subsIndex: function(){
 
