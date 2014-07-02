@@ -9,7 +9,7 @@
 
 
  </header>
- 
+
 <article class="post-article">
   <%= post.escape("body") %>
 </article>
@@ -17,6 +17,30 @@
 <img src="<%= post.get("photo_display_url") %>">
 
 
+<form class="post-form" id="post-comment">
+
+
+  <label for="comment_body">
+    Comment On This Post
+  <input
+    type="text"
+    name="comment[body]"
+
+    id="comment_body">
+  </label>
+
+   <button id="post-comment">Submit</button>
+
+</form>
+
+
+
+<ul>
+  <% post.comments().each(function(comment){ %>
+    <li><%= comment.escape("body") %></li>
+
+  <% }); %>
+</ul>
 
 
 
