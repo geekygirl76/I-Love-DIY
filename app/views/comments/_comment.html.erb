@@ -4,7 +4,7 @@
       <li>
         <%= c2.body %>(By: <%= c2.user.username || "Guest" %>, Published at: <%= c2.created_at.to_s %>)
 
-        <form action="<%=new_comment_comment_url(c2)  %>" method="post">
+        <form action="<%=new_comment_comment_url(c2)  %>" method="get">
           <input type="hidden" name="authenticity_token"
                  value="<%= form_authenticity_token %>" >
 

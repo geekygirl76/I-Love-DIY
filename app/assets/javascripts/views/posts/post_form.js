@@ -27,6 +27,7 @@ Diy.Views.PostForm = Backbone.View.extend({
       console.log(attrs);
        that.model.collection = that.collection;
        console.log(this.model);
+      
       var picFile = this.$el.find("#file-upload")[0].files[0];
 
       if (picFile){
