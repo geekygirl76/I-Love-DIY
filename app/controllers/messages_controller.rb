@@ -7,11 +7,14 @@ class MessagesController < ApplicationController
   
   def create
     @user = current_user
-    params[:receiver_id] = User.find_by_username(params[:receiver_id]).id
-    @message = current_user.sent_messages.new(message_params)
+    new_params = message_params
+    new_params[:sender_id] = @user.id
+    new_params[:receiver_id] = User.find_by_username(message_params[:receiver_id]).id
+    @message = current_user.sent_messages.new(new_params)
+  
     if @message.save
-      flash[:notice] = [""]
-      redirect_to @message
+      flash[:notice] = "Message sent!"
+      redirect_to @user
     else
       redirect_to @user
       flash.now[:errors] = @message.errors.full_messages
@@ -19,6 +22,7 @@ class MessagesController < ApplicationController
   end
   
   def show
+    @message = Message.find(params[:id])
   end
   
   def edit
@@ -31,6 +35,7 @@ class MessagesController < ApplicationController
   end
   
   def index
+    @messages = Message.all
   end
   
   private

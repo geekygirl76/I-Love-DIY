@@ -1,0 +1,7 @@
+<h1><%= @message.title %></h1>
+<br>
+Send by: <%= User.find(@message.sender_id).username %>
+Send to: <%= User.find(@message.receiver_id).username %>
+<br>
+
+<%= @message.body %>
