@@ -7,5 +7,8 @@ Diy.Models.Post = Backbone.Model.extend({
         new Diy.Collections.PostComments([], { post: this });
        return this._comments;
     }
+    
+  
+    
 
 });

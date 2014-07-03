@@ -17,7 +17,8 @@ module Api
 
     def show
       @comment = Comment.find(params[:id])
-      render :json => @comment
+       # render :json => @comment
+       render "show"
     end
 
     private

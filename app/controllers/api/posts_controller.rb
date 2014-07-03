@@ -24,13 +24,16 @@ module Api
     def index
       @posts = Post.all
 
-      render json: @posts.as_json(methods: :photo_display_url)
+     
+      
     end
 
     def show
 
       @post = Post.find(params[:id])
-      render json: @post.as_json(methods: :photo_display_url)
+      @comments = @post.comments
+      # render json: @post.as_json(methods: :photo_display_url)
+      render "show"
     end
 
     def edit

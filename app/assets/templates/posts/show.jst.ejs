@@ -14,7 +14,7 @@
   <%= post.escape("body") %>
 </article>
 
-<img src="<%= post.get("photo_display_url") %>">
+<img src="<%= post.get("photo_url") %>">
 
 
 <form class="post-comment-form" >
@@ -41,9 +41,11 @@
 
 <ul>
   <% post.comments().each(function(comment){ %>
-    <li><%= comment.escape("body") %></li>
+    <li><%= comment.escape("body") %> (Published at:<%= comment.escape("created_at") %>)(Author:<%=  comment.escape("user_id") %>)
+      <button id="post-comment">Reply</button>
+    </li>
 
-  <% }); %>
+  <% }) %>
 </ul>
 
 

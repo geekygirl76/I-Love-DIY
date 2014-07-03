@@ -6,7 +6,7 @@ Diy.Views.PostForm = Backbone.View.extend({
   },
 
   render: function(){
-    console.log("here in backbone post form");
+    console.log("here in backbone post form:", this.model);
     var content = this.template({
       post: this.model,
 
@@ -26,29 +26,57 @@ Diy.Views.PostForm = Backbone.View.extend({
       var attrs = this.$el.find("#new-post-form").serializeJSON();
       console.log(attrs);
        that.model.collection = that.collection;
-
+       console.log(this.model);
       var picFile = this.$el.find("#file-upload")[0].files[0];
 
-      var reader = new FileReader();
-       reader.onload = function(e) {
+      if (picFile){
+        
+        var reader = new FileReader();
+         reader.onload = function(e) {
 
-         console.log(this.result);
+           console.log(this.result);
 
 
-         attrs.post["photo"] = this.result;
+           attrs.post["photo"] = this.result;
 
-         that.model.save(attrs, {
+           that.model.save(attrs.post, {
 
-           enctype: "multipart/form-data",
+             enctype: "multipart/form-data",
 
-           success: function (post) {
+             success: function (post) {
 
-             that.collection.add(post);
-             Backbone.history.navigate("", { trigger: true });
-           }
-         });
-       }
-       reader.readAsDataURL(picFile);
+               that.collection.add(post);
+               Backbone.history.navigate("", { trigger: true });
+             }
+           });
+         }
+         reader.readAsDataURL(picFile);
+        
+      }
+
+      // var reader = new FileReader();
+//        reader.onload = function(e) {
+//
+//          console.log(this.result);
+//
+//
+//          attrs.post["photo"] = this.result;
+//
+//          that.model.save(attrs, {
+//
+//            enctype: "multipart/form-data",
+//
+//            success: function (post) {
+//
+//              that.collection.add(post);
+//              Backbone.history.navigate("", { trigger: true });
+//            }
+//          });
+//        }
+       
+         // reader.readAsDataURL(picFile);
+       
+       
 
 
   }
