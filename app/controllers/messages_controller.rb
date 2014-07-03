@@ -9,15 +9,22 @@ class MessagesController < ApplicationController
     @user = current_user
     new_params = message_params
     new_params[:sender_id] = @user.id
-    new_params[:receiver_id] = User.find_by_username(message_params[:receiver_id]).id
-    @message = current_user.sent_messages.new(new_params)
+    receiver = User.find_by_username(message_params[:receiver_id])
+    if receiver
+      new_params[:receiver_id] = receiver.id
+      @message = current_user.sent_messages.new(new_params)
   
-    if @message.save
-      flash[:notice] = "Message sent!"
-      redirect_to @user
+      if @message && @message.save
+        flash[:notice] = "Message sent!"
+        redirect_to @user
+      else
+      
+        flash.now[:errors] = @message.errors.full_messages
+        redirect_to @user
+      end
     else
+      flash[:errors] = ["Receiver does not exist!"]
       redirect_to @user
-      flash.now[:errors] = @message.errors.full_messages
     end
   end
   
@@ -41,7 +48,7 @@ class MessagesController < ApplicationController
   def open
     @message = Message.find(params[:id])
     if @message
-      @message.read
+      @message.read_letter
       redirect_to @message
     else
       flash.now[:errors] = @message.errors.full_messages
