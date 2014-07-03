@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :messages
+
   root to: "static_pages#root"
 
   namespace :api, defaults: { format: :json } do

@@ -17,6 +17,8 @@ class User < ActiveRecord::Base
   has_many :posts, through: :subs, source: :posts
   has_many :posts
   has_many :comments, inverse_of: :user
+  has_many :sent_messages, class_name: "Message", foreign_key: :sender_id
+  has_many :received_messages, class_name: "Message", foreign_key: :receiver_id
 
   before_create :add_activation_token
 

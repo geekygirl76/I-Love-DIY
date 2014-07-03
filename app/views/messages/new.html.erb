@@ -1,0 +1,42 @@
+<form class="post-form" action="<%= messages_url %>" method="post" >
+  <input type="hidden" name="authenticity_token"
+         value="<%= form_authenticity_token %>" >
+         
+         
+   <label for="message_title">
+     Title
+   <input
+     type="text"
+     name="message[title]"
+     value="<%= @message.title %>"
+     id="message_title">
+   </label>
+     <br>
+     
+    <label for="message_receiver_id">
+      Send To:
+    <input
+      type="text"
+      name="message[receiver_id]"
+      value="<%= @message.receiver_id %>"
+      id="message_receiver_id">
+    </label>
+      <br>
+
+   <label for="message_body" >
+     Letter
+   <textarea class="article"
+
+     name="message[body]"
+
+     id="message_body"><%= @message.body %>
+     </textarea>
+   </label>
+     <br>      
+    
+    <button class="create-post">
+
+     <input type="submit" value="submit">
+     </button>
+        
+</form>

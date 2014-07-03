@@ -3,9 +3,11 @@ Diy.Views.PostShow = Backbone.View.extend({
 
 
   events: {
-    "click button#post-comment" : "submitComment"
+    "click button#post-comment" : "submitComment",
+    "click button#comment-comment" : "submitChildComment"
   },
 
+  
 
   submitComment: function(event){
     event.preventDefault;
