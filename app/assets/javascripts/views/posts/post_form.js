@@ -42,7 +42,7 @@ Diy.Views.PostForm = Backbone.View.extend({
 
            that.model.save(attrs.post, {
 
-             enctype: "multipart/form-data",
+             
 
              success: function (post) {
 

@@ -13,7 +13,7 @@ module Api
       else
         if @post.save
 
-          render json: @post.to_json(include: :comments, methods: :photo_display_url)
+          render "show"
         else
           render json: { errors: @post.errors.full_messages }, status: 422
 
