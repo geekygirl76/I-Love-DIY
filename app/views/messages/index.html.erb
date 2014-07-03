@@ -1,8 +1,10 @@
+
+
 <h5>Received Messages</h5>
 
 <% @messages.each do |msg| %>
   <% if msg.receiver_id == current_user.id %>
-    <a href="<%= message_url(msg) %>"><%= msg.title %></a>
+    <a href="<%= open_message_url(msg) %>"><%= msg.title %></a>(<%=  %>)
     <br>
   <% end  %>
 <% end %>
@@ -17,3 +19,4 @@
     <br>
   <% end  %>
 <% end %>
+

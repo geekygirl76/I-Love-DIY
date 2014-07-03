@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   GENDERS = [ "Female", "Male", "None of your business", "Robot"]
 
   attr_reader :password
-
+  validates :username,  uniqueness: true
   validates :email, presence: true, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
   validates :password_digest, :session_token, presence: true

@@ -38,6 +38,16 @@ class MessagesController < ApplicationController
     @messages = Message.all
   end
   
+  def open
+    @message = Message.find(params[:id])
+    if @message
+      @message.read
+      redirect_to @message
+    else
+      flash.now[:errors] = @message.errors.full_messages
+    end
+  end
+  
   private
   def message_params
     params.require(:message).permit(:sender_id, :receiver_id, :title, :body)

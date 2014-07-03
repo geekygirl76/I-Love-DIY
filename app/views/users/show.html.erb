@@ -16,5 +16,10 @@ Zip: <%= current_user.zip %>
 
 <br>
 
-<a href="<%= messages_url %>">Inbox</a>
+
+  
+    
+ 
+
+<a href="<%= messages_url %>">Inbox</a>(<%= @user.received_messages.count %>)
 

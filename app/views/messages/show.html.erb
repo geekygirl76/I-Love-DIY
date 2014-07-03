@@ -1,3 +1,5 @@
+<a href="<%= messages_url %>">Back To Inbox</a>
+
 <h1><%= @message.title %></h1>
 <br>
 Send by: <%= User.find(@message.sender_id).username %>

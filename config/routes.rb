@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
 
-  resources :messages
+  
 
   root to: "static_pages#root"
+  
+  resources :messages do
+    get :open, on: :member
+  end
 
   namespace :api, defaults: { format: :json } do
     resources :posts, only: [:index, :show, :create, :update,:destroy] do
