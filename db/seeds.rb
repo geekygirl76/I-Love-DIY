@@ -8,6 +8,7 @@
 User.create!(username:"tomato", password:"tomato", email:"tomato@abc")
 User.create!(username:"pepper", password:"pepper", email:"pepper@abc")
 User.create!(username:"potato", password:"potato", email:"potato@abc")
+User.create!(username:"hellokitty", password:"hellokitty", email:"hellokitty@abc", age: 3, gender: "female", zip: "11111")
 
 User.first.subs.create!( title: "Living")
 User.first.subs.create!( title: "Technology")

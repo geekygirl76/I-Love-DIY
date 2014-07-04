@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 
   validates :email, presence: true, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
-  validates :password_digest, :session_token, presence: true
+  validates :password_digest, :session_token, :username, presence: true
 
 
   before_validation :ensure_session_token
@@ -29,6 +29,7 @@ class User < ActiveRecord::Base
 
      unless user
        user = self.create!(
+         username: auth_hash[:uid],
          uid: auth_hash[:uid],
          provider: auth_hash[:provider],
          email: auth_hash[:info][:email],
