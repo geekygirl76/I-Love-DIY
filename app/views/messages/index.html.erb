@@ -1,7 +1,7 @@
 <h5>Unread Messages</h5>
 
 <% @messages.each do |msg| %>
-  <% if !msg.draft && msg.receiver_id == current_user.id && !msg.read  %>
+  <% if  msg.receiver_id == current_user.id && !msg.read  %>
     <a href="<%= open_message_url(msg) %>"><%= msg.title %></a>
     <br>
   <% end  %>
@@ -12,7 +12,7 @@
 <h5>Read Messages</h5>
 
 <% @messages.each do |msg| %>
-  <% if !msg.draft && msg.receiver_id == current_user.id && msg.read %>
+  <% if  msg.receiver_id == current_user.id && msg.read %>
     <a href="<%= message_url(msg) %>"><%= msg.title %></a>
     <br>
   <% end  %>

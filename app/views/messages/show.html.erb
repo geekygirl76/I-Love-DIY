@@ -10,6 +10,3 @@ Send to: <%= User.find(@message.receiver_id).username %>
 
 <br>
 
-<% if @message.draft %>
-  <a href="<%= send_message_url(@message) %>">Send Now</a>
-<% end %>

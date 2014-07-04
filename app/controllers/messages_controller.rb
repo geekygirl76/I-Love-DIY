@@ -52,16 +52,7 @@ class MessagesController < ApplicationController
     end
   end
 
-  def send
-    @message = Message.find(params[:id])
-    if @message
-      @message.send_draft
-      flash[:notice] =  "Message sent!"
-      redirect_to messages_url
-    else
-      flash.now[:errors] = "Something is wrong!"
-    end
-  end
+
 
   private
   def message_params
