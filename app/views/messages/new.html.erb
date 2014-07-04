@@ -1,8 +1,27 @@
 <form class="post-form" action="<%= messages_url %>" method="post" >
   <input type="hidden" name="authenticity_token"
          value="<%= form_authenticity_token %>" >
-         
-         
+
+
+    <label for="message_receiver_id">Sent To:</label>
+    <select name="message[receiver_id]" id="message_receiver_id">
+      <option value="">Send To</option>
+      <% User.all.each do |user| %>
+      <% if user.id != current_user.id && user.username %>
+        <option
+          <%= @message.receiver_id == user.id ? "selected" : nil  %>
+          value="<%= user.id %>"
+          >
+
+          <%= user.username %>
+        </option>
+    <% end %>
+      <% end %>
+    </select>
+    <br>
+
+
+
    <label for="message_title">
      Title
    <input
@@ -12,16 +31,9 @@
      id="message_title">
    </label>
      <br>
-     
-    <label for="message_receiver_id">
-      Send To:
-    <input
-      type="text"
-      name="message[receiver_id]"
-      value="<%= @message.receiver_id %>"
-      id="message_receiver_id">
-    </label>
-      <br>
+
+
+
 
    <label for="message_body" >
      Letter
@@ -32,11 +44,14 @@
      id="message_body"><%= @message.body %>
      </textarea>
    </label>
-     <br>      
-    
+     <br>
+
+
+
+
     <button class="create-post">
 
-     <input type="submit" value="submit">
+     <input type="submit" value="send">
      </button>
-        
+
 </form>

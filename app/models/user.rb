@@ -1,11 +1,11 @@
 class User < ActiveRecord::Base
-  has_attached_file :photo, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+  has_attached_file :photo, :styles => {  :thumb => "100x100>" }, :default_url => "avatar.jpeg"
   validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/
 
   GENDERS = [ "Female", "Male", "None of your business", "Robot"]
 
   attr_reader :password
-  validates :username,  uniqueness: true
+
   validates :email, presence: true, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
   validates :password_digest, :session_token, presence: true

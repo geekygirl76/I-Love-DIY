@@ -1,6 +1,6 @@
 module Api
   class PostsController < ApiController
-    before_action :require_current_user, only: [:new, :create]
+    before_action :require_current_user, except: [:index]
     before_action :require_owner, only: [:edit, :update, :destroy]
 
 
@@ -24,14 +24,15 @@ module Api
     def index
       @posts = Post.all
 
-     
-      
+
+
     end
 
     def show
 
       @post = Post.find(params[:id])
       @comments = @post.comments
+
       # render json: @post.as_json(methods: :photo_display_url)
       render "show"
     end
@@ -61,6 +62,8 @@ module Api
 
     private
 
+
+
     def post_params
       params.require(:post).permit(:title, :body, :sub_id, :user_id, :channel_id, :photo)
     end
@@ -70,7 +73,7 @@ module Api
 
       unless @post.user_id == current_user.id || current_user == @post.sub.manager
         flash[:errors] = ["Only submitter of this post can implement this action!"]
-        redirect_to post_url(@post)
+        render json: @post
       end
     end
 

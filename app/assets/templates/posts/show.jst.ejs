@@ -42,7 +42,8 @@
 <ul>
   <% post.comments().each(function(comment){ %>
     <li><%= comment.escape("body") %> (Published at:<%= comment.escape("created_at") %>)(Author:<%=  comment.escape("user_id") %>)
-      <button id="comment-comment">Reply</button>
+
+    <a href="/comments/<%= comment.id %>/comments/new">Reply</a>
     </li>
 
   <% }) %>

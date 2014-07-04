@@ -8,4 +8,9 @@ class Message < ActiveRecord::Base
     self.save!
   end
   
+  def send_draft
+    self.draft = false
+    self.save!
+  end
+  
 end
