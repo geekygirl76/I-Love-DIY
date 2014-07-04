@@ -10,7 +10,7 @@
 <a href="<%= messages_url %>">Inbox</a>(Unread: <%= @user.received_messages.select { |msg| !msg.read }.count %>)
 
 
-<h1>Welcome!<%= current_user.username.nil? ? "Guest" : current_user.username %></h1>
+<h1>Welcome!<%= current_user.username == "" ? "Guest" : current_user.username %></h1>
 
 
 

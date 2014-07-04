@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
 
   before_validation :ensure_session_token
 
+
   has_many :subs, class_name: "Sub", foreign_key: :user_id
   has_many :posts, through: :subs, source: :posts
   has_many :posts
@@ -75,4 +76,6 @@ class User < ActiveRecord::Base
   def ensure_session_token
     self.session_token ||= SecureRandom::urlsafe_base64(16)
   end
+
+
 end
