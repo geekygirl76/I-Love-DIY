@@ -14,7 +14,11 @@ class MessagesController < ApplicationController
     @message = current_user.sent_messages.new(message_params)
 
     if @message && @message.save
-      flash[:notice] = "Message sent!"
+      if @message.draft == "N"
+        flash[:notice] = "Message sent!"
+      elsif @message.draft == "Y"
+        flash[:notice] = "Message saved!"
+      end
       redirect_to @user
     else
 
