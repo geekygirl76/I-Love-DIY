@@ -1,7 +1,7 @@
 <h5>Unread Messages</h5>
 
 <% @messages.each do |msg| %>
-  <% if  msg.receiver_id == current_user.id && !msg.read  %>
+  <% if  msg.receiver_id == current_user.id  && msg.draft == "N" && !msg.read  %>
     <a href="<%= open_message_url(msg) %>"><%= msg.title %></a>
     <br>
   <% end  %>
@@ -12,7 +12,7 @@
 <h5>Read Messages</h5>
 
 <% @messages.each do |msg| %>
-  <% if  msg.receiver_id == current_user.id && msg.read %>
+  <% if  msg.receiver_id == current_user.id && msg.draft == "N" && msg.read %>
     <a href="<%= message_url(msg) %>"><%= msg.title %></a>
     <br>
   <% end  %>
@@ -23,7 +23,7 @@
 <h5>Sent Messages</h5>
 
 <% @messages.each do |msg| %>
-  <% if msg.sender_id == current_user.id %>
+  <% if msg.sender_id == current_user.id && msg.draft == "N" %>
     <a href="<%= message_url(msg) %>"><%= msg.title %></a>
     <br>
   <% end  %>
@@ -34,7 +34,7 @@
 <h5>Drafts</h5>
 
 <% @messages.each do |msg| %>
-  <% if msg.sender_id == current_user.id && msg.draft %>
+  <% if msg.sender_id == current_user.id && msg.draft == "Y" %>
     <a href="<%= message_url(msg) %>"><%= msg.title %></a>
     <br>
   <% end  %>
