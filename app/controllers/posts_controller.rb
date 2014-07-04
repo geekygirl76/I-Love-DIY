@@ -17,7 +17,7 @@ class PostsController < ApplicationController
       render :new
     else
       if @post.save
-        redirect_to "/#/posts/" + @post.id.to_s
+        redirect_to @post
       else
         flash.now[:errors] = @post.errors.full_messages
         render :new
@@ -27,7 +27,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
-    redirect_to "/"
+
   end
 
   def show
