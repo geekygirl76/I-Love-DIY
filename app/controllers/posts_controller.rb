@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :require_current_user, only: [:new, :create]
+  before_action :require_current_user, except: [:index]
   before_action :require_owner, only: [:edit, :update, :destroy]
 
   def new
