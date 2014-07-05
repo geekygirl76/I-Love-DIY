@@ -1,6 +1,10 @@
 class MessagesController < ApplicationController
 
   def senddraft
+    @message = Message.find(params[:id])
+    @message.change_draft
+    flash[:notice] = "Message sent!"
+    redirect_to @message
   end
 
   def new

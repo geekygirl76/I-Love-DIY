@@ -8,6 +8,9 @@ class Message < ActiveRecord::Base
     self.save!
   end
 
-
+  def change_draft
+    self.draft = "N"
+    self.save!
+  end
 
 end
