@@ -18,9 +18,11 @@ Rails.application.routes.draw do
   end
 
   resources :posts do
-    resources :collects, only: [:create, :index, :destroy]
+    resources :collects, only: [:create]
     resources :comments
   end
+
+  resources :collects, only: [:index, :destroy]
 
 
   get '/auth/facebook/callback', to: 'sessions#facebook_login'
