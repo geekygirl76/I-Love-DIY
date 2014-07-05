@@ -6,6 +6,10 @@
 <header class="post-header">
   <h1 class="title"><%= @post.title %></h1>
     <%= button_to "Collect", post_collects_url(@post), method: :post %>
+  <br>
+  <% if @post.user_id != current_user.id %>
+     <%= link_to "Write To Auther", new_message_url %>
+  <% end %>
 
    <p>
      author: <%= User.find(@post.user_id).username || "Guest" %>

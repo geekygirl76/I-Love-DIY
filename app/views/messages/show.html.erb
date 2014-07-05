@@ -14,8 +14,15 @@
 
 <h1><%= @message.title %></h1>
 <br>
-Send by: <%= User.find(@message.sender_id).username %>
-Send to: <%= User.find(@message.receiver_id).username %>
+<% if @message.sender_id == current_user.id %>
+
+  Send to: <%= User.find(@message.receiver_id).username %>
+<% elsif @message.receiver_id == current_user.id %>
+
+
+  Send by: <%= User.find(@message.sender_id).username %>
+<% end %>
+
 <br>
 
 <%= @message.body %>
