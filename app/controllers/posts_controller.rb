@@ -59,6 +59,11 @@ class PostsController < ApplicationController
     redirect_to @sub
   end
 
+  def personal
+    @posts = current_user.posts.all
+    render :index
+  end
+
   private
 
   def post_params

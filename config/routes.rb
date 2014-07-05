@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   resources :posts do
     resources :collects, only: [:create]
     resources :comments
+    get :personal, on: :collection
   end
 
   resources :collects, only: [:index, :destroy]

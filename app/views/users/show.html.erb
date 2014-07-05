@@ -1,18 +1,21 @@
+<h1>Welcome!<%= current_user.username == "" ? "Guest" : current_user.username %></h1>
+
 <a href="<%= new_message_url %>">Write Message</a>
 
 <br>
 
 
-
-
-
-
 <a href="<%= messages_url %>">Inbox</a>(Unread: <%= @user.received_messages.select { |msg| msg.draft == "N" && !msg.read }.count %>)
 <br>
 <a href="<%= collects_url %>">Collection</a>
+<br>
+
+<a href="<%= personal_posts_url %>">Your Posts</a>
+<br>
 
 
-<h1>Welcome!<%= current_user.username == "" ? "Guest" : current_user.username %></h1>
+
+
 
 
 
