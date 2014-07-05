@@ -4,7 +4,13 @@
   <a href="<%= trash_message_url(@message) %>">Move To Trash</a>
 <% end %>
 <br>
+<% if @message.receiver_id == current_user.id %>
+  <%= link_to "Block User", block_message_url(@message) %>
+<% end %>
 <%= button_to "Delete", message_url(@message), method: :delete %>
+
+
+<br>
 
 
 <% if @message.draft == "Y" %>
@@ -24,6 +30,8 @@
 <% end %>
 
 <br>
+
+
 
 <%= @message.body %>
 
