@@ -5,6 +5,7 @@
 
 <header class="post-header">
   <h1 class="title"><%= @post.title %></h1>
+    <%= button_to "Collect", post_collects_url(@post), method: :post %>
 
    <p>
      author: <%= User.find(@post.user_id).username || "Guest" %>

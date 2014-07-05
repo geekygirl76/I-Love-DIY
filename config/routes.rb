@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
 
 
+
+
   root to: "static_pages#root"
 
   resources :messages do
@@ -16,6 +18,7 @@ Rails.application.routes.draw do
   end
 
   resources :posts do
+    resources :collects, only: [:create, :index, :destroy]
     resources :comments
   end
 
