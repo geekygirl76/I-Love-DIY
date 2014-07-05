@@ -1,4 +1,11 @@
 <a href="<%= messages_url %>">Back To Inbox</a>
+<br>
+<% if current_user.id == @message.receiver_id %>
+  <a href="<%= trash_message_url(@message) %>">Move To Trash</a>
+<% end %>
+<br>
+
+
 
 <% if @message.draft == "Y" %>
   <h5>Draft:</h5>

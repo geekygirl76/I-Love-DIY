@@ -3,6 +3,7 @@
 <% @messages.each do |msg| %>
   <% if  msg.receiver_id == current_user.id  && msg.draft == "N" && !msg.read  %>
     <a href="<%= open_message_url(msg) %>"><%= msg.title %></a>
+
     <br>
   <% end  %>
 <% end %>
@@ -12,13 +13,23 @@
 <h5>Read Messages</h5>
 
 <% @messages.each do |msg| %>
-  <% if  msg.receiver_id == current_user.id && msg.draft == "N" && msg.read %>
+  <% if  msg.receiver_id == current_user.id && msg.draft == "N" && msg.read && !msg.trashed%>
     <a href="<%= message_url(msg) %>"><%= msg.title %></a>
     <br>
   <% end  %>
 <% end %>
 
 <br>
+
+<h5>Trashed Messages</h5>
+
+<% @messages.each do |msg| %>
+  <% if  msg.receiver_id == current_user.id && msg.draft == "N" && msg.trashed %>
+    <a href="<%= message_url(msg) %>"><%= msg.title %></a>
+    <br>
+  <% end  %>
+<% end %>
+
 ====================================================
 <h5>Sent Messages</h5>
 

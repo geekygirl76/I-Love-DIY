@@ -1,5 +1,12 @@
 class MessagesController < ApplicationController
 
+  def trash
+    @message = Message.find(params[:id])
+    @message.trashmail
+    flash[:notice] = "Message trashed!"
+    redirect_to @message
+  end
+
   def senddraft
     @message = Message.find(params[:id])
     @message.change_draft

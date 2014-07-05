@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   root to: "static_pages#root"
 
   resources :messages do
-    get :open, :senddraft, on: :member
+    get :open, :senddraft, :trash, on: :member
 
   end
 

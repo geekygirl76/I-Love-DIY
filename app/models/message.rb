@@ -13,4 +13,9 @@ class Message < ActiveRecord::Base
     self.save!
   end
 
+  def trashmail
+    self.trashed = true
+    self.save!
+  end
+
 end
