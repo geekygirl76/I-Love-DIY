@@ -2,9 +2,10 @@ class MessagesController < ApplicationController
 
   def block
     @message = Message.find(params[:id])
-    @block_record = Blockrecord.new(sender_id: @message.sender_id, receiver_id: @message.receiver_id)
+    @block_record = Blockrecord.new(sender_id: @message.sender_id, receiver_id: current_user.id)
     if @block_record.save
-
+      @message.blocked = true
+      @message.save!
       @messages = current_user.received_messages
       render :index
     else
@@ -40,8 +41,8 @@ class MessagesController < ApplicationController
 
 
     @message = current_user.sent_messages.new(message_params)
-    @block_record = Blockrecord.where(receiver_id: @user.id, sender_id: @message.sender_id)
-    if @block_record
+    @block_record = Blockrecord.where(sender_id: @user.id, receiver_id: @message.receiver_id)
+    if @block_record.count > 0
       @message.blocked = true
 
     end

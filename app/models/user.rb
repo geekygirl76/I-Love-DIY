@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
   has_many :received_messages, class_name: "Message", foreign_key: :receiver_id
   has_many :collects
   has_many :blockrecords, class_name: "Blockrecord", foreign_key: :receiver_id
-  has_many :blocked_users, through: :blockrecords, source: :sender
+  
 
   before_create :add_activation_token
 
