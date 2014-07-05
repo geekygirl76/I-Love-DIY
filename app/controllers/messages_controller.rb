@@ -1,5 +1,19 @@
 class MessagesController < ApplicationController
 
+  def block
+    @message = Message.find(params[:id])
+    @block_record = Blockrecord.new(sender_id: @message.sender_id, receiver_id: @message.receiver_id)
+    if @block_record.save
+      flash[:notice] = "User blocked!"
+      @messages = current_user.received_messages
+      render :index
+    else
+
+      @messages = current_user.received_messages
+      render :index
+    end
+  end
+
   def trash
     @message = Message.find(params[:id])
     @message.trashmail
@@ -26,7 +40,12 @@ class MessagesController < ApplicationController
 
 
     @message = current_user.sent_messages.new(message_params)
+    @block_record = Blockrecord.where(receiver_id: @user.id, sender_id: @message.sender_id)
+    if @block_record
+      @message.blocked = true
 
+    end
+    
     if @message && @message.save
       if @message.draft == "N"
         flash[:notice] = "Message sent!"

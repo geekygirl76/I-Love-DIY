@@ -1,7 +1,7 @@
 <h5>Unread Messages</h5>
 
 <% @messages.each do |msg| %>
-  <% if  msg.receiver_id == current_user.id  && msg.draft == "N" && !msg.read  %>
+  <% if  msg.receiver_id == current_user.id  && msg.draft == "N" && !msg.read && !msg.blocked %>
     <a href="<%= open_message_url(msg) %>"><%= msg.title %></a>
 
     <br>
@@ -13,7 +13,7 @@
 <h5>Read Messages</h5>
 
 <% @messages.each do |msg| %>
-  <% if  msg.receiver_id == current_user.id && msg.draft == "N" && msg.read && !msg.trashed%>
+  <% if  msg.receiver_id == current_user.id && msg.draft == "N" && msg.read && !msg.trashed  && !msg.blocked %>
     <a href="<%= message_url(msg) %>"><%= msg.title %></a>
     <br>
   <% end  %>
@@ -24,7 +24,7 @@
 <h5>Trashed Messages</h5>
 
 <% @messages.each do |msg| %>
-  <% if  msg.receiver_id == current_user.id && msg.draft == "N" && msg.trashed %>
+  <% if  msg.receiver_id == current_user.id && msg.draft == "N" && msg.trashed  && !msg.blocked %>
     <a href="<%= message_url(msg) %>"><%= msg.title %></a>
     <br>
   <% end  %>
