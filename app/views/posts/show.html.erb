@@ -65,9 +65,10 @@
 </comments>
 
 <footer class="post-footer">
-
-<%= link_to "Edit Instructable", edit_post_url %>
-<%= button_to "Delete Instructable", post_url, method: :delete %>
+<% if @post.user_id == current_user.id %>
+  <%= link_to "Edit post", edit_post_url %>
+  <%= button_to "Delete post", post_url, method: :delete %>
+<% end %>
 </footer>
 
 

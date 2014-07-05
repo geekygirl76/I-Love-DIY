@@ -10,9 +10,13 @@
   <% posts.each(function(post){ %>
     <li>
     <a href="#/posts/<%= post.id %>"><%= post.escape("title") %></a>
+
+    <img src="<%= post.get("photo_url") %>">
+
+
     <button class="delete" data-id="<%= post.id %>">Delete!</button>
     <a href="#/posts/<%= post.id %>/edit">Edit</a>
-    <img src="<%= post.get("photo_url") %>">
+
     </li>
 
 
@@ -20,4 +24,3 @@
 
 
 </ul>
-
