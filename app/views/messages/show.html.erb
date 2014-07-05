@@ -2,6 +2,7 @@
 
 <% if @message.draft == "Y" %>
   <h5>Draft:</h5>
+  <a href="<%= edit_message_url(@message) %>">Edit</a>
 <% end %>
 
 <h1><%= @message.title %></h1>

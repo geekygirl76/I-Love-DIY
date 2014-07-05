@@ -1,0 +1,44 @@
+<h1>Edit Letter</h1>
+
+<form class="post-form" action="<%= message_url(@message) %>" method="post" >
+  <input type="hidden" name="authenticity_token"
+         value="<%= form_authenticity_token %>" >
+
+
+<input type="hidden" name="_method" value="put">
+
+
+
+   <label for="message_title">
+     Title
+   <input
+     type="text"
+     name="message[title]"
+     value="<%= @message.title %>"
+     id="message_title">
+   </label>
+     <br>
+
+
+
+
+   <label for="message_body" >
+     Letter
+   <textarea class="article"
+
+     name="message[body]"
+     value="<%= @message.body %>"
+     id="message_body"><%= @message.body %>
+     </textarea>
+   </label>
+     <br>
+
+
+
+
+    <button class="create-post">
+
+     <input type="submit" value="Update">
+     </button>
+
+</form>

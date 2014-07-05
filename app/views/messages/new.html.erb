@@ -3,6 +3,8 @@
          value="<%= form_authenticity_token %>" >
 
 
+
+
     <label for="message_receiver_id">Sent To:</label>
     <select name="message[receiver_id]" id="message_receiver_id">
       <option value="">Send To</option>
@@ -40,7 +42,7 @@
    <textarea class="article"
 
      name="message[body]"
-
+     value="<%= @message.title %>"
      id="message_body"><%= @message.body %>
      </textarea>
    </label>
@@ -59,7 +61,7 @@
 
     <button class="create-post">
 
-     <input type="submit" value="send">
+     <input type="submit" value="Submit">
      </button>
 
 </form>

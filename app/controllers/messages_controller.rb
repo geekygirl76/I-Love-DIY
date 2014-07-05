@@ -39,9 +39,18 @@ class MessagesController < ApplicationController
   end
 
   def edit
+    @message = Message.find(params[:id])
+
   end
 
   def update
+    @message = Message.find(params[:id])
+    if @message.update_attributes(message_params)
+      redirect_to @message
+    else
+      flash[:errors] = @message.errors.full_messages
+      render :edit
+    end
   end
 
   def destroy
