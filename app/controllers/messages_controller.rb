@@ -4,6 +4,7 @@ class MessagesController < ApplicationController
     @message = Message.find(params[:id])
     @message.trashmail
     flash[:notice] = "Message trashed!"
+
     redirect_to @message
   end
 
@@ -61,6 +62,10 @@ class MessagesController < ApplicationController
   end
 
   def destroy
+    @message = Message.find(params[:id])
+    @message.destroy
+
+    redirect_to @message
   end
 
   def index

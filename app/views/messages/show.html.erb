@@ -4,7 +4,7 @@
   <a href="<%= trash_message_url(@message) %>">Move To Trash</a>
 <% end %>
 <br>
-
+<%= button_to "Delete", message_url(@message), method: :delete %>
 
 
 <% if @message.draft == "Y" %>
