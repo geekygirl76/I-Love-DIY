@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
 
 
+  resources :blockrecords
+
   root to: "static_pages#root"
 
   resources :messages do
