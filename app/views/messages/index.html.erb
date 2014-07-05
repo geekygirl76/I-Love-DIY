@@ -30,6 +30,14 @@
   <% end  %>
 <% end %>
 
+<h5>Blocked Users</h5>
+  <% User.all.each do |u| %>
+    <% if Blockrecord.where(sender_id: u.id, receiver_id: current_user.id ).count > 0 %>
+      <%= u.username %>
+    <br>
+    <% end %>
+  <% end %>
+<br>
 ====================================================
 <h5>Sent Messages</h5>
 

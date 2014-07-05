@@ -4,7 +4,7 @@ class MessagesController < ApplicationController
     @message = Message.find(params[:id])
     @block_record = Blockrecord.new(sender_id: @message.sender_id, receiver_id: @message.receiver_id)
     if @block_record.save
-      flash[:notice] = "User blocked!"
+
       @messages = current_user.received_messages
       render :index
     else
@@ -45,7 +45,7 @@ class MessagesController < ApplicationController
       @message.blocked = true
 
     end
-    
+
     if @message && @message.save
       if @message.draft == "N"
         flash[:notice] = "Message sent!"
