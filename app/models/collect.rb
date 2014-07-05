@@ -4,5 +4,5 @@ class Collect < ActiveRecord::Base
     message: "Already collected!"}
 
     belongs_to :user
-
+    belongs_to :post
 end

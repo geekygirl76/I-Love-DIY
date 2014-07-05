@@ -1,2 +1,7 @@
 <h1>Collection</h1>
 
+<ul>
+<% @collects.each do |co| %>
+   <li><a href="<%= post_url(co.post) %>"><%= co.post.title %></a></li>
+<% end %>
+</ul>
