@@ -1,5 +1,9 @@
 <a href="<%= messages_url %>">Back To Inbox</a>
 
+<% if @message.draft == "Y" %>
+  <h5>Draft:</h5>
+<% end %>
+
 <h1><%= @message.title %></h1>
 <br>
 Send by: <%= User.find(@message.sender_id).username %>
@@ -9,4 +13,8 @@ Send to: <%= User.find(@message.receiver_id).username %>
 <%= @message.body %>
 
 <br>
+<br>
+<%  if @message.draft == "Y" %>
+  <a href="<%=  senddraft_message_url(@message) %>">Send</a>
+<% end %>
 

@@ -1,5 +1,7 @@
 class MessagesController < ApplicationController
 
+  def senddraft
+  end
 
   def new
 
@@ -55,6 +57,7 @@ class MessagesController < ApplicationController
       redirect_to messages_url
     end
   end
+
 
 
 
