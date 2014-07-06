@@ -5,8 +5,15 @@ class PostsController < ApplicationController
   def upvote
     @post = Post.find(params[:id])
     if @post
-      @post.add_score
-      redirect_to @post
+
+      @voterecord = Voterecord.new(user_id: current_user.id, post_id: @post.id)
+      if @voterecord.save
+        @post.add_score
+        redirect_to @post
+      else
+        flash[:errors] = @voterecord.errors.full_messages
+        redirect_to @post
+      end
     else
       flash[:errors] = @post.errors.full_messages
       redirect_to @post
@@ -17,8 +24,15 @@ class PostsController < ApplicationController
   def downvote
     @post = Post.find(params[:id])
     if @post
-      @post.down_score
-      redirect_to @post
+
+      @voterecord = Voterecord.new(user_id: current_user.id, post_id: @post.id)
+      if @voterecord.save
+        @post.down_score
+        redirect_to @post
+      else
+        flash[:errors] = @voterecord.errors.full_messages
+        redirect_to @post
+      end
     else
       flash[:errors] = @post.errors.full_messages
       redirect_to @post
