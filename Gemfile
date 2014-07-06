@@ -46,6 +46,7 @@ gem 'backbone-on-rails'
 # gem 'debugger', group: [:development, :test]
 
 group :development do
+  gem 'rspec-rails'
   gem 'letter_opener'
   # Run 'annotate' in Terminal to add helpful comments to models.
   gem 'annotate'
@@ -57,4 +58,8 @@ group :development do
   gem 'debugger'
   # pry > irb
   gem 'pry-rails'
+end
+
+group :test do
+  gem 'guard-rspec'
 end
