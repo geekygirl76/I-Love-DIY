@@ -64,6 +64,7 @@ img{
   display: block;
   width: 100px;
   height: auto;
+  border: 3px solid blue;
 }
 
 
@@ -217,7 +218,14 @@ padding: 20px;
   display: block;
   margin: auto;
   width: 400px;
+  margin-top: 20px;
 
+}
+
+.post-picture > img{
+  width: 400px;
+  height:auto;
+  border: 5px solid blue;
 }
 
 .post-form{
