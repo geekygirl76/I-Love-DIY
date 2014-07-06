@@ -5,7 +5,7 @@
 
 <header class="post-header">
   <h1 class="title"><%= @post.title %></h1>
-    <%= button_to "Collect", post_collects_url(@post), method: :post %>
+    <a><%= button_to "Collect", post_collects_url(@post), method: :post %></a>
   <br>
   <h5>Score: <%= @post.score %>
     <%= link_to "like", upvote_post_url(@post) %>
@@ -41,6 +41,8 @@
 
     id="comment_body">
   </label>
+
+
 
    <button>Submit</button>
 
