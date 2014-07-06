@@ -27,6 +27,16 @@ class Post < ActiveRecord::Base
     hash
   end
 
+  def add_score
+    self.score += 1
+    self.save!
+  end
+
+  def down_score
+    self.score -= 1
+    self.save!
+  end
+
   private
 
   def ensure_score

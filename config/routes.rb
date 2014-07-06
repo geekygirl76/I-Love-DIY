@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     resources :collects, only: [:create]
     resources :comments
     get :personal, on: :collection
+    get :upvote, :downvote, on: :member
   end
 
   resources :collects, only: [:index, :destroy]

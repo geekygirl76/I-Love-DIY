@@ -7,6 +7,9 @@
   <h1 class="title"><%= @post.title %></h1>
     <%= button_to "Collect", post_collects_url(@post), method: :post %>
   <br>
+  <h5>Score: <%= @post.score %>
+    <%= link_to "like", upvote_post_url(@post) %>
+    <%= link_to "dislike", downvote_post_url(@post) %>
   <% if @post.user_id != current_user.id %>
      <%= link_to "Write To Auther", new_message_url %>
   <% end %>

@@ -4,7 +4,7 @@
 
 <ul>
   <% @posts.each do |post| %>
-    <li><%= link_to post.title, post_url(post)%>
+    <li><%= link_to post.title, post_url(post)%> ( Score: <%= post.score %>)
       <%= image_tag post.photo.url(:medium) %>
     </li>
   <% end %>

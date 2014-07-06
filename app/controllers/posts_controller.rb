@@ -2,6 +2,21 @@ class PostsController < ApplicationController
   before_action :require_current_user, except: [:index]
   before_action :require_owner, only: [:edit, :update, :destroy]
 
+  def upvote
+    @post = Post.find(params[:id])
+    if @post
+      @post.add_score
+      redirect_to @post
+    else
+      flash[:errors] = @post.errors.full_messages
+      redirect_to @post
+    end
+
+  end
+
+  def downvote
+  end
+
   def new
 
     @post = Post.new
