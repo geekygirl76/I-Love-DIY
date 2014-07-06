@@ -15,6 +15,14 @@ class PostsController < ApplicationController
   end
 
   def downvote
+    @post = Post.find(params[:id])
+    if @post
+      @post.down_score
+      redirect_to @post
+    else
+      flash[:errors] = @post.errors.full_messages
+      redirect_to @post
+    end
   end
 
   def new
