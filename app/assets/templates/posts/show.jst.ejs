@@ -20,7 +20,7 @@
 <img src="<%= post.get("photo_url") %>">
 </figure>
 
-<form class="post-comment-form" >
+<form class="post-comment-form post-form" >
   <input type="hidden"
          name="comment[post_id]"
          value="<%= post.id %>">
@@ -42,9 +42,9 @@
 
 <div class="comments-new"></div>
 
-<ul>
+<ul class="comments">
   <% post.comments().each(function(comment){ %>
-    <li><%= comment.escape("body") %> (Published at:<%= comment.escape("created_at") %>)(Author:<%=  comment.escape("user_id") %>)
+    <li class="root-comment"><%= comment.escape("body") %> (Published at:<%= comment.escape("created_at") %>)(Author:<%=  comment.escape("user_id") %>)
 
     <a href="/comments/<%= comment.id %>/comments/new">Reply</a>
     </li>
