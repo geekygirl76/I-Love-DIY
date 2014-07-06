@@ -1,4 +1,4 @@
-json.(post, :id, :title, :body,  :created_at, :updated_at)
+json.(post, :id, :title, :body,  :created_at, :updated_at, :score)
 json.photo_url asset_path(post.photo.url)
 
 comments ||= nil

@@ -2,14 +2,14 @@
 <br>
 <a href="#/posts/new">Create Post</a>
 <br>
-<a href="#/subs">Explore All Subforums</a>
+<a href="/">Explore All Subforums</a>
 
 <h3>All Posts</h3>
 
 <ul>
   <% posts.each(function(post){ %>
     <li>
-    <a href="#/posts/<%= post.id %>"><%= post.escape("title") %></a>
+    <a href="#/posts/<%= post.id %>"><%= post.escape("title") %></a> (Score: <%=post.escape("score")%>)
 
     <img src="<%= post.get("photo_url") %>">
 
