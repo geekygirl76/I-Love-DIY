@@ -4,6 +4,22 @@
 
 <h1><%= sub.escape("title") %></h1>
 
+<h3>Posts</h3>
+<ul>
+  <% posts.each(function(post){ %>
+
+
+    <% if(post.get("sub_id") === sub.id){ %>
+
+     <li><a href="#/posts/<%= post.id %>"><%= post.escape("title") %></a></li>
+
+  <% } %>
+
+
+  <% }); %>
+</ul>
+
+
 <h3>Channels</h3>
 <ul>
   <% channels.each(function(channel){ %>
@@ -20,17 +36,3 @@
 </ul>
 
 
-<h3>Posts</h3>
-<ul>
-  <% posts.each(function(post){ %>
-
-
-    <% if(post.get("sub_id") === sub.id){ %>
-
-     <li><a href="#/posts/<%= post.id %>"><%= post.escape("title") %></a></li>
-
-  <% } %>
-
-
-  <% }); %>
-</ul>
