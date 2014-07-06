@@ -1,6 +1,6 @@
 module Api
   class CommentsController < ApiController
-    before_action :require_current_user
+    before_filter :require_current_user
 
     def create
       @comment = current_user.comments.new(comment_params)

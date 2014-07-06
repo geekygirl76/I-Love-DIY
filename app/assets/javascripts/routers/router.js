@@ -60,6 +60,18 @@ Diy.Routers.Router = Backbone.Router.extend({
     });
   },
 
+  edit: function (id) {
+      var that = this;
+      this._getPost(id, function (post) {
+        var editView = new Diy.Views.PostEdit({
+          collection: that.posts,
+          model: post
+        });
+
+        that._swapView(editView);
+      });
+    },
+
   new: function(){
     console.log(" In router new");
     var newPost = new Diy.Models.Post();

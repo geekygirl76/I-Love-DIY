@@ -2,8 +2,8 @@ source 'https://rubygems.org'
 
 
 gem 'omniauth-facebook'
-
-
+gem 'twilio-ruby', '~> 3.11'
+gem 'kaminari'
 gem "paperclip"
 gem "aws-sdk"
 gem "figaro"

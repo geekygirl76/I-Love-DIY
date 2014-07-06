@@ -1,0 +1,76 @@
+<a href="#/">Explore All Posts</a>
+
+<h1>Edit Post</h1>
+
+<form id="new-post-form">
+
+<label for="post_title">
+  Title
+<input
+  type="text"
+  name="post[title]"
+  value="<%= post.escape("title") %>"
+  id="post_title">
+</label>
+
+ <label for="post_body" >
+   Article
+ <textarea class="article"
+
+   name="post[body]"
+
+   id="post_body"><%= post.escape("body") %>
+   </textarea>
+ </label>
+
+
+ <label for="post_sub_id">Subforum</label>
+ <select name="post[sub_id]" id="post_sub_id">
+   <option value="">Choose Category(Sub)</option>
+   <% subs.each(function(sub){ %>
+     <option
+       <%= post.escape("sub_id") == sub.id ? "selected" : null  %>
+       value="<%= sub.id %>"
+       >
+
+       <%= sub.escape("title") %>
+     </option>
+
+  <% }) %>
+
+
+ </select>
+ <br>
+
+
+ <label for="post_channel_id">Channel</label>
+ <select name="post[channel_id]" id="post_channel_id">
+   <option value="">Choose Channel</option>
+   <% channels.each(function(channel){ %>
+     <option
+       <%= post.escape("channel_id") == channel.id ? "selected" : null  %>
+       value="<%= channel.id %>"
+       >
+
+       <%= channel.escape("title") %>
+     </option>
+
+  <% }) %>
+
+
+ </select>
+ <br>
+
+ <label>
+   Upload Picture
+
+   <input id="file-upload" type="file" name="post[photo]">
+
+ </label>
+
+
+
+
+ <button class="create-post">Submit</button>
+</form>
+
