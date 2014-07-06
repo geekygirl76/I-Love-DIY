@@ -1,5 +1,6 @@
 class Post < ActiveRecord::Base
   has_many :comments, inverse_of: :post
+  has_many :voterecords
 
   has_attached_file :photo, :styles => { :medium => "300x300>", :thumb => "100x100#" }, :default_url => "default_pic.jpeg"
   validates_attachment_content_type :photo, :content_type => [/\Aimage\/.*\Z/,'application/xml']
@@ -9,6 +10,8 @@ class Post < ActiveRecord::Base
   belongs_to :sub
   belongs_to :channel
   has_one :manager, through: :sub, source: :manager
+
+  before_validation :ensure_score
 
   def top_level_comments
     comments.select { |comment| comment.parent_comment_id.nil? }
@@ -24,5 +27,10 @@ class Post < ActiveRecord::Base
     hash
   end
 
-  
+  private
+
+  def ensure_score
+    self.score ||= 0
+  end
+
 end
