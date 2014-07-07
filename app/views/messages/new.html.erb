@@ -8,7 +8,7 @@
     <label for="message_receiver_id">Sent To:</label>
     <select name="message[receiver_id]" id="message_receiver_id">
       <option value="">Send To</option>
-      <% User.all.each do |user| %>
+      <% User.order(:username).each do |user| %>
       <% if user.username!= "" && user.id != current_user.id %>
         <option
           <%= @message.receiver_id == user.id ? "selected" : nil  %>
