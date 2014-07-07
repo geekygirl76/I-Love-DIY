@@ -1,5 +1,10 @@
 class MessagesController < ApplicationController
 
+  def unreadmessages
+    @messages = Message.where(receiver_id: current_user.id, draft:"N", read: false, blocked: nil)
+    render :childindex
+  end
+
   def readmessages
     @messages = Message.where(receiver_id: current_user.id, draft:"N", read: true, trashed: nil, blocked: nil)
     render :childindex

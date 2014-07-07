@@ -1,5 +1,11 @@
 <a href="<%= messages_url %>">Back To Inbox</a>
 <br>
+<a href="<%= readmessages_messages_url %>">Back To Read Messages</a>
+<br>
+<a href="<%= unreadmessages_messages_url %>">Back To Unread Messages</a>
+<br>
+<br>
+<br>
 <% if current_user.id == @message.receiver_id %>
   <a href="<%= trash_message_url(@message) %>">Move To Trash</a>
 <% end %>

@@ -1,4 +1,4 @@
-<h5>Unread Messages</h5>
+<h5><a href="<%= unreadmessages_messages_url %>">Unread Messages</h5>
 
 <% @messages.each do |msg| %>
   <% if  msg.receiver_id == current_user.id  && msg.draft == "N" && !msg.read && !msg.blocked %>

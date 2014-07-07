@@ -1,6 +1,18 @@
+<a href="<%= messages_url %>">Back To Inbox</a>
+<br>
+<br>
+
+
+
 <% @messages.each do |msg| %>
+  <% if  msg.receiver_id == current_user.id  && msg.draft == "N" && !msg.read && !msg.blocked %>
+    <a href="<%= open_message_url(msg) %>"><%= msg.title %></a>
 
-    <a href="<%= message_url(msg) %>"><%= msg.title %></a>
     <br>
+    <% elsif msg.receiver_id == current_user.id  && msg.draft == "N" && msg.read && !msg.blocked && !msg.trashed %>
+       <a href="<%= message_url(msg) %>"><%= msg.title %></a>
+       <br>
 
+
+  <% end  %>
 <% end %>
