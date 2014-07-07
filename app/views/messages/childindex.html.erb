@@ -13,6 +13,8 @@
        <a href="<%= message_url(msg) %>"><%= msg.title %></a>
        <br>
 
-
-  <% end  %>
+    <% elsif   msg.receiver_id == current_user.id && msg.draft == "N" && msg.trashed  && !msg.blocked %>
+      <a href="<%= message_url(msg) %>"><%= msg.title %></a>
+      <br>
+    <% end  %>
 <% end %>
