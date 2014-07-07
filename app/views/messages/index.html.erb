@@ -18,22 +18,12 @@
 
 <br>
 ====================================================
-<h5>Sent Messages</h5>
+<h5><a href="<%= sentmsgs_messages_url %>">Sent Messages</a></h5>
 
-<% @messages.each do |msg| %>
-  <% if msg.sender_id == current_user.id && msg.draft == "N" %>
-    <a href="<%= message_url(msg) %>"><%= msg.title %></a>
-    <br>
-  <% end  %>
-<% end %>
+
 
 <br>
 
-<h5>Drafts</h5>
+<h5><a href="<%= drafts_messages_url %>">Drafts</a></h5>
 
-<% @messages.each do |msg| %>
-  <% if msg.sender_id == current_user.id && msg.draft == "Y" %>
-    <a href="<%= message_url(msg) %>"><%= msg.title %></a>
-    <br>
-  <% end  %>
-<% end %>
+

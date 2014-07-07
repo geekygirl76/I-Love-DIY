@@ -1,5 +1,15 @@
 class MessagesController < ApplicationController
 
+  def sentmsgs
+    @messages = Message.where(sender_id: current_user.id, draft: "N")
+    render :childindex
+  end
+
+  def drafts
+    @messages = Message.where(sender_id: current_user.id, draft: "Y")
+    render :childindex
+  end
+
   def trashedmessages
     @messages = Message.where(receiver_id: current_user.id, draft:"N", trashed: true, blocked: nil)
     render :childindex

@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     get :readmessages, on: :collection
     get :unreadmessages, on: :collection
     get :trashedmessages, on: :collection
+    get :sentmsgs, on: :collection
+    get :drafts, on: :collection
   end
 
   namespace :api, defaults: { format: :json } do
