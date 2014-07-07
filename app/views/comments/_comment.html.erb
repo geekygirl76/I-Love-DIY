@@ -8,9 +8,8 @@
           <input type="hidden" name="authenticity_token"
                  value="<%= form_authenticity_token %>" >
 
+          <input class="reply-button" id="nested-comment-reply-button" type="submit" value='Reply'>
 
-          <input class="reply-button" type="submit" value='Reply'>
-        <!-- <%= button_to "Reply", new_comment_comment_url(c2), method: :get %> -->
         </form>
 
       <%= render "comments/comment", c1: c2, post: post %>

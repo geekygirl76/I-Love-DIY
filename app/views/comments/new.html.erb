@@ -1,4 +1,6 @@
-<form action="<%= comment_comments_url(@parent_comment) %>" method="post">
+
+  <form class="nested-comments" action="<%= comment_comments_url(@parent_comment) %>" method="post">
+
   <input type="hidden" name="authenticity_token"
          value="<%= form_authenticity_token %>" />
 
@@ -14,7 +16,7 @@
 
 
 
+   <input class="reply-button" type="submit" value="Submit">
 
 
-    <input type="submit" value="Submit">
 </form>
