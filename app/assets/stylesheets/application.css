@@ -234,12 +234,18 @@ padding: 20px;
   margin: 20px 80px;
   background: white;
   border: 1px solid black;
+  size: 20px;
 }
 
 .post-form >label{
   font-weight: bold;
   display: block;
   margin: 20px 0 5px 0;
+}
+
+.post-form textarea {
+  size: 20px;
+  font-weight: bold;
 }
 
 .post-form >button{
