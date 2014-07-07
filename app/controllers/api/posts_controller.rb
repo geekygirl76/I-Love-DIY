@@ -1,6 +1,6 @@
 module Api
   class PostsController < ApiController
-    before_action :require_current_user, only: [:new, :create]
+    before_action :require_current_user, except: [:index]
     before_action :require_owner, only: [:edit, :update, :destroy]
 
 
@@ -70,10 +70,10 @@ module Api
 
     def require_owner
       @post = Post.find(params[:id])
-
+      @posts = Post.all
       unless @post.user_id == current_user.id || current_user == @post.sub.manager
         flash[:errors] = ["Only submitter of this post can implement this action!"]
-        render json: @post
+        render json: @posts
       end
     end
 

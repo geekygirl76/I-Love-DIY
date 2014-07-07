@@ -112,7 +112,7 @@ class PostsController < ApplicationController
 
     unless @post.user_id == current_user.id || current_user == @post.sub.manager
       flash[:errors] = ["Only submitter of this post can implement this action!"]
-      redirect_to post_url(@post)
+      redirect_to posts_url
     end
   end
 end
