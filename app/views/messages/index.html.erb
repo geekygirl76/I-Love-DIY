@@ -10,14 +10,9 @@
 
 
 
-<h5>Read Messages</h5>
+<h5><a href="<%= readmessages_messages_url %>">Read Messages</a></h5>
 
-<% @messages.each do |msg| %>
-  <% if  msg.receiver_id == current_user.id && msg.draft == "N" && msg.read && !msg.trashed  && !msg.blocked %>
-    <a href="<%= message_url(msg) %>"><%= msg.title %></a>
-    <br>
-  <% end  %>
-<% end %>
+
 
 <br>
 

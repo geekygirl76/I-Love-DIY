@@ -1,5 +1,10 @@
 class MessagesController < ApplicationController
 
+  def readmessages
+    @messages = Message.where(receiver_id: current_user.id, draft:"N", read: true, trashed: nil, blocked: nil)
+    render :childindex
+  end
+
   def block
     @message = Message.find(params[:id])
     @block_record = Blockrecord.new(sender_id: @message.sender_id, receiver_id: current_user.id)

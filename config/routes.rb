@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   resources :messages do
     get :open, :senddraft, :trash, :block, on: :member
-
+    get :readmessages, on: :collection
   end
 
   namespace :api, defaults: { format: :json } do
