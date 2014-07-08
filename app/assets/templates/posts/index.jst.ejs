@@ -11,7 +11,11 @@
     <li>
     <a href="#/posts/<%= post.id %>"><%= post.escape("title") %></a> (Score: <%=post.escape("score")%>)
 
+
+
+    <figure class="post-picture">
     <img src="<%= post.get("photo_url") %>">
+    </figure>
 
 
     <button class="delete" data-id="<%= post.id %>">Delete!</button>

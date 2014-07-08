@@ -24,7 +24,7 @@ module Api
     def index
       @posts = Post.all
 
-
+      render "index"
 
     end
 
@@ -33,7 +33,7 @@ module Api
       @post = Post.find(params[:id])
       @comments = @post.comments
 
-      # render json: @post.as_json(methods: :photo_display_url)
+
       render "show"
     end
 
@@ -46,7 +46,7 @@ module Api
       @post = Post.find(params[:id])
 
       if @post.update_attributes(post_params)
-        render json: @post
+        render "show"
       else
 
         render json: { errors: @post.errors.full_messages }, status: 422
