@@ -7,7 +7,9 @@
 
 <header class="post-header">
   <h1 class="title"><%= post.escape("title") %></h1>
-
+  Author: <%= post.escape("user_id") %>
+  <br>
+  Pusblished at: <%= post.escape("created_at") %>
 
      <br>
      <br>
