@@ -52,7 +52,7 @@
        value="<%= channel.id %>"
        >
 
-       <%= channel.escape("title") %>
+       <%= channel.escape("title") %>(<%= (Diy.subs.get(channel.get("sub_id"))).escape("title") %>)
      </option>
 
   <% }) %>
