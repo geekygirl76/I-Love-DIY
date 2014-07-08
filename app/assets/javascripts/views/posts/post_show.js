@@ -7,7 +7,7 @@ Diy.Views.PostShow = Backbone.View.extend({
     "click button#comment-comment" : "submitChildComment"
   },
 
-  
+
 
   submitComment: function(event){
     event.preventDefault;
@@ -40,10 +40,11 @@ Diy.Views.PostShow = Backbone.View.extend({
 
   render: function(){
     console.log("In backbone post show view");
-
+   console.log("sub of this post:",Diy.subs.get(this.model.get("sub_id")).get("title"));
     var content = this.template({
       post: this.model,
-
+      sub: Diy.subs.get(this.model.get("sub_id")),
+      channel: Diy.channels.get(this.model.get("channel_id"))
     });
     this.$el.html(content);
     return this;
