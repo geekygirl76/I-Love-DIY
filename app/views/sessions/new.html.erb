@@ -44,6 +44,7 @@
   <input
     type="password"
     name="user[password]"
+    value="<%= @user.password %>"
     id="user_password">
     <br>
 
@@ -51,6 +52,7 @@
   <input
     type="email"
     name="user[email]"
+    value="<%= @user.email %>"
     id="user_email">
     <br>
  <button class="submit-button">
@@ -66,8 +68,8 @@ OR
 <h3>Not a user? <a href="<%= new_user_url %>">Sign Up Now</a></h3>
 
 <br>
-<h3><a >Employer? Please click here to log in as "tomato"</a> </h3>
+<h3>Employer? Please click here to log in as <a href="">Demo User</a> </h3>
 <br>
-<h3>This is my final project for <a href="http://www.appacademy.io/">App Academy</a>. It's a clone of <a href="http://www.instructables.com">www.instructables.com</a>.</h3>
+
 </body>
 
