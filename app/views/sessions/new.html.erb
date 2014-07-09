@@ -1,75 +1,137 @@
 <head>
   <style>
+  main {
+    display: block;
+    margin: auto;
+    width: 600px;
+    height: 400px;
+    background: white;
+    border-radius: 10px;
+    border: 1px solid grey;
+    padding: 40px;
+  }
+
+  header{
+    color:red;
+
+  }
+  header a{
+    color:red;
+  }
+
+  form {
+    width:500px;
+    height:100px;
+    background: lightgrey;
+    margin:auto;
+    padding: 30px;
+    border-radius: 10px;
+  }
 
   button{
 
   }
 
-  button > a{
-    display: block;
-    background: green;
-    color: white;
-    font-weight: bold;
-    padding:5px 10px;
-    border: 3px solid blue;
-  }
+
 
   button.submit-button {
-      background: green;
+      background: red;
       color: white;
       font-weight: bold;
+      font-size:16px;
       padding:5px 10px;
-      border: 3px solid blue;
+
+  }
+
+  .signin-button{
+
+    background: red;
+    color: white;
+    font-weight: bold;
+    font-size:16px;
+    padding:5px 10px;
+    margin-left: 100px;
+    border-radius: 3px;
+
+  }
+
+  label{
+    font-weight:bold;
+  }
+
+  input.space{
+    width: 300px;
+    height: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 5px;
+    margin:3px;
+  }
+
+  .demo{
+    color: red;
+  }
+
+  p{
+    margin-top:30px;
   }
 
   </style>
 
 </head>
 <body>
-<h1>Log In</h1>
-
+<main>
+  <header>
+    <ul class="header-list">
+     <li class="header-left"><h3>home: login </h3></li>
+     <li class="header-right"><h4><a class="signup" href="<%= new_user_url %>">sign up</a></h4></li>
+   </ul>
+  </header>
 <form action="<%= session_url %>" method="post">
-  <input type="hidden" name="authenticity_token"
+
+  <input  type="hidden" name="authenticity_token"
          value="<%= form_authenticity_token %>" />
 
-  <label for="user_username">Username</label>
-  <input
+  <label  for="user_username">Username:</label>
+  <input class="space"
     type="text"
     name="user[username]"
     value="<%= @user.username %>"
     id="user_username">
     <br>
 
-  <label for="user_password">Password</label>
-  <input
+  <label   for="user_password">Password:</label>
+  <input class="space"
     type="password"
     name="user[password]"
     value="<%= @user.password %>"
     id="user_password">
     <br>
 
-  <label for="user_email">Email</label>
-  <input
+  <label  for="user_email">Email:</label>
+  <input class="space"
     type="email"
     name="user[email]"
     value="<%= @user.email %>"
     id="user_email">
     <br>
+
+
  <button class="submit-button">
-  <input  type="submit" value="Submit">
+  <input  type="submit" value="Log In!">
   </button>
 </form>
 
-OR
-<button>
-<a href="/auth/facebook">Facebook Log In</a>
-</button>
 
-<h3>Not a user? <a href="<%= new_user_url %>">Sign Up Now</a></h3>
+<p>
+<a class="signin-button facebook"  href="/auth/facebook"> or Facebook Log In</a>
 
-<br>
-<h3>Employer? Please click here to log in as <a href="<%= demo_session_url %> ">Demo User</a> </h3>
-<br>
 
+<a class="signin-button signup" href="<%= new_user_url %>">or Sign Up Now</a>
+
+
+<h3>Employer? Please click here to log in as <a class="demo" href="<%= demo_session_url %> ">Demo User</a> </h3>
+</p>
+</main>
 </body>
 
