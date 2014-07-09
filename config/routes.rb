@@ -56,8 +56,10 @@ Rails.application.routes.draw do
   end
 
 
-  resource :session, only: [:new, :create, :destroy]
+  resource :session, only: [:new, :create, :destroy] do
+    get :demo, on: :collection
+  end
 
-  # root "subs#index"
+
 
 end
