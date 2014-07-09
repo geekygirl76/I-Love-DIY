@@ -105,10 +105,11 @@
 
     <% if(post.get("sub_id") === sub.id){ %>
 
-     <li ><a href="#/posts/<%= post.id %>"><%= post.escape("title") %></a></li>
-     <figure class="post-img">
+     <li ><a href="#/posts/<%= post.id %>"><%= post.escape("title") %></a>
+
      <img src="<%= post.get("photo_url") %>">
-     </figure>
+     </li>
+
   <% } %>
 
 

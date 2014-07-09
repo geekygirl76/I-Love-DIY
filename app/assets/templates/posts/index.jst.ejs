@@ -91,11 +91,11 @@
     <a href="#/posts/<%= post.id %>"><%= post.escape("title") %></a> (Score: <%=post.escape("score")%>)
 
 
-    <div class="thumb-pic">
+
 
     <img src="<%= post.get("photo_url") %>">
 
-    <div class="thumb-pic">
+
 
     <button class="delete" data-id="<%= post.id %>">Delete!</button>
     <a href="#/posts/<%= post.id %>/edit">Edit</a>
