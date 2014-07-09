@@ -1,14 +1,105 @@
-<h1>Subforum: <%= @channel.sub.title %></h1>
+<head>
+  <style>
 
-<h3>Channel: <%= @channel.title %></h3>
-<br>
-<ul>
-  <h3>Posts</h3>
+  body{
+    padding: 20px;
+  }
+
+  .posts > ul{
+    float: right;
+  }
+
+  .posts > ul > li > a{
+    display: block;
+    float: left;
+  }
+
+  body{
+    background: rgb(202, 227, 221);
+  }
+
+  nav.channel-show{
+    width: 700px;
+    height: auto;
+    margin:auto;
+    background: rgb(228, 234, 233);
+  padding: 5px 10px;
+  border: 1px solid lightblue;
+  }
+
+  main.posts-channel{
+    width:700px;
+    min-height:500px;
+    background: rgb(241, 246, 245);
+    margin:auto;
+  padding: 5px 10px;
+  border: 1px solid lightblue;
+  }
+
+
+
+  nav >h3{
+    font-weight:bold;
+  }
+
+ main.posts-channel > ul{
+
+  }
+
+  main.posts-channel > ul > li{
+    float:right;
+    width: 200px;
+    margin: 15px;
+  }
+
+  footer.channel-footer{
+      width:700px;
+      height:60px;
+      background: rgb(228, 234, 233);
+      margin:auto;
+    padding: 5px 10px;
+    border: 1px solid lightblue;
+  }
+
+  footer>a{
+    display:block;
+    padding: 10px 15px;
+    font-weight:bold;
+  }
+
+  footer > ul{
+    float:left;
+  }
+
+  footer >ul> li{
+    float: right;
+    padding: 10px 15px;
+  }
+
+
+  </style>
+</head>
+
+<body>
+
+<nav class="channel-show">
+<h3><%= @channel.title %></h3>
+</nav>
+
+<main class="posts-channel">
+<ul class="group">
+
   <% @channel.posts.each do |post| %>
    <li><%= link_to post.title, post_url(post) %>
      <%= image_tag post.photo.url(:thumb) %>
    </li>
-   <br>
+
  <% end %>
 
 </ul>
+</main>
+
+<footer class='channel-footer'>
+  <a href="<%= sub_url(@channel.sub) %>"><%= @channel.sub.title %></a>
+  </footer>
+</body>

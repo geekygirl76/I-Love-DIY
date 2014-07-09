@@ -29,25 +29,50 @@
 
   main.posts-sub{
     width:700px;
-    height:auto;
+    min-height:500px;
     background: rgb(241, 246, 245);
     margin:auto;
   padding: 5px 10px;
   border: 1px solid lightblue;
   }
 
+
+
   nav >h3{
     font-weight:bold;
   }
 
+ main.posts-sub > ul{
+
+  }
+
+  main.posts-sub > ul > li{
+    float:right;
+    width: 200px;
+    margin: 15px;
+  }
+
   footer.sub-footer{
       width:700px;
-      height:auto;
+      height:60px;
       background: rgb(228, 234, 233);
       margin:auto;
     padding: 5px 10px;
     border: 1px solid lightblue;
   }
+
+
+
+  footer > ul{
+    float:left;
+  }
+
+  footer >ul> li{
+    float: right;
+    padding: 10px 15px;
+  }
+
+
   </style>
 </head>
 
@@ -62,21 +87,21 @@
 
 <main class="posts-sub">
 <ul class="posts group">
-  <h3>Posts</h3>
+
   <% @sub.posts.each do |post| %>
-   <li><%= link_to post.title, post_url(post) %>
+   <li class="post-img"><%= link_to post.title, post_url(post) %>
      <%= image_tag post.photo.url(:thumb) %>
    </li>
-   <br>
+
  <% end %>
 </ul>
 </main>
 
 <footer class='sub-footer'>
-<ul>
-  <h3>Channels</h3>
+<ul class="sub-footer group">
+
   <% @sub.channels.each do |channel| %>
-    <li><%= link_to channel.title, channel_url(channel) %></li>
+    <li class="channel-name"><a><%= link_to channel.title, channel_url(channel) %></a></li>
   <% end %>
 </ul>
 
