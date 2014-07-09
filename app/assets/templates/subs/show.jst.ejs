@@ -1,18 +1,112 @@
-<a href="#/posts">Explore All Posts</a>
-<br>
-<a href="#/posts/new">Create Post</a>
+<head>
+  <style>
 
-<h1><%= sub.escape("title") %></h1>
+  body{
+    padding: 20px;
+  }
 
-<h3>Posts</h3>
-<ul>
+  .posts > ul{
+    float: right;
+  }
+
+  .posts > ul > li > a{
+    display: block;
+    float: left;
+  }
+
+  body{
+    background: rgb(202, 227, 221);
+  }
+
+  nav.sub-show{
+    width: 700px;
+    height: 60px;
+    margin:auto;
+    background: rgb(228, 234, 233);
+  padding: 5px 10px;
+  border: 1px solid lightblue;
+  }
+
+  main.posts-sub{
+    width:700px;
+    min-height:500px;
+    background: rgb(241, 246, 245);
+    margin:auto;
+  padding: 5px 10px;
+  border: 1px solid lightblue;
+  }
+
+  nav.sub-show >ul{
+    float:left;
+  }
+
+  nav.sub-show >ul > li {
+    float:right;
+    padding: 10px 15px;
+  }
+
+  nav >h3{
+
+    font-weight:bold;
+
+  }
+
+ main.posts-sub > ul{
+
+  }
+
+  main.posts-sub > ul > li{
+    float:right;
+    width: 200px;
+    margin: 15px;
+  }
+
+  footer.sub-footer{
+      width:700px;
+      height:60px;
+      background: rgb(228, 234, 233);
+      margin:auto;
+    padding: 5px 10px;
+    border: 1px solid lightblue;
+  }
+
+
+
+  footer > ul{
+    float:left;
+  }
+
+  footer >ul> li{
+    float: right;
+    padding: 10px 15px;
+  }
+
+
+  </style>
+</head>
+
+<body>
+
+<nav class="sub-show">
+  <ul class="group">
+
+     <li><a href="#/posts"><h3>All Posts</h3></a></li>
+
+     <li><a href="#/posts/new"><h3>Create Post</h3></a></li>
+     <li><h3><%= sub.escape("title") %></h3></li>
+  </ul>
+
+</nav>
+
+<main class="posts-sub">
+<ul class="group">
   <% posts.each(function(post){ %>
 
 
     <% if(post.get("sub_id") === sub.id){ %>
 
-     <li><a href="#/posts/<%= post.id %>"><%= post.escape("title") %></a></li>
-     <figure class="post-picture">
+     <li ><a href="#/posts/<%= post.id %>"><%= post.escape("title") %></a></li>
+     <figure class="post-img">
      <img src="<%= post.get("photo_url") %>">
      </figure>
   <% } %>
@@ -21,9 +115,11 @@
   <% }) %>
 </ul>
 
+</main>
 
-<h3>Channels</h3>
-<ul>
+<footer class="sub-footer">
+
+<ul class="group">
   <% channels.each(function(channel){ %>
 
 
@@ -36,5 +132,6 @@
 
   <% }); %>
 </ul>
-
+</footer>
+</body>
 
