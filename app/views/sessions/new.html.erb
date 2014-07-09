@@ -6,8 +6,8 @@
     width: 600px;
     height: 400px;
     background: white;
-    border-radius: 10px;
-    border: 1px solid grey;
+
+    border: 1px solid lightgrey;
     padding: 40px;
   }
 
@@ -17,6 +17,15 @@
   }
   header a{
     color:red;
+  }
+
+  footer>a{
+    color: red;
+  }
+
+  footer>a:hover{
+    color:red;
+    text-decoration:underline;
   }
 
   form {
@@ -76,6 +85,15 @@
     margin-top:30px;
   }
 
+  footer{
+    width:640px;
+    height: 30px;
+    background: rgb(233, 235, 235);
+  margin:auto;
+  padding: 20px;
+  border: 1px solid lightgrey;
+  }
+
   </style>
 
 </head>
@@ -133,5 +151,9 @@
 <h3>Employer? Please click here to log in as <a class="demo" href="<%= demo_session_url %> ">Demo User</a> </h3>
 </p>
 </main>
+
+<footer>
+  This is my final project for <a href="http://appacademy.io">App Academy</a>.  Its'a clone of <a href="http://www.instructables.com">instructables</a>.     <a href="" >More about me</a>.
+</footer>
 </body>
 
