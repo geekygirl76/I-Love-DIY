@@ -14,20 +14,53 @@
     float: left;
   }
 
+  body{
+    background: rgb(202, 227, 221);
+  }
 
+  nav.sub-show{
+    width: 700px;
+    height: auto;
+    margin:auto;
+    background: rgb(228, 234, 233);
+  padding: 5px 10px;
+  border: 1px solid lightblue;
+  }
+
+  main.posts-sub{
+    width:700px;
+    height:auto;
+    background: rgb(241, 246, 245);
+    margin:auto;
+  padding: 5px 10px;
+  border: 1px solid lightblue;
+  }
+
+  nav >h3{
+    font-weight:bold;
+  }
+
+  footer.sub-footer{
+      width:700px;
+      height:auto;
+      background: rgb(228, 234, 233);
+      margin:auto;
+    padding: 5px 10px;
+    border: 1px solid lightblue;
+  }
   </style>
 </head>
 
 
 <body>
-<nav>
+<nav class="sub-show">
 
-  <h1>Subforum: <%= @sub.title %></h1>
+  <h3><%= @sub.title %></h3>
 
 
 </nav>
-<br>
 
+<main class="posts-sub">
 <ul class="posts group">
   <h3>Posts</h3>
   <% @sub.posts.each do |post| %>
@@ -37,8 +70,9 @@
    <br>
  <% end %>
 </ul>
+</main>
 
-<br>
+<footer class='sub-footer'>
 <ul>
   <h3>Channels</h3>
   <% @sub.channels.each do |channel| %>
@@ -47,7 +81,7 @@
 </ul>
 
 
-<footer>
+
 
 
 
