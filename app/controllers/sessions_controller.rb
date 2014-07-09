@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
 
   def demo
-    @user = User.find(3)
+    @user = User.find(1)
     @user.password = @user.username
     render :new
   end
