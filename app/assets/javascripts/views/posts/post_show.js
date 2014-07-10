@@ -4,7 +4,17 @@ Diy.Views.PostShow = Backbone.View.extend({
 
   events: {
     "click button#post-comment" : "submitComment",
-    "click button#comment-comment" : "submitChildComment"
+    "click button#comment-comment" : "submitChildComment",
+    "click .delete": "destroyPost"
+  },
+
+  destroyPost:function(event){
+
+    var $target = $(event.target);
+
+    var post = Diy.posts.get($target.attr("data-id"));
+
+    post.destroy();
   },
 
 
@@ -35,12 +45,13 @@ Diy.Views.PostShow = Backbone.View.extend({
 
   initialize: function(){
     this.listenTo(this.model, "sync", this.render);
-    this.listenTo(this.model.comments(), "sync add", this.render);
+    this.listenTo(this.model.comments(), "sync add change:title remove", this.render);
   },
 
   render: function(){
+
     console.log("In backbone post show view");
-   console.log("sub of this post:",Diy.subs.get(this.model.get("sub_id")).get("title"));
+   console.log("This post:", this.model);
     var content = this.template({
       post: this.model,
       sub: Diy.subs.get(this.model.get("sub_id")),

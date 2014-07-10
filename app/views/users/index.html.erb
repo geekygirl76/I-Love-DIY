@@ -1,8 +1,54 @@
+  <head>
+    <style>
+    nav.message{
+      width: 700px;
+      height: auto;
+      margin:auto;
+      background: rgb(228, 234, 233);
+    padding: 5px 10px;
+    border: 1px solid lightblue;
+    }
+
+    main.blocked{
+      width:700px;
+      min-height:500px;
+      background: rgb(241, 246, 245);
+      margin:auto;
+    padding: 5px 10px;
+    border: 1px solid lightblue;
+    }
+
+    main.blocked > h1{
+      text-align: center;
+    }
+
+    main.blocked h4{
+      text-align: center;
+      font-size:24px;
+    }
+    </style>
+  </head>
+
+  <body>
+    <nav class="message">
+      <a href="<%= messages_url %>">Back To Inbox</a>
+    </nav>
+
+    <main class="blocked">
   <h1>Blocked Users:</h1>
 
+  <ul class="group">
   <% @users.each do |u| %>
     <% if Blockrecord.where(sender_id: u.id, receiver_id: current_user.id ).count > 0 %>
-      <%= u.username %>
-    <br>
+      <li><h4><%= u.username %></h4></li>
+
     <% end %>
   <% end %>
+  </ul>
+  </main>
+
+ <footer>
+    <h4>Do It Yourself, Make It Unique!</h4>
+</footer>
+
+  </body>

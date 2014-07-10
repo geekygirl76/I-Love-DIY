@@ -93,7 +93,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.destroy
     @sub = @post.sub
-    redirect_to @sub
+    redirect_to posts_url
   end
 
   def personal

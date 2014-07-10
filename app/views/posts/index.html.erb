@@ -92,9 +92,7 @@
       <div class="thumb-pic">
         <%= image_tag post.photo.url(:medium) %>
     </div>
-  <a><%= button_to "Delete!", post_url(post), method: :delete %></a>
 
-  <%= link_to "Edit", edit_post_url(post) %>
     </li>
 
   <% end %>

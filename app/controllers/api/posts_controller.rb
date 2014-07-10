@@ -39,7 +39,7 @@ module Api
 
     def edit
       @post = Post.find(params[:id])
-      render json: @post
+      render "show"
     end
 
     def update
@@ -56,8 +56,8 @@ module Api
     def destroy
       @post = Post.find(params[:id])
       @post.destroy
-      @sub = @post.sub
-      render json: @sub
+
+      render json: @post
     end
 
     private
@@ -73,7 +73,7 @@ module Api
       @posts = Post.all
       unless @post.user_id == current_user.id
         flash[:errors] = ["Only submitter of this post can implement this action!"]
-        render json: @posts
+        render json: @post
       end
     end
 
