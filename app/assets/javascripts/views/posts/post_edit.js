@@ -19,7 +19,7 @@ Diy.Views.PostEdit = Backbone.View.extend({
   },
 
   submit: function(event){
-    console.log("backbone submit");
+    alert("Only submitter can do this!")
     var that = this;
       event.preventDefault();
 

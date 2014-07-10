@@ -72,7 +72,7 @@ module Api
       @post = Post.find(params[:id])
       @posts = Post.all
       unless @post.user_id == current_user.id
-        flash[:errors] = ["Only submitter of this post can implement this action!"]
+
         render json: @post
       end
     end
