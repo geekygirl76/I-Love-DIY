@@ -30,7 +30,7 @@
 
   form {
     width:500px;
-    height:500px;
+    height:320px;
     background: lightgrey;
     margin:auto;
     padding: 30px;
@@ -115,7 +115,7 @@
     type="email"
     name="user[email]"
     id="user_email">
-    <br>
+
 
   <label for="user_username">Username (Required)</label>
   <input class="space"
@@ -123,7 +123,7 @@
     name="user[username]"
     value="<%= user.username %>"
     id="user_username">
-    <br>
+
 
   <label for="user_password">Password (Required)</label>
   <input class="space"
@@ -131,7 +131,7 @@
     name="user[password]"
     id="user_password">
 
-  <br>
+
 
   <label for="user_confirm_password">Confirm Password (Required)</label>
   <input class="space"
@@ -139,7 +139,7 @@
     name="user[confirm_password]"
     id="user_confirm_password">
 
-  <br>
+
 
   <label for="user_age">Age (Optional)</label>
   <input class="space"
@@ -147,7 +147,18 @@
     name="user[age]"
     id="user_age">
 
-  <br>
+
+
+
+
+  <label for="user_zip">
+    Zip (Optional)
+    <input class="space"
+      type="text"
+      name="user[zip]"
+      id="user_zip">.
+  </label>
+
 
   <label for="user_gender">Gender (Optional)</label>
   <select name="user[gender]" id="user_gender">
@@ -160,18 +171,9 @@
       </option>
     <% end %>
   </select>
-  <br>
-
-  <label for="user_zip">
-    Zip (Optional)
-    <input class="space"
-      type="text"
-      name="user[zip]"
-      id="user_zip">.
-  </label>
 
 
-  <br>
+
   <label>
     Upload Picture
 
