@@ -201,7 +201,9 @@ padding: 20px;
 }
 
 
-
+li{
+  list-style:none;
+}
 
 
 .title{
@@ -281,4 +283,13 @@ padding: 20px;
   font-weight: bold;
 }
 
-
+footer{
+    width:700px;
+    height:60px;
+    background: rgb(228, 234, 233);
+    margin:auto;
+  padding: 5px 10px;
+  border: 1px solid lightblue;
+  font-size: 16px;
+  font-weight: bold;
+}
