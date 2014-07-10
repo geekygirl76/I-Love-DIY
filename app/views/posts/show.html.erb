@@ -1,32 +1,84 @@
 
 
-<h4 >Subforum: <%= @post.sub.title %></h4>
-<h4 >Channel: <%= @post.channel.title %></h4>
+<head>
+  <style>
 
-<header class="post-header">
-  <h1 class="title"><%= @post.title %></h1>
-    <a><%= button_to "Collect", post_collects_url(@post), method: :post %></a>
-  <br>
-  <h5>Score: <%= @post.score %>
-    <%= link_to "like", upvote_post_url(@post) %>
-    <%= link_to "dislike", downvote_post_url(@post) %>
+  nav.post-show{
+    width: 700px;
+    height: auto;
+    margin:auto;
+    background: rgb(228, 234, 233);
+  padding: 5px 10px;
+  border: 1px solid lightblue;
+  }
+
+  main.post-article{
+    width:700px;
+    min-height:500px;
+    background: rgb(241, 246, 245);
+    margin:auto;
+  padding: 5px 10px;
+  border: 1px solid lightblue;
+  }
+
+  footer.post-footer{
+      width:700px;
+      height:60px;
+      background: rgb(228, 234, 233);
+      margin:auto;
+    padding: 5px 10px;
+    border: 1px solid lightblue;
+  }
+
+  .post-footer > ul{
+    float:left;
+  }
+
+  .post-footer > ul > li{
+    float: right;
+  padding: 10px 15px;
+  }
+
+  </style>
+</head>
+
+
+<body>
+
+<nav class="post-show">
+  <ul class="group">
+      <li><h3 >Subforum: <%= @post.sub.title %></h3></li>
+      <li><h3 >Channel: <%= @post.channel.title %></h3></li>
+  </ul>
+</nav>
+
+<main class="post-article">
+  <h1 class="title"><%= @post.title %></h1> <h4>by: <%= User.find(@post.user_id).username || "Guest" %></h4>
+
+
+ <ul class="group">
+    <li><h5>Score: <%= @post.score %></h5></li>
+    <li><%= link_to "like", upvote_post_url(@post) %></li>
+    <li><%= link_to "dislike", downvote_post_url(@post) %></li>
+</ul>
+
+ <ul class="group">
+  <li><a><%= button_to "Collect", post_collects_url(@post), method: :post %></a></li>
   <% if @post.user_id != current_user.id %>
-     <%= link_to "Write To Auther", new_message_url %>
+     <li><%= link_to "Write To Auther", new_message_url %></li>
   <% end %>
+</ul>
 
-   <p>
-     author: <%= User.find(@post.user_id).username || "Guest" %>
-     Published at: <%= @post.created_at.to_s %>
-   </p>
-
- </header>
-<article class="post-article">
-  <%= @post.body %>
-</article>
 
 <figure class="post-picture">
 <%= image_tag @post.photo.url(:thumb) %>
 </figure>
+
+<article class="post-article">
+  <%= @post.body %>
+</article>
+
+
 
 
 <form class="post-form" action="<%= post_comments_url(@post) %>" method="post">
@@ -72,13 +124,16 @@
 </ul>
 
 </comments>
+</main>
 
 <footer class="post-footer">
+  <ul class="footer-ul group">
 <% if @post.user_id == current_user.id %>
-  <%= link_to "Edit post", edit_post_url %>
-  <%= button_to "Delete post", post_url, method: :delete %>
+  <li><%= link_to "Edit post", edit_post_url %></li>
+  <li><a><%= button_to "Delete post", post_url, method: :delete %></a></li>
 <% end %>
+</ul>
 </footer>
-
+</body>
 
 
