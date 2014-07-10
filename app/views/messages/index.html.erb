@@ -1,29 +1,56 @@
-<h3><a href="<%= unreadmessages_messages_url %>">Unread Messages</h3>
+<head>
+  <style>
+  nav.inbox{
+    width: 700px;
+    height: auto;
+    margin:auto;
+    background: rgb(228, 234, 233);
+  padding: 5px 10px;
+  border: 1px solid lightblue;
+  }
 
+  nav.inbox > ul> li{
+    float: left;
+    padding: 10px 15px;
+  }
 
+  main.inbox{
+    width:700px;
+    min-height:500px;
+    background: rgb(241, 246, 245);
+    margin:auto;
+  padding: 5px 10px;
+  border: 1px solid lightblue;
+  }
 
+  main.inbox> h3{
+    font-size: 36px;
+    font-weight: bold;
+    padding-left:200px;
 
-<h3><a href="<%= readmessages_messages_url %>">Read Messages</a></h3>
+  }
 
+  </style>
+</head>
 
+<body>
 
-<br>
+  <nav class="inbox">
+    <ul class="group">
+      <li><h3><a href="<%= readmessages_messages_url %>">Read </a></h3></li>
+      <li><h3><a href="<%= sentmsgs_messages_url %>">Sent</a></h3></li>
+      <li><h3><a href="<%= trashedmessages_messages_url %>">Trash</a></h3></li>
+      <li><h3><a href="<%= drafts_messages_url %>">Drafts</a></h3></li>
+    </ul>
+  </nav>
 
-<h3><a href="<%= trashedmessages_messages_url %>">Trashed Messages</a></h3>
+  <main class="inbox">
+    <h3><a href="<%= unreadmessages_messages_url %>">Unread Messages</h3>
+  </main>
 
-====================================================
+  <footer class="inbox">
+    <h3><a href="<%= users_url %>">Blocked Users</a></h3>
+  </footer>
 
-<h3><a href="<%= users_url %>">Blocked Users</a></h3>
-
-
-<br>
-====================================================
-<h3><a href="<%= sentmsgs_messages_url %>">Sent Messages</a></h3>
-
-
-
-<br>
-
-<h3><a href="<%= drafts_messages_url %>">Drafts</a></h3>
-
+</body>
 
