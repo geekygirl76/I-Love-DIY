@@ -26,7 +26,7 @@
 <body>
 
   <nav class='new-message'>
-      <h1>Write Letter</h1>
+      <h1><a href="<%= messages_url %>">Inbox</a></h1>
    </nav>
 <form class="message-form" action="<%= messages_url %>" method="post" >
   <input type="hidden" name="authenticity_token"

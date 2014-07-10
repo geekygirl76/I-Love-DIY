@@ -1,8 +1,33 @@
-<a href="<%= messages_url %>">Back To Inbox</a>
-<br>
-<br>
+<head>
+  <style>
+  nav.child{
+    width: 700px;
+    height: auto;
+    margin:auto;
+    background: rgb(228, 234, 233);
+  padding: 5px 10px;
+  border: 1px solid lightblue;
+  }
+
+  main.child{
+    width:700px;
+    min-height:500px;
+    background: rgb(241, 246, 245);
+    margin:auto;
+  padding: 5px 10px;
+  border: 1px solid lightblue;
+  }
+  </style>
+</head>
 
 
+<body>
+  <nav class="child">
+    <a href="<%= messages_url %>">Back To Inbox</a>
+  </nav>
+
+
+<main class="child">
 
 <% @messages.each do |msg| %>
   <% if  msg.receiver_id == current_user.id  && msg.draft == "N" && !msg.read && !msg.blocked %>
@@ -23,3 +48,10 @@
 
     <% end  %>
 <% end %>
+</main>
+
+<footer>
+  <li><h4>Do It Yourself, Make It Unique!</h4></li>
+</footer>
+
+</body>

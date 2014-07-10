@@ -110,7 +110,7 @@ class PostsController < ApplicationController
   def require_owner
     @post = Post.find(params[:id])
 
-    unless @post.user_id == current_user.id || current_user == @post.sub.manager
+    unless @post.user_id == current_user.id
       flash[:errors] = ["Only submitter of this post can implement this action!"]
       redirect_to posts_url
     end
