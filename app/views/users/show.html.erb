@@ -27,7 +27,35 @@
   border: 1px solid lightblue;
   }
 
+  figure{
+    width: 100px;
+    height: auto;
+  }
 
+  main.welcome{
+
+
+  }
+
+  main > .welcome > h1{
+    margin: 50px;
+  }
+
+  main > .user-pic{
+
+    margin: 50px;
+    margin-left:300px;
+  }
+
+  main > .user-info{
+
+    margin:50px;
+  }
+
+  main > .user-info > ul > li{
+    padding: 10px 15px;
+    font-weight: bold;
+  }
 
   </style>
 </head>
@@ -53,16 +81,24 @@
 
 
 <main class="user">
-<h1>Welcome!<%= current_user.username == "" ? "Guest" : current_user.username %></h1>
-<%= image_tag @user.photo.url(:thumb) %>
+  <div class="welcome">
+  <h1>Welcome!<%= current_user.username == "" ? "Guest" : current_user.username %></h1>
+  </div>
 
-Age: <%= current_user.age %>
+  <div class="user-pic">
+  <figure class="user">
+    <%= image_tag @user.photo.url(:thumb) %>
+  </figure>
+  </div>
 
+  <div class="user-info">
+  <ul class="group">
+     <li>Age: <%= current_user.age || "Not Available" %></li>
+     <li>Gender: <%= current_user.gender || "Not Available" %></li>
+     <li>Zip: <%= current_user.zip || "Not Available"%></li>
+  </ul>
+  </div>
 
-Gender: <%= current_user.gender %>
-
-
-Zip: <%= current_user.zip %>
 </main>
 
 <footer>

@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_attached_file :photo, :styles => {  :thumb => "100x100>" }, :default_url => "avatar.jpeg"
+  has_attached_file :photo, :styles => {  :thumb => "100x100#" }, :default_url => "avatar.jpeg"
   validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/
 
   GENDERS = [ "Female", "Male", "None of your business", "Robot"]
@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
   has_many :collects
   has_many :blockrecords, class_name: "Blockrecord", foreign_key: :receiver_id
   has_many :voterecords
-  
+
 
   before_create :add_activation_token
 

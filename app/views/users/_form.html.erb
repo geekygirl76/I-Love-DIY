@@ -40,7 +40,7 @@
 
   <br>
 
-  <label for="user_age">Age</label>
+  <label for="user_age">Age (Optional)</label>
   <input
     type="text"
     name="user[age]"
@@ -48,7 +48,7 @@
 
   <br>
 
-  <label for="user_gender">Gender</label>
+  <label for="user_gender">Gender (Optional)</label>
   <select name="user[gender]" id="user_gender">
     <option></option>
     <% User::GENDERS.each do |gender| %>
@@ -66,7 +66,7 @@
     <input
       type="text"
       name="user[zip]"
-      id="user_zip">or Postal Code if you are outside US.
+      id="user_zip">or Postal Code if you are outside US (Optional).
   </label>
 
 
