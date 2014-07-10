@@ -16,13 +16,14 @@ class User < ActiveRecord::Base
 
   has_many :subs, class_name: "Sub", foreign_key: :user_id
   has_many :posts, through: :subs, source: :posts
-  has_many :posts
+  has_many :posts, dependent: :destroy
   has_many :comments, inverse_of: :user
   has_many :sent_messages, class_name: "Message", foreign_key: :sender_id
   has_many :received_messages, class_name: "Message", foreign_key: :receiver_id
-  has_many :collects
-  has_many :blockrecords, class_name: "Blockrecord", foreign_key: :receiver_id
-  has_many :voterecords
+  has_many :collects, dependent: :destroy
+  has_many :blockrecords, class_name: "Blockrecord", foreign_key: :receiver_id, dependent: :destroy
+  has_many :blockrecords, class_name: "Blockrecord", foreign_key: :sender_id, dependent: :destroy
+  has_many :voterecords, dependent: :destroy
 
 
   before_create :add_activation_token

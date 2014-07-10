@@ -1,5 +1,6 @@
 class CollectsController < ApplicationController
   def create
+
     @collect = Collect.new
     @user = current_user
     @post = Post.find(params[:post_id])

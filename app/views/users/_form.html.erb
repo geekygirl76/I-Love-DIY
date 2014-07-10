@@ -1,3 +1,104 @@
+<head>
+  <style>
+  main {
+    display: block;
+    margin: auto;
+    width: 600px;
+    height: 450px;
+    background: white;
+
+    border: 1px solid lightgrey;
+    padding: 40px;
+  }
+
+  header{
+    color:red;
+
+  }
+  header a{
+    color:red;
+  }
+
+  footer>a{
+    color: red;
+  }
+
+  footer > a:hover{
+    color:red;
+    text-decoration:underline;
+  }
+
+  form {
+    width:500px;
+    height:500px;
+    background: lightgrey;
+    margin:auto;
+    padding: 30px;
+    border-radius: 10px;
+  }
+
+  button{
+
+  }
+
+
+
+  button.submit-button {
+      background: red;
+      color: white;
+      font-weight: bold;
+      font-size:16px;
+      padding:5px 10px;
+
+  }
+
+  .signin-button{
+
+    background: red;
+    color: white;
+    font-weight: bold;
+    font-size:16px;
+    padding:5px 10px;
+    margin-left: 100px;
+    border-radius: 3px;
+
+  }
+
+  label{
+    font-weight:bold;
+  }
+
+  input.space{
+    display: block;
+    width: 300px;
+    height: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 5px;
+    margin:3px;
+  }
+
+  .demo{
+    color: red;
+  }
+
+  p{
+    margin-top:30px;
+  }
+
+  footer{
+    width:640px;
+    height: 30px;
+    background: rgb(233, 235, 235);
+  margin:auto;
+  padding: 20px;
+  border: 1px solid lightgrey;
+  }
+
+  </style>
+</head>
+
+<body>
 <% action_url = (action == :edit ? user_url(user) : users_url) %>
 
 <form action="<%= action_url %>" method="post" enctype="multipart/form-data">
@@ -10,14 +111,14 @@
 
 
   <label for="user_email">Email (Required)</label>
-  <input
+  <input class="space"
     type="email"
     name="user[email]"
     id="user_email">
     <br>
 
   <label for="user_username">Username (Required)</label>
-  <input
+  <input class="space"
     type="text"
     name="user[username]"
     value="<%= user.username %>"
@@ -25,7 +126,7 @@
     <br>
 
   <label for="user_password">Password (Required)</label>
-  <input
+  <input class="space"
     type="password"
     name="user[password]"
     id="user_password">
@@ -33,7 +134,7 @@
   <br>
 
   <label for="user_confirm_password">Confirm Password (Required)</label>
-  <input
+  <input class="space"
     type="password"
     name="user[confirm_password]"
     id="user_confirm_password">
@@ -41,7 +142,7 @@
   <br>
 
   <label for="user_age">Age (Optional)</label>
-  <input
+  <input class="space"
     type="text"
     name="user[age]"
     id="user_age">
@@ -62,11 +163,11 @@
   <br>
 
   <label for="user_zip">
-    Zip
-    <input
+    Zip (Optional)
+    <input class="space"
       type="text"
       name="user[zip]"
-      id="user_zip">or Postal Code if you are outside US (Optional).
+      id="user_zip">.
   </label>
 
 
@@ -77,8 +178,9 @@
     <input type="file" name="user[photo]">
 
   </label>
-
-  <input type="submit" value="SIGN UP!">
+<button class="submit-button">
+  <input  type="submit" value="SIGN UP!">
+  </button>
 </form>
 
-
+</body>
