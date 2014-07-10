@@ -170,6 +170,8 @@
 <% if @post.user_id == current_user.id %>
   <li><%= link_to "Edit post", edit_post_url %></li>
   <li><a><%= button_to "Delete post", post_url, method: :delete %></a></li>
+  <% else %>
+  <li><h4>Do It Yourself, Make It Unique!</h4></li>
 <% end %>
 </ul>
 </footer>

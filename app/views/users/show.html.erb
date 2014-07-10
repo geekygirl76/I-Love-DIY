@@ -1,5 +1,32 @@
 <head>
   <style>
+  nav.user{
+    width: 700px;
+    height: 60px;
+    margin:auto;
+    background: rgb(228, 234, 233);
+  padding: 5px 10px;
+  border: 1px solid lightblue;
+  }
+
+  nav.user > ul{
+
+  }
+
+  nav.user > ul > li{
+    float:left;
+    padding: 10px 15px;
+  }
+
+  main.user{
+    width:700px;
+    min-height:500px;
+    background: rgb(241, 246, 245);
+    margin:auto;
+  padding: 5px 10px;
+  border: 1px solid lightblue;
+  }
+
 
 
   </style>
@@ -7,24 +34,25 @@
 
 <body>
 
-
-<a href="<%= new_message_url %>">Write Message</a>
-
-
-
-
-<a href="<%= messages_url %>">Inbox</a>(Unread: <%= @user.received_messages.select { |msg| msg.draft == "N" && !msg.read && !msg.blocked }.count %>)
-
-<a href="<%= collects_url %>">Collection</a>
-
-
-<a href="<%= personal_posts_url %>">Your Posts</a>
+<nav class="user">
+  <ul class="group">
+  <li><a href="<%= new_message_url %>">Write Message</a></li>
 
 
 
 
+  <li><a href="<%= messages_url %>">Inbox</a>(Unread: <%= @user.received_messages.select { |msg| msg.draft == "N" && !msg.read && !msg.blocked }.count %>)</li>
+
+ <li><a href="<%= collects_url %>">Collection</a></li>
 
 
+ <li><a href="<%= personal_posts_url %>">Your Posts</a></li>
+</ul>
+</nav>
+
+
+
+<main class="user">
 <h1>Welcome!<%= current_user.username == "" ? "Guest" : current_user.username %></h1>
 <%= image_tag @user.photo.url(:thumb) %>
 
@@ -35,7 +63,7 @@ Gender: <%= current_user.gender %>
 
 
 Zip: <%= current_user.zip %>
-
+</main>
 
 <footer>
   <li><h4>Do It Yourself, Make It Unique!</h4></li>
