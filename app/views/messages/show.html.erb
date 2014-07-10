@@ -11,12 +11,44 @@
   }
 
   main.message{
-    width:700px;
+    width:660px;
     min-height:500px;
     background: rgb(241, 246, 245);
     margin:auto;
   padding: 5px 10px;
   border: 1px solid lightblue;
+  }
+
+  main.message{
+    padding:30px;
+  }
+
+  h1{
+
+
+
+    text-align: center;
+  }
+
+  li.letter-info{
+
+
+    padding: 30px 0;
+  }
+
+  p{
+    width: 460px;
+    min-height: 500px;
+    border: 1px solid grey;
+    margin: auto;
+    padding:20px;
+    font-size: 16px;
+    font-weight: bold;
+    background: rgb(228, 234, 233);
+  }
+
+  h3{
+    text-align:center;
   }
   </style>
 </head>
@@ -35,17 +67,17 @@
   <% if @message.draft == "Y" %>
     <li><h5>Draft:</h5></li>
   <% end %>
-
+ <div class="letter-title">
   <li><h1><%= @message.title %></h1></li>
-
+</div>
 
 <% if @message.sender_id == current_user.id %>
 
-  <li>Send to: <%= User.find(@message.receiver_id).username %></li>
+  <li class="letter-info"><h3>Send to: <%= User.find(@message.receiver_id).username %></h3></li>
 <% elsif @message.receiver_id == current_user.id %>
 
 
-  <li>Send by: <%= User.find(@message.sender_id).username %></li>
+  <li class="letter-info"><h3>Send by: <%= User.find(@message.sender_id).username %></h3></li>
 <% end %>
  </ul>
  </div>
