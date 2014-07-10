@@ -1,32 +1,113 @@
+<head>
+  <style>
+
+  nav.post-show{
+    width: 700px;
+    height: 60px;
+    margin:auto;
+    background: rgb(228, 234, 233);
+  padding: 5px 10px;
+  border: 1px solid lightblue;
+  }
+
+  div.post-title{
+      width: 700px;
+      height: 60px;
+     margin:auto;
+      padding: 5px 10px;
+  }
+
+  main.post-article{
+    width:700px;
+    min-height:500px;
+    background: rgb(241, 246, 245);
+    margin:auto;
+  padding: 5px 10px;
+  border: 1px solid lightblue;
+  }
+
+  footer.post-footer{
+      width:700px;
+      height:60px;
+      background: rgb(228, 234, 233);
+      margin:auto;
+    padding: 5px 10px;
+    border: 1px solid lightblue;
+  }
+
+  .post-footer > ul{
+    float:left;
+  }
+
+  .post-footer > ul > li{
+    float: right;
+  padding: 10px 15px;
+  }
+
+  .post-show > ul {
+    float:left;
+
+  }
+
+  .post-show > ul > li{
+    float: right;
+  padding: 10px 15px;
+  }
 
 
-<a href="#/posts">Explore All Posts</a>
 
-<h3>Subforum: <%= sub.escape("title") %></h3>
-<h3>Channel: <%= channel.escape("title") %></h3>
+  p.post-title > ul {
+
+  }
+
+  p.post-title > ul > li {
+
+    margin:auto;
+
+  }
+
+  img{
+    margin-bottom: 20px;
+  }
+  </style>
+</head>
 
 
 
+
+<body>
+
+<nav class="post-show">
+  <ul class="group">
+      <li><h3 >Subforum: <%= sub.escape("title") %></h3></li>
+      <li><h3 >Channel: <%= channel.escape("title") %></h3></li>
+  </ul>
+</nav>
+
+
+
+
+<main class="post-article">
 <header class="post-header">
+
   <h1 class="title"><%= post.escape("title") %></h1>
   Author: <%= post.escape("user_id") %>
-  <br>
-  Pusblished at: <%= post.escape("created_at") %>
+  <ul class="group">
+     <li>(Score: <%=post.escape("score")%>)</li>
+      <li><a href="/posts/<%=post.id%>/upvote">like</a></li>
+      <li><a href="/posts/<%=post.id%>/downvote">dislike</a></li>
+  </ul>
+</header>
 
-     <br>
-     <br>
-     (Score: <%=post.escape("score")%>) <a href="/posts/<%=post.id%>/upvote">like</a> <a href="/posts/<%=post.id%>/downvote">dislike</a>
-     <br>
-
-
+<figure class="post-picture">
+<img src="<%= post.get("photo_url") %>">
+</figure>
 
 <article class="post-article">
   <%= post.escape("body") %>
 </article>
 
-<figure class="post-picture">
-<img src="<%= post.get("photo_url") %>">
-</figure>
+
 
 <form class="post-comment-form post-form" >
   <input type="hidden"
@@ -59,7 +140,17 @@
 
   <% }) %>
 </ul>
+</main>
 
+<footer class="post-footer">
+  <ul class="footer-ul group">
+
+
+
+
+</ul>
+</footer>
+</body>
 
 
 

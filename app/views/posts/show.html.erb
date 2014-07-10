@@ -19,6 +19,8 @@
       padding: 5px 10px;
   }
 
+
+
   main.post-article{
     width:700px;
     min-height:500px;
@@ -67,6 +69,14 @@
     margin:auto;
 
   }
+
+  img{
+    margin-bottom:20px;
+  }
+
+  .post-header{
+    margin: auto;
+  }
   </style>
 </head>
 
@@ -81,26 +91,22 @@
 </nav>
 
 <main class="post-article">
-  
-  <ul class"post-title group">
+
+<ul class="post-header group">
       <li><h1 class="title"><%= @post.title %></h1></li>
-      <li><h4>by: <%= User.find(@post.user_id).username || "Guest" %></h4></li>
 
-  </ul>
- 
 
- <ul class="group">
+    <li><h4>by: <%= User.find(@post.user_id).username || "Guest" %></h4></li>
+
     <li><h5>Score: <%= @post.score %></h5></li>
     <li><%= link_to "like", upvote_post_url(@post) %></li>
     <li><%= link_to "dislike", downvote_post_url(@post) %></li>
-</ul>
 
- <ul class="group">
   <li><a><%= button_to "Collect", post_collects_url(@post), method: :post %></a></li>
   <% if @post.user_id != current_user.id %>
      <li><%= link_to "Write To Auther", new_message_url %></li>
   <% end %>
-</ul>
+  </ul>
 
 
 <figure class="post-picture">
