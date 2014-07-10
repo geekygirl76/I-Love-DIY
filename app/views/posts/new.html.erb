@@ -1,9 +1,31 @@
 
+<head>
+  <style>
+    nav.new-post{
+      width: 700px;
+      height: auto;
+      margin:auto;
+      background: rgb(228, 234, 233);
+    padding: 5px 10px;
+    border: 1px solid lightblue;
+    }
+
+    form.post-form{
+      width:700px;
+      min-height:500px;
+      background: rgb(241, 246, 245);
+      margin:auto;
+    padding: 5px 10px;
+    border: 1px solid lightblue;
+    }
 
 
-  <header>
+  </style>
+</head>
+<body>
+  <nav class='new-post'>
       <h1>Create Post</h1>
-   </header>
+   </nav>
 
 <form class="post-form" action="<%= posts_url %>" method="post" enctype="multipart/form-data">
   <input type="hidden" name="authenticity_token"
@@ -76,3 +98,4 @@
   </button>
 
 </form>
+</body>

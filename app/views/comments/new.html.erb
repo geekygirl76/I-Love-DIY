@@ -1,4 +1,23 @@
 
+<head>
+  <style>
+    form.nested-comments{
+        width:700px;
+        min-height:500px;
+        background: rgb(241, 246, 245);
+        margin:auto;
+      padding: 5px 10px;
+      border: 1px solid lightblue;
+
+    label{
+      display: block;
+      size: 24px;
+      font-weight: bold;
+      margin: auto;
+  }
+  </style>
+</head>
+<body>
   <form class="nested-comments" action="<%= comment_comments_url(@parent_comment) %>" method="post">
 
   <input type="hidden" name="authenticity_token"
@@ -20,3 +39,4 @@
 
 
 </form>
+</body>
