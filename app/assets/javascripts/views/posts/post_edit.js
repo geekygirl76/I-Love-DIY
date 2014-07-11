@@ -19,7 +19,7 @@ Diy.Views.PostEdit = Backbone.View.extend({
   },
 
   submit: function(event){
-    alert("Only submitter can do this!")
+    console.log("submitting edited post")
     var that = this;
       event.preventDefault();
 
@@ -40,12 +40,12 @@ Diy.Views.PostEdit = Backbone.View.extend({
 
            attrs.post["photo"] = this.result;
 
-           that.model.save(attrs.post, {
+           that.model.set(attrs.post, {
 
 
 
              success: function (post) {
-
+               console.log("here");
                that.collection.add(post);
                Backbone.history.navigate("", { trigger: true });
              }

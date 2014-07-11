@@ -25,7 +25,20 @@
 <body>
 
 <nav class="new-post">
-<h1>Edit Post</h1>
+  <form action="/posts" method="get">
+
+
+    <label for="search_tag">
+      Let's Make
+    <input
+      type="text"
+      name="post[search]"
+
+      id="post_search">
+    </label>
+
+    <a><input type="submit" value="Go!"></a>
+  </form>
 </nav>
 
 <form id="new-post-form" class="post-form">
@@ -90,7 +103,7 @@
  <label>
    Upload Picture
 
-   <input id="file-upload" type="file" name="post[photo]">
+   <input id="file-upload" type="file" name="post[photo]" value="<%=  post.escape("photo_url") %>">
 
  </label>
 

@@ -62,7 +62,7 @@ Diy.Routers.Router = Backbone.Router.extend({
   edit: function (id) {
       var that = this;
       this._getPost(id, function (post) {
-        var editView = new Diy.Views.PostEdit({
+        var editView = new Diy.Views.PostForm({
           collection: that.posts,
           model: post
         });

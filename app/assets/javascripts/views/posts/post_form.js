@@ -24,14 +24,15 @@ Diy.Views.PostForm = Backbone.View.extend({
       event.preventDefault();
 
       var attrs = this.$el.find("#new-post-form").serializeJSON();
+
       console.log(attrs);
        that.model.collection = that.collection;
        console.log(this.model);
-      
+
       var picFile = this.$el.find("#file-upload")[0].files[0];
 
       if (picFile){
-        
+
         var reader = new FileReader();
          reader.onload = function(e) {
 
@@ -42,17 +43,26 @@ Diy.Views.PostForm = Backbone.View.extend({
 
            that.model.save(attrs.post, {
 
-             
+
 
              success: function (post) {
-
+                 console.log("success!");
                that.collection.add(post);
                Backbone.history.navigate("", { trigger: true });
-             }
+             },
+
+             error: (function (e) {
+               console.log("failure!");
+                    alert("You can't leave anything blank!");
+                }),
+
+
            });
          }
          reader.readAsDataURL(picFile);
-        
+
+      } else {
+        alert("You have to upload picture!");
       }
 
       // var reader = new FileReader();
@@ -74,10 +84,10 @@ Diy.Views.PostForm = Backbone.View.extend({
 //            }
 //          });
 //        }
-       
+
          // reader.readAsDataURL(picFile);
-       
-       
+
+
 
 
   }

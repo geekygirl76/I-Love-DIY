@@ -24,7 +24,21 @@
 </head>
 <body>
   <nav class='new-post'>
-      <h1>Create Post</h1>
+      <form action="<%= posts_url %>" method="get">
+        <input type="hidden" name="authenticity_token"
+               value="<%= form_authenticity_token %>" />
+
+        <label for="search_tag">
+          Let's Make
+        <input
+          type="text"
+          name="post[search]"
+
+          id="post_search">
+        </label>
+
+        <a><input type="submit" value="Go!"></a>
+      </form>
    </nav>
 
 <form class="post-form" action="<%= posts_url %>" method="post" enctype="multipart/form-data">

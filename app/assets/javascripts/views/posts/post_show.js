@@ -9,7 +9,7 @@ Diy.Views.PostShow = Backbone.View.extend({
   },
 
   destroyPost:function(event){
-    alert("Only submitter can do this!");
+   
     var $target = $(event.target);
 
     var post = Diy.posts.get($target.attr("data-id"));
