@@ -54,7 +54,20 @@
 <body>
 
 <nav class="home">
-  <h1>Do It Yourself, Make It Unique!</h1>
+  <form action="/posts" method="get">
+
+
+    <label for="search_tag">
+      Let's Make
+    <input
+      type="text"
+      name="post[search]"
+
+      id="post_search">
+    </label>
+
+    <a><input type="submit" value="Go!"></a>
+  </form>
 </nav>
 
 <main class="home">

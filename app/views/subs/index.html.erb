@@ -52,11 +52,6 @@
 </head>
 <body>
 <nav class="home">
-  <h1>Do It Yourself, Make It Unique!</h1>
-</nav>
-
-<main class="home">
-
   <form action="<%= posts_url %>" method="get">
     <input type="hidden" name="authenticity_token"
            value="<%= form_authenticity_token %>" />
@@ -70,8 +65,13 @@
       id="post_search">
     </label>
 
-    <input type="submit" value="Go!">
+    <a><input type="submit" value="Go!"></a>
   </form>
+</nav>
+
+<main class="home">
+
+
 
   <ul class="group">
   <% @subs.each do |sub| %>
