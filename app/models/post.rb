@@ -1,5 +1,11 @@
 
 class Post < ActiveRecord::Base
+  include PgSearch
+
+  pg_search_scope :search_by_title_and_body, against: [:title, :body]
+
+  multisearchable against: [:title, :body]
+
   has_many :comments, inverse_of: :post
   has_many :voterecords, dependent: :destroy
   has_many :collects, dependent: :destroy
@@ -14,6 +20,10 @@ class Post < ActiveRecord::Base
   has_one :manager, through: :sub, source: :manager
 
   before_validation :ensure_score
+
+  def self.rebuild_pg_search_documents
+    find_each { |record| record.update_pg_search_document }
+  end
 
   def top_level_comments
     comments.select { |comment| comment.parent_comment_id.nil? }

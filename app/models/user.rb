@@ -1,4 +1,11 @@
 class User < ActiveRecord::Base
+
+  include PgSearch
+
+  pg_search_scope :search_by_username, against: :username
+  multisearchable against: :username
+
+
   has_attached_file :photo, :styles => {  :thumb => "100x100#" }, :default_url => "avatar.jpeg"
   validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/
 
@@ -27,6 +34,10 @@ class User < ActiveRecord::Base
 
 
   before_create :add_activation_token
+
+  def self.rebuild_pg_search_documents
+    find_each { |record| record.update_pg_search_document }
+  end
 
 
   def self.find_or_create_by_auth_hash(auth_hash)

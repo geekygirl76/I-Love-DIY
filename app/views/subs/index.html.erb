@@ -57,6 +57,22 @@
 
 <main class="home">
 
+  <form action="<%= posts_url %>" method="get">
+    <input type="hidden" name="authenticity_token"
+           value="<%= form_authenticity_token %>" />
+
+    <label for="search_tag">
+      Let's Make
+    <input
+      type="text"
+      name="post[search]"
+
+      id="post_search">
+    </label>
+
+    <input type="submit" value="Go!">
+  </form>
+
   <ul class="group">
   <% @subs.each do |sub| %>
    <li><%= link_to sub.title, sub_url(sub)  %>

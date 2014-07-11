@@ -63,7 +63,11 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.order(:score => :desc).page(params[:page]).per(3)
+    if( params[:post].nil? || params[:post][:search] == "")
+      @posts = Post.order(:score => :desc).page(params[:page]).per(3)
+    else
+      @posts = Post.search_by_title_and_body(post_params[:search]).order(:score => :desc).page(params[:page]).per(3)
+    end
 
   end
 
@@ -104,7 +108,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :sub_id, :user_id, :channel_id, :photo)
+    params.require(:post).permit(:title, :body, :sub_id, :user_id, :channel_id, :photo, :search)
   end
 
   def require_owner
