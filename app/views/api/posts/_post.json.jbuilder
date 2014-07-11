@@ -1,5 +1,6 @@
 json.(post, :id, :title, :body,  :created_at, :updated_at, :score, :sub_id,:channel_id, :user_id)
 json.photo_url asset_path(post.photo.url)
+json.author_name post.owner.username
 
 comments ||= nil
  unless comments.nil?

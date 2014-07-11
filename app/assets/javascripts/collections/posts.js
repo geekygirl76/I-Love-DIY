@@ -4,5 +4,9 @@ Diy.Collections.Posts = Backbone.Collection.extend({
 
   comparator: function(post){
     return post.get("created_at");
-  }
+  },
+
+
+
+
 });

@@ -67,6 +67,7 @@
   }
 
   img{
+
     margin-bottom: 20px;
   }
   </style>
@@ -91,7 +92,7 @@
 <header class="post-header">
 
   <h1 class="title"><%= post.escape("title") %></h1>
-  Author: <%= post.escape("user_id") %>
+  Author: <%= post.escape("author_name") %>
   <ul class="group">
      <li>(Score: <%=post.escape("score")%>)</li>
       <li><a href="/posts/<%=post.id%>/upvote">like</a></li>
@@ -144,8 +145,15 @@
 
 <footer class="post-footer">
   <ul class="footer-ul group">
-   <li><button class="delete" data-id="<%= post.id %>">Delete!</button></li>
-  <li><a href="#/posts/<%= post.id %>/edit">Edit</a></li>
+    <%= console.log("current user id:", window.currentUser.id) %>
+    <%=  console.log("post user id:", post.escape("user_id"))%>
+
+    <% if (window.currentUser.id === post.get("user_id")){ %>
+      <li><button class="delete" data-id="<%= post.id %>">Delete!</button></li>
+      <li><a href="#/posts/<%= post.id %>/edit">Edit</a></li>
+   <% } %>
+
+
 
 
 </ul>
