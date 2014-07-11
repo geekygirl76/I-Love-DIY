@@ -81,7 +81,20 @@
 <body>
 
 <nav class="all-posts">
-<h3>All Posts</h3>
+  <form action="/posts" method="get">
+
+
+    <label for="search_tag">
+      Let's Make
+    <input
+      type="text"
+      name="post[search]"
+
+      id="post_search">
+    </label>
+
+    <a><input type="submit" value="Go!"></a>
+  </form>
 </nav>
 
 <main class="all-posts">
