@@ -63,7 +63,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.order(:score).reverse
+    @posts = Post.order(:score => :desc).page(params[:page]).per(3)
 
   end
 
