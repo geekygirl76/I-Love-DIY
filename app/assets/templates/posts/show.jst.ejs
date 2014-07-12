@@ -135,7 +135,8 @@
 
 <ul class="comments">
   <% post.comments().each(function(comment){ %>
-    <li class="root-comment"><%= comment.escape("body") %> (Published at:<%= comment.escape("created_at") %>)(Author:<%=  comment.escape("user_id") %>)
+    <%= console.log("Comment author:", comment) %>
+    <li class="root-comment"><%= comment.escape("body") %> (Author:<%=  comment.escape("author_name") %>)
 
     <a href="/comments/<%= comment.id %>/comments/new">Reply</a>
     </li>
@@ -146,8 +147,7 @@
 
 <footer class="post-footer">
   <ul class="footer-ul group">
-    <%= console.log("current user id:", window.currentUser.id) %>
-    <%=  console.log("post user id:", post.escape("user_id"))%>
+
 
     <% if (window.currentUser.id === post.get("user_id")){ %>
       <li><button class="delete" data-id="<%= post.id %>">Delete!</button></li>

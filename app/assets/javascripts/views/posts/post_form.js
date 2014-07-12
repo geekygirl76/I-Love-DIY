@@ -31,6 +31,7 @@ Diy.Views.PostForm = Backbone.View.extend({
 
       var picFile = this.$el.find("#file-upload")[0].files[0];
 
+
       if (picFile){
 
         var reader = new FileReader();
@@ -62,7 +63,7 @@ Diy.Views.PostForm = Backbone.View.extend({
          reader.readAsDataURL(picFile);
 
       } else {
-        alert("You have to upload picture!");
+      alert("You have to upload a picture!")
       }
 
       // var reader = new FileReader();

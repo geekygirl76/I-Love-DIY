@@ -19,7 +19,7 @@ Diy.Views.PostEdit = Backbone.View.extend({
   },
 
   submit: function(event){
-    console.log("submitting edited post")
+    console.log("submitting edited post");
     var that = this;
       event.preventDefault();
 
@@ -28,54 +28,12 @@ Diy.Views.PostEdit = Backbone.View.extend({
        that.model.collection = that.collection;
        console.log(this.model);
 
-      var picFile = this.$el.find("#file-upload")[0].files[0];
-
-      if (picFile){
-
-        var reader = new FileReader();
-         reader.onload = function(e) {
-
-           console.log(this.result);
-
-
-           attrs.post["photo"] = this.result;
-
-           that.model.set(attrs.post, {
 
 
 
-             success: function (post) {
-               console.log("here");
-               that.collection.add(post);
-               Backbone.history.navigate("", { trigger: true });
-             }
-           });
-         }
-         reader.readAsDataURL(picFile);
 
-      }
-
-      // var reader = new FileReader();
-//        reader.onload = function(e) {
-//
-//          console.log(this.result);
-//
-//
-//          attrs.post["photo"] = this.result;
-//
-//          that.model.save(attrs, {
-//
-//            enctype: "multipart/form-data",
-//
-//            success: function (post) {
-//
-//              that.collection.add(post);
-//              Backbone.history.navigate("", { trigger: true });
-//            }
-//          });
-//        }
-
-         // reader.readAsDataURL(picFile);
+     that.collection.add(that.model);
+     Backbone.history.navigate("", { trigger: true });
 
 
 
