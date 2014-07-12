@@ -92,7 +92,8 @@
 <header class="post-header">
 
   <h1 class="title"><%= post.escape("title") %></h1>
-  Author: <%= post.escape("author_name") %>
+  by: <a href="/users/<%=post.escape("user_id")%>/public"><%= post.escape("author_name") %></a>
+
   <ul class="group">
      <li>(Score: <%=post.escape("score")%>)</li>
       <li><a href="/posts/<%=post.id%>/upvote">like</a></li>

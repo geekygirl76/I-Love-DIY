@@ -1,4 +1,15 @@
 class UsersController < ApplicationController
+
+  def public
+    @user = User.find(params[:id])
+    if @user
+      render :public
+    else
+      flash.now[:errors] = ["User does not exist anymore!"]
+      redirect_to posts_url
+    end
+  end
+
   def new
     @user = User.new
   end

@@ -77,6 +77,6 @@ group :test do
 
 end
 
-gem 'pg_search'
+
 
 gem "nokogiri", '1.6.1'
