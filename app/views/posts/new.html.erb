@@ -19,6 +19,11 @@
     border: 1px solid lightblue;
     }
 
+  .post-form > textarea{
+    display: block;
+  position :absolute;
+  }
+
 
   </style>
 </head>
@@ -56,7 +61,7 @@
     id="post_title">
   </label>
 
-
+<div class="post-form-body">
   <label for="post_body" >
     Article
   <textarea class="article"
@@ -66,6 +71,8 @@
     id="post_body"><%= @post.body %>
     </textarea>
   </label>
+
+</div>
 
 
   <label for="post_sub_id">Subforum</label>

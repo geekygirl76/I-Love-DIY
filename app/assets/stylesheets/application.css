@@ -39,7 +39,12 @@ input[type="submit"] {
   cursor: pointer;
 }
 
+
 textarea{
+  background: transparent;
+  font: inherit;
+  display: inline-block;
+  vertical-align: baseline;
   width:500px;
   height: 500px;
   padding: 20px;
