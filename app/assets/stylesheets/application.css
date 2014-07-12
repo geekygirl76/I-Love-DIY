@@ -93,10 +93,16 @@ body{
   width: 100%;
 
   display: block;
+  border-right: 1px solid darkgrey;
 }
 
 .header > nav {
 
+}
+
+
+.header li{
+  border-left: 1px solid darkgrey;
 }
 
 .header-ul-left {
@@ -148,8 +154,8 @@ body{
 
 .header input,
 .header a {
-  color: white;
-  background: blue;
+  color: black;
+
   padding: 10px;
   display: block;
   border-radius: 5px;

@@ -31,14 +31,7 @@
         <li><a href="<%= new_post_url %>">Create Post</a></li>
         <li>
       <a href="<%= subs_url %>">Subforums</a>
-          <ul class="header-dropdown">
-            <li><a href="<%= sub_url(Sub.find_by_title("Living"))%>">Living</a></li>
-            <li><a href="<%= sub_url(Sub.find_by_title("Technology"))%>">Technology</a></li>
-            <li><a href="<%= sub_url(Sub.find_by_title("Workshop"))%>">Workshop</a></li>
-            <li><a href="<%= sub_url(Sub.find_by_title("Food"))%>">Food</a></li>
-            <li><a href="<%= sub_url(Sub.find_by_title("Play"))%>">Play</a></li>
-            <li><a href="<%= sub_url(Sub.find_by_title("Outside"))%>">Outside</a></li>
-          </ul>
+
     </li>
         <li><a href="<%= posts_url %>">Posts</a></li>
     <li><a href="/">Home</a></li>
