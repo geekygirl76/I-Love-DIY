@@ -101,7 +101,7 @@ class PostsController < ApplicationController
   end
 
   def personal
-    @posts = current_user.posts.all
+    @posts = current_user.posts.all.page(params[:page]).per(3)
     render :index
   end
 

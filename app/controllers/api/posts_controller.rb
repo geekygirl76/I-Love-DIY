@@ -57,7 +57,7 @@ module Api
       @post = Post.find(params[:id])
       @post.destroy
 
-      render json: @post
+      render json: @posts
     end
 
     private
