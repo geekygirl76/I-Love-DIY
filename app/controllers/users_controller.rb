@@ -36,7 +36,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-   
+
     if logged_in?
       render :show
     else
@@ -48,16 +48,18 @@ class UsersController < ApplicationController
   def index
     @users = User.all
   end
-  
+
   def edit
     @user = User.find(params[:id])
   end
 
   def update
+
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
       redirect_to subs_url
     else
+
       flash.now[:errors] = @user.errors.full_messages
     end
   end
