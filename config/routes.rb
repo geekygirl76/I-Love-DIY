@@ -51,7 +51,7 @@ Rails.application.routes.draw do
 
 
 
-  resources :users, only:[:new, :create, :show, :update, :index] do
+  resources :users, only:[:new, :create, :show, :update, :index, :edit] do
     get :activate, on: :collection
   end
 

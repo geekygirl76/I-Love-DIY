@@ -62,7 +62,7 @@
   <textarea class="article"
 
     name="post[body]"
-
+    value="<%= @post.body %>"
     id="post_body"><%= @post.body %>
     </textarea>
   </label>
@@ -101,7 +101,7 @@
     <label>
       Upload Picture
 
-      <input type="file" name="post[photo]">
+      <input type="file" name="post[photo]" value="<%= @post.photo %>">
 
     </label>
 

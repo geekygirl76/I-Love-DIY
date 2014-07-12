@@ -114,6 +114,7 @@
   <input class="space"
     type="email"
     name="user[email]"
+  value="<%= user.email %>"
     id="user_email">
 
 
@@ -129,6 +130,7 @@
   <input class="space"
     type="password"
     name="user[password]"
+  value="<%= user.confirm_password %>"
     id="user_password">
 
 
@@ -137,6 +139,7 @@
   <input class="space"
     type="password"
     name="user[confirm_password]"
+  value="<%= user.confirm_password %>"
     id="user_confirm_password">
 
 
@@ -145,6 +148,7 @@
   <input class="space"
     type="text"
     name="user[age]"
+  value="<%= user.age %>"
     id="user_age">
 
 
@@ -156,6 +160,7 @@
     <input class="space"
       type="text"
       name="user[zip]"
+    value="<%= user.zip %>"
       id="user_zip">
   </label>
 
@@ -173,15 +178,15 @@
   </select>
 
 
-
+<br>
   <label>
     Upload Picture
 
-    <input type="file" name="user[photo]">
+    <input type="file" name="user[photo]" value="<%= user.photo %>">
 
   </label>
 <button class="submit-button">
-  <input  type="submit" value="SIGN UP!">
+  <input  type="submit" value="<%= action == :edit ? "Edit" : "Sign Up!"%>">
   </button>
 </form>
 

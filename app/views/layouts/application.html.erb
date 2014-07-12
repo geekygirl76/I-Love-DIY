@@ -6,7 +6,16 @@
 <head>
   <style>
   header a{
-    
+
+  }
+
+  .ul-right-form{
+    width:60px;
+    height: 30px;
+  background: transparent;
+  margin:0;
+  padding:0;
+  padding-right:10px;
   }
   </style>
 
@@ -19,9 +28,9 @@
   <header class="header">
     <nav class="header group">
       <ul class="header-ul-left group">
-        <li><a href="<%= new_post_url %>">Create Posts</a></li>
+        <li><a href="<%= new_post_url %>">Create Post</a></li>
         <li>
-      <a href="<%= subs_url %>">Explore All Subforums</a>
+      <a href="<%= subs_url %>">Subforums</a>
           <ul class="header-dropdown">
             <li><a href="<%= sub_url(Sub.find_by_title("Living"))%>">Living</a></li>
             <li><a href="<%= sub_url(Sub.find_by_title("Technology"))%>">Technology</a></li>
@@ -44,7 +53,7 @@
               <input type="hidden" name="authenticity_token"
                      value="<%= form_authenticity_token %>" />
               <input type="hidden" name="_method" value="delete">
-              <input class="form-input" type="submit" value="Log Out">
+              <input class="form-input" type="submit" value="Log Out" id="signout-button">
             </form>
           </li>
         </ul>
