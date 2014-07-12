@@ -136,7 +136,7 @@
 <ul class="comments">
   <% post.comments().each(function(comment){ %>
     <%= console.log("Comment author:", comment) %>
-    <li class="root-comment"><%= comment.escape("body") %> (Author:<%=  comment.escape("author_name") %>)
+    <li class="root-comment"><%= comment.escape("body") %> (by:<a href="/users/<%=comment.get("user_id")%>/public">User<%=  comment.escape("user_id") %></a>)
 
     <a href="/comments/<%= comment.id %>/comments/new">Reply</a>
     </li>

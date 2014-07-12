@@ -156,7 +156,7 @@
   <% @all_comments.each do |comment| %>
     <% if comment.parent_comment_id.nil? %>
 
-      <li class="root-comment"><%= comment.body %>(By: <%= comment.user.username || "Guest" %>, Published at:<%= comment.created_at.to_s %>)
+      <li class="root-comment"><%= comment.body %>(By: <a href="<%= public_user_url(comment.user_id)%>"><%= comment.user.username || "Guest" %></a>, Published at:<%= comment.created_at.to_s %>)
 
         <button class="comment-button">
         <%= button_to "Reply", new_comment_comment_url(comment), method: :get %>
