@@ -6,7 +6,10 @@ Diy.Views.SubsIndex = Backbone.View.extend({
   },
 
   render: function(){
-    var content = this.template({ subs: Diy.subs });
+    var featuredPosts = Diy.posts.models.length > 3 ? Diy.posts.first(3) : Diy.posts;
+
+    var content = this.template({ subs: Diy.subs, posts: featuredPosts});
+
     this.$el.html(content);
     return this;
   }

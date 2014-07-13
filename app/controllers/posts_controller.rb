@@ -64,9 +64,9 @@ class PostsController < ApplicationController
 
   def index
     if( params[:post].nil? || params[:post][:search] == "")
-      @posts = Post.order(:created_at => :desc).page(params[:page]).per(3)
+      @posts = Post.order(:created_at => :desc).page(params[:page]).per(6)
     else
-      @posts = Post.search_by_title_and_body(post_params[:search]).order(:score => :desc).page(params[:page]).per(3)
+      @posts = Post.search_by_title_and_body(post_params[:search]).order(:score => :desc).page(params[:page]).per(6)
     end
 
   end

@@ -40,6 +40,8 @@ class SubsController < ApplicationController
   end
 
   def index
+    @posts = Post.order(:score => :desc)
+    @posts = (@posts.count > 3 ? @posts[0..2] : @posts)
     @subs = Sub.all
   end
 

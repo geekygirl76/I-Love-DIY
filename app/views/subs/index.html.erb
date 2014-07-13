@@ -43,6 +43,16 @@
 
   }
 
+  .featured > ul > li{
+    float:left;
+    width: 200px;
+    margin: 15px;
+    height: 200px;
+    background: white;
+    overflow: hidden;
+    box-shadow: 0px 1px 2px #c4c4c4;
+  }
+
 
 
   </style>
@@ -71,13 +81,31 @@
 
 
 
-  <ul class="group">
+
+
+  <ul class="right group">
   <% @subs.each do |sub| %>
    <li><%= link_to sub.title, sub_url(sub)  %>
 
    </li>
   <% end  %>
 </ul>
+
+
+ <div class="featured group">
+  <ul class="group">
+    <% @posts.each do |post| %>
+      <li><%= link_to post.title, post_url(post)%> ( Score: <%= post.score %>)
+      <div class="thumb-pic">
+        <%= image_tag post.photo.url(:medium) %>
+    </div>
+
+    </li>
+    <% end %>
+ </ul>
+ </div>
+
+
 </main>
 <footer>
   <li><h4>Do It Yourself, Make It Unique!</h4></li>

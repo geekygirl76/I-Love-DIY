@@ -104,7 +104,7 @@
 
  <li><h4>by: <%= link_to User.find(@post.user_id).username, public_user_url(@post.user_id) %></h4></li>
 
-
+    <li><%= @post.created_at.to_s %></li>
     <li><h5>Score: <%= @post.score %></h5></li>
     <li><%= link_to "like", upvote_post_url(@post) %></li>
     <li><%= link_to "dislike", downvote_post_url(@post) %></li>
@@ -157,7 +157,7 @@
   <% @all_comments.each do |comment| %>
     <% if comment.parent_comment_id.nil? %>
 
-      <li class="root-comment"><%= comment.body %>(By: <a href="<%= public_user_url(comment.user_id)%>"><%= comment.user.username || "Guest" %></a>, Published at:<%= comment.created_at.to_s %>)
+      <li class="root-comment"><%= comment.body %>(By: <a href="<%= public_user_url(comment.user_id)%>"><%= comment.user.username || "Guest" %></a>, <%= comment.created_at.to_s %>)
 
         <button class="comment-button">
         <%= button_to "Reply", new_comment_comment_url(comment), method: :get %>

@@ -2,7 +2,7 @@
   <% post.comments_hash[c1.id].each do |c2|  %>
 
       <li>
-        <%= c2.body %>(By: <a href="<%=public_user_url(c2.user_id)%>"><%= c2.user.username || "Guest" %></a>, Published at: <%= c2.created_at.to_s %>)
+        <%= c2.body %>(By: <a href="<%=public_user_url(c2.user_id)%>"><%= c2.user.username || "Guest" %></a>, <%= c2.created_at.to_s %>)
 
         <form action="<%=new_comment_comment_url(c2)  %>" method="get">
           <input type="hidden" name="authenticity_token"

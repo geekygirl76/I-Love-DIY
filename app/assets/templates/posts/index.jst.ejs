@@ -78,6 +78,7 @@
    }
 
 
+
    </style>
 </head>
 
@@ -98,11 +99,12 @@
 
     <a><input type="submit" value="Go!"></a>
   </form>
+   <h4 class="group">Sorted by Score</h4>
 </nav>
 
 <main class="all-posts">
 <ul class="group">
-  <% posts.each(function(post){ %>
+  <% posts.sort().each(function(post){ %>
     <li>
     <a href="#/posts/<%= post.id %>"><%= post.escape("title") %></a>  Score: <%=post.escape("score")%>)
 
