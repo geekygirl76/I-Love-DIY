@@ -17,7 +17,28 @@
     font-size: 24px;
   }
 
+  main.home > div.sub-list > ul{
+    float:left;
+  }
 
+  main.home > div.sub-list > ul > li{
+    float: right;
+  margin: 20px;
+
+  }
+
+  main.home > div.sub-list > ul > li > a{
+    font-weight: bold;
+    font-size: 20px;
+  color: black;
+
+  }
+
+  main.home > div.sub-list > ul > li > a:hover{
+    color: lightgrey;
+
+
+  }
 
   h3{
     font-weight:bold
@@ -53,7 +74,9 @@
     box-shadow: 0px 1px 2px #c4c4c4;
   }
 
-
+   h1.featured-articles{
+    text-align: center;
+  }
 
   </style>
 
@@ -82,16 +105,17 @@
 
 
 
-
-  <ul class="right group">
+<div class="sub-list group">
+  <ul class="group">
   <% @subs.each do |sub| %>
    <li><%= link_to sub.title, sub_url(sub)  %>
 
    </li>
   <% end  %>
 </ul>
+</div>
 
-
+<h1 class="featured-articles">Featured</h1>
  <div class="featured group">
   <ul class="group">
     <% @posts.each do |post| %>
