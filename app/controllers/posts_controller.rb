@@ -83,7 +83,7 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-   
+
     if @post.update_attributes(post_params)
       redirect_to @post
     else
@@ -101,7 +101,7 @@ class PostsController < ApplicationController
   end
 
   def personal
-    @posts = current_user.posts.all.page(params[:page]).per(3)
+    @posts = current_user.posts.all.page(params[:page]).per(6)
     render :index
   end
 

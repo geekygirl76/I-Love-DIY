@@ -44,10 +44,18 @@
   padding: 10px 15px;
   }
 
+  .post-footer  button{
+    color: blue
+      background: transparent
+    margin-top:0
+  }
+
   .post-show > ul {
     float:left;
 
   }
+
+
 
   .post-show > ul > li{
     float: right;
@@ -150,8 +158,8 @@
 
 
     <% if (window.currentUser.id === post.get("user_id")){ %>
-      <li><button class="delete" data-id="<%= post.id %>">Delete!</button></li>
-      <li><a href="#/posts/<%= post.id %>/edit">Edit</a></li>
+      <li><a><button class="delete" data-id="<%= post.id %>">Delete Post</button></a></li>
+      <li><a href="#/posts/<%= post.id %>/edit">Edit Post</a></li>
    <% } %>
 
 
