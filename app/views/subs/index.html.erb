@@ -121,7 +121,7 @@
     <% @posts.each do |post| %>
       <li><%= link_to post.title, post_url(post)%> ( Score: <%= post.score %>)
       <div class="thumb-pic">
-        <%= image_tag post.photo.url(:medium) %>
+        <a href="<%= post_url(post) %>"><%= image_tag post.photo.url(:medium) %></a>
     </div>
 
     </li>
