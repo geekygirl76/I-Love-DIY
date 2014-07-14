@@ -93,8 +93,10 @@
 
 <nav class="post-show">
   <ul class="group">
-      <li><h3 >Subforum: <%= sub.escape("title") %></h3></li>
-      <li><h3 >Channel: <%= channel.escape("title") %></h3></li>
+
+      <li><h3 >Channel: <a href="#/channels/<%= channel.id %>"><%= channel.escape("title") %></a></h3></li>
+      <li><h3 >Subforum: <a href="#/subs/<%= sub.id %>"><%= sub.escape("title") %></a></h3></li>
+
   </ul>
 </nav>
 

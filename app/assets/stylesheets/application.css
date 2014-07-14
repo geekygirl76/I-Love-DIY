@@ -52,12 +52,13 @@ textarea{
 
 a{
   text-decoration: none;
-  color: blue;
+  color: black;
 
 }
 
 a:hover{
   color: darkgrey;
+  text-decoration: underline;
   cursor: pointer;
 }
 

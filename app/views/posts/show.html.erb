@@ -95,8 +95,10 @@
 
 <nav class="post-show">
   <ul class="group">
-      <li><h3 >Subforum: <%= @post.sub.title %></h3></li>
-      <li><h3 >Channel: <%= @post.channel.title %></h3></li>
+
+      <li><h3 >Channel: <a href="<%= channel_url(@post.channel) %>"><%= @post.channel.title %></a></h3></li>
+       <li><h3 >Subforum: <a href="<%= sub_url(@post.sub) %>"><%= @post.sub.title %></a></h3></li>
+
   </ul>
 </nav>
 

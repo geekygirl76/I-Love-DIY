@@ -106,14 +106,14 @@
 <ul class="group">
   <% posts.sort().each(function(post){ %>
     <li>
-    <a href="#/posts/<%= post.id %>"><%= post.escape("title") %></a>  Score: <%=post.escape("score")%>)
+    <a href="#/posts/<%= post.id %>"><%= post.escape("title") %>  Score: <%=post.escape("score")%>)
 
 
-   <%= console.log(posts.length) %>
+
 
     <img src="<%= post.get("photo_url") %>">
 
-
+    </a>
 
 
 
