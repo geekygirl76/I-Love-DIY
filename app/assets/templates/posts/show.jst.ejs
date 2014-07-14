@@ -78,6 +78,11 @@
 
     margin-bottom: 20px;
   }
+
+  textarea.comment{
+    width:400px;
+    height: 100px;
+  }
   </style>
 </head>
 
@@ -125,14 +130,18 @@
          name="comment[post_id]"
          value="<%= post.id %>">
 
-  <label for="comment_body">
-    Comment On This Post
-  <input
-    type="text"
-    name="comment[body]"
+ <div class="comment-body">
+   <label for="comment_body" >
+     Comment On This Post
+   <textarea class="comment"
 
-    id="comment_body">
-  </label>
+     name="comment[body]"
+
+     id="comment_body">
+     </textarea>
+   </label>
+
+ </div>
 
    <button id="post-comment">Submit</button>
 
