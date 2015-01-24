@@ -1,100 +1,6 @@
 <head>
   <style>
-  main {
-    display: block;
-    margin: auto;
-    width: 600px;
-    height: 450px;
-    background: white;
-
-    border: 1px solid lightgrey;
-    padding: 40px;
-  }
-
-  header{
-    color:red;
-
-  }
-  header a{
-    color:red;
-  }
-
-  footer>a{
-    color: red;
-  }
-
-  footer > a:hover{
-    color:red;
-    text-decoration:underline;
-  }
-
-  form {
-    width:500px;
-    height:220px;
-    background: lightgrey;
-    margin:auto;
-    padding: 30px;
-    border-radius: 10px;
-  }
-
-  button{
-
-  }
-
-
-
-  button.submit-button {
-      background: red;
-      color: white;
-      font-weight: bold;
-      font-size:16px;
-      padding:5px 10px;
-
-  }
-
-  .signin-button{
-
-    background: red;
-    color: white;
-    font-weight: bold;
-    font-size:16px;
-    padding:5px 10px;
-    margin-left: 100px;
-    border-radius: 3px;
-
-  }
-
-  label{
-    font-weight:bold;
-  }
-
-  input.space{
-    display: block;
-    width: 300px;
-    height: 10px;
-    border-radius: 5px;
-    font-size: 16px;
-    padding: 5px;
-    margin:3px;
-  }
-
-  .demo{
-    color: red;
-  }
-
-  p{
-    margin-top:30px;
-  }
-
-  footer{
-    width:640px;
-    height: 30px;
-    background: rgb(233, 235, 235);
-  margin:auto;
-  padding: 20px;
-  border: 1px solid lightgrey;
-  }
-
+  
   </style>
 
 </head>
@@ -149,7 +55,7 @@
 <a class="signin-button signup" href="<%= new_user_url %>">or Sign Up Now</a>
 
 
-<h3><a class="demo" href="<%= demo_session_url %> ">Demo User</a> </h3>
+<button id="demo"><a class="demo" href="<%= demo_session_url %> ">Demo User</a> </button>
 </p>
 </main>
 

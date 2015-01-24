@@ -3,7 +3,8 @@ class SessionsController < ApplicationController
   def demo
     @user = User.find(1)
     @user.password = @user.username
-    render :new
+    log_in(@user)
+    redirect_to "/"
   end
 
   def new
