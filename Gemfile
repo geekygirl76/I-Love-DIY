@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+gem "thin"
 gem 'omniauth-facebook'
 gem 'twilio-ruby', '~> 3.11'
 gem 'kaminari'
