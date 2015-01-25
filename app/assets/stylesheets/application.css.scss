@@ -313,9 +313,16 @@ main.home{
   width:100%;
   min-height:485px;
     margin: 0;
-    background-image: image-url("braid.jpg") ;
+
     background-repeat: repeat;
 
 }
-
-
+.braid{
+    background-image: image-url("braid.jpg") ;
+}
+.garden{
+    background-image: image-url("garden.jpg") ;
+}
+.paper_flower{
+    background-image: image-url("paper_flower.jpg") ;
+}
