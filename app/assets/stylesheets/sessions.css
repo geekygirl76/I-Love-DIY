@@ -6,14 +6,15 @@
 }
 
 main {
-  display: block;
-  margin: auto;
-  width: 600px;
-  height: 450px;
-  background: white;
 
-  border: 1px solid lightgrey;
-  padding: 40px;
+
+  margin: 0;
+  width: 100%;
+  height: 485px;
+  background-image: url("garden.jpg") ;
+  background-repeat: no-repeat;
+
+
 }
 
 header{

@@ -4,6 +4,7 @@
 
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
   header a{
 
@@ -54,7 +55,8 @@
       <% else %>
 
           <ul class="header-ul-right group">
-            <li><a href="<%= new_session_url %>">Guest Log In</a></li>
+              <li><a  href="/auth/facebook">Facebook Log In</a></li>
+            <li><a href="<%= demo_session_url %>">Guest Log In</a></li>
             <li><a href="<%= new_user_url %>">Sign Up</a></li>
           </ul>
 
