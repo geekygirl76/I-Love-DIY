@@ -36,10 +36,7 @@
 
 
 
-  textarea.comment{
-    width:400px;
-    height: 100px;
-  }
+
 
   button.reply-button{
     color: white;
@@ -71,7 +68,33 @@
  pre{
      white-space: pre-wrap;
  }
+ .post-comment-form{
+     width: 80%;
+     margin:auto;
+     background: white;
+     border: 1px solid grey;
+ }
+ textarea.comment{
+   width:500px;
+   height: 100px;
+   border: 1px solid grey;
+   border-radius: 5px;
+   float:right;
+   display:block;
+   clear:both;
+   margin-top:10px;
+   margin-right: 10px;
+ }
 
+ button#post-comment{
+     float:right;
+     margin-top:20px;
+     margin-right:40px;
+     padding: 10px;
+     background:#FF8000;
+     color: white;
+     border-radius:3px;
+ }
   </style>
 </head>
 
@@ -100,7 +123,9 @@
 
     <li class="edit-post"><a href="#/posts/<%= post.id %>/edit"><button>Edit Post</button></a></li>
       <li class="delete_post"><a><button class="delete" data-id="<%= post.id %>">Delete Post</button></a></li>
- <% } %>
+ <% } else { %>
+
+<% } %>
   </ul>
 </header>
 
@@ -115,14 +140,14 @@
 
 
 
-<form class="post-comment-form post-form" >
+<form class="post-comment-form " >
   <input type="hidden"
          name="comment[post_id]"
          value="<%= post.id %>">
 
- <div class="comment-body">
+ <div class="comment-body group">
    <label for="comment_body" >
-     Comment On This Post
+
    <textarea class="comment"
 
      name="comment[body]"
@@ -133,7 +158,7 @@
 
  </div>
 
-   <button id="post-comment">Submit</button>
+   <button id="post-comment">Make Comment</button>
 
 </form>
 
