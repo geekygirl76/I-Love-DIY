@@ -418,3 +418,25 @@ main.post-article{
     box-shadow: 0 0 10px #848484;
     border:0;
 }
+
+.like{
+    float: left;
+    width:20px;
+    height: 20px;
+    margin-left: 40%;
+
+    background-image: image-url("thumb_up.png") ;
+    background-repeat: no-repeat;
+}
+
+.dislike{
+    background-image: image-url("thumb_down.png");
+    float: right;
+    width: 20px;
+    height: 20px;
+    margin-right: 40%;
+
+
+
+    background-repeat: no-repeat;
+}
