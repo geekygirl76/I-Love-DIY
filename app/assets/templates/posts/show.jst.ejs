@@ -68,6 +68,9 @@
       border:0;
 
  }
+ pre{
+     white-space: pre-wrap;
+ }
 
   </style>
 </head>
@@ -107,7 +110,7 @@
 </figure>
 
 <article class="post-article">
-  <%= post.escape("body") %>
+  <pre><%= post.escape("body") %></pre>
 </article>
 
 
