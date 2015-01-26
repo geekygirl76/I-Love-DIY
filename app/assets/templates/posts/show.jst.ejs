@@ -1,14 +1,7 @@
 <head>
   <style>
 
-  nav.post-show{
-    width: 1000px;
-    height: 60px;
-    margin:auto;
-    background: rgb(228, 234, 233);
-  padding: 5px 10px;
-  border: 1px solid lightblue;
-  }
+
 
   div.post-title{
       width: 700px;
@@ -41,7 +34,8 @@
 
   }
 
-  img{
+
+   img{
 
     margin-bottom: 20px;
   }
@@ -64,7 +58,6 @@
       display: inline;
   }
 
- 
   </style>
 </head>
 
@@ -73,16 +66,7 @@
 
 <body>
 
-<nav class="post-show">
-  <ul class=" group">
 
-    <% if (window.currentUser.id === post.get("user_id")){ %>
-      <li><a><button class="delete" data-id="<%= post.id %>">Delete Post</button></a></li>
-      <li><a href="#/posts/<%= post.id %>/edit"><button>Edit Post</button></a></li>
-   <% } %>
-
-</ul>
-</nav>
 
 
 
@@ -97,6 +81,12 @@
 
       <li><a  class="like" href="/posts/<%=post.id%>/upvote"></a></li>
       <li><a class="dislike" href="/posts/<%=post.id%>/downvote"></a></li>
+
+  <% if (window.currentUser.id === post.get("user_id")){ %>
+
+    <li class="edit-post"><a href="#/posts/<%= post.id %>/edit"><button>Edit Post</button></a></li>
+      <li class="delete_post"><a><button class="delete" data-id="<%= post.id %>">Delete Post</button></a></li>
+ <% } %>
   </ul>
 </header>
 
