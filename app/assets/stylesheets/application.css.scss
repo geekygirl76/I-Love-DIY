@@ -86,7 +86,7 @@ ul{
 }
 
 body{
-  background: rgb(202, 227, 221);
+  background: #C6D7DE;
   display: block;
   font-family: sans-serif;
   color: black;
@@ -413,10 +413,13 @@ main.other{
 
 }
 main.post-article{
+    padding: 0;
     background: white;
+    border:1px solid lightgrey;
     border-radius: 10px;
     box-shadow: 0 0 10px #848484;
-    border:0;
+
+    margin-top:20px;
 }
 
 .like{
@@ -439,4 +442,10 @@ main.post-article{
 
 
     background-repeat: no-repeat;
+}
+
+.post-header{
+    border-bottom: 1px solid lightgrey;
+    padding:10px;
+    background: #F8F8F8;
 }
