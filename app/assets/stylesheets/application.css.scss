@@ -608,6 +608,7 @@ ul.post-form-nav{
     width: 750px;
     font-weight:bold;
     font-size:20px;
+
 }
 .post-form{
   margin: auto;
@@ -629,7 +630,10 @@ ul.post-form-nav{
   font-weight: bold;
   width: 750px;
   margin:auto;
-
+  box-shadow: 0 0 10px grey;
+  font-size: 20px;
+  font-weight: normal;
+  padding: 30px;
 }
 
 .post-form >button{
