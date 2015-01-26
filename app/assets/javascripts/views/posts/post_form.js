@@ -53,14 +53,14 @@ Diy.Views.PostForm = Backbone.View.extend({
 
 
              success: function (post) {
-                 console.log("success!");
+                 // console.log("success!");
                that.collection.add(post);
                Backbone.history.navigate("", { trigger: true });
              },
 
              error: (function (e) {
-               console.log("failure!");
-                    alert("You can't leave anything blank!");
+               // console.log();
+                    alert(e);
                 }),
 
 

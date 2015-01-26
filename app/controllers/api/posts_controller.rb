@@ -8,7 +8,7 @@ module Api
     def create
       @post = current_user.posts.new(post_params)
 
-      if (@post.sub && @post.channel.nil?)
+      if (@post.sub.nil?)
         render json: { errors: @post.errors.full_messages }, status: 422
       else
         if @post.save
