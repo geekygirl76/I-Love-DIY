@@ -95,6 +95,9 @@ body{
   width:100%;
 }
 
+
+
+
 .header{
   background: rgb(233, 235, 235);
   width: 100%;
@@ -350,4 +353,24 @@ ul.posts-home{
 
 main.home{
     position:relative;
+}
+
+main.photo-grid{
+    width:1000px;
+    min-height:1200px;
+    background: transparent;
+    margin:auto;
+    margin-top:0;
+    margin-bottom:0;
+
+}
+
+main.photo-grid > ul > li{
+  float:right;
+  width: 300px;
+  margin: 15px;
+  height: 360px;
+  background: white;
+  overflow: hidden;
+  box-shadow: 0px 1px 2px #000;
 }

@@ -1,14 +1,7 @@
 
 <head>
   <style>
-    nav.new-post{
-      width: 700px;
-      height: auto;
-      margin:auto;
-      background: rgb(228, 234, 233);
-    padding: 5px 10px;
-    border: 1px solid lightblue;
-    }
+
 
     form.post-form{
       width:700px;
@@ -25,22 +18,7 @@
 
 <body>
 
-<nav class="new-post">
-  <form action="/posts" method="get">
 
-
-    <label for="search_tag">
-      Let's Make
-    <input
-      type="text"
-      name="post[search]"
-
-      id="post_search">
-    </label>
-
-    <a><input type="submit" value="Go!"></a>
-  </form>
-</nav>
 <form class="post-form" id="new-post-form">
 
 <label for="post_title">
@@ -113,7 +91,5 @@
  <button class="create-post">Submit</button>
 </form>
 
-<footer>
-  <li><h4>Do It Yourself, Make It Unique!</h4></li>
-</footer>
+
 </body>

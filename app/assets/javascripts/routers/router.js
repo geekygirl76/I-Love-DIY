@@ -40,7 +40,7 @@ Diy.Routers.Router = Backbone.Router.extend({
 
 
   index: function () {
-    console.log(" In router index");
+    // console.log(" In router index");
     var indexView = new Diy.Views.PostsIndex({
       collection: this.posts
     });
@@ -72,9 +72,9 @@ Diy.Routers.Router = Backbone.Router.extend({
     },
 
   new: function(){
-    console.log(" In router new");
+
     var newPost = new Diy.Models.Post();
-    console.log("new post:", newPost);
+
     var formView = new Diy.Views.PostForm({
       model: newPost,
       collection: this.posts
