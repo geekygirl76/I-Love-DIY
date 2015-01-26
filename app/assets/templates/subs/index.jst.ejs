@@ -75,7 +75,15 @@
     setInterval(function(){
 
         $(".home").removeClass(pics[i % 3]).addClass(pics[(i+1)% 3]);
-         $(".item").html(pics[(i+1)% 3]);
+
+        $(".item").html("");
+        var word = pics[(i+1)% 3];
+        var j = 0;
+        setInterval(function(){
+            $(".item").append(word[j]);
+            j++;
+        }, 100);
+
         i++;
 
     }, 2000);
