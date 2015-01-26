@@ -207,13 +207,13 @@ border: 3px solid red;
 }
 
 .post-article{
-  width: 500px;
+  width: 80%;
   min-height: 350px;
-  border: 1px solid grey;
-background: rgb(228, 234, 233);
-  font-weight: bold;
+
+background: transparent;
+font-size: 20px;
 margin: auto;
-padding: 20px;
+padding:20px;
 }
 
 
@@ -413,6 +413,7 @@ main.other{
 
 }
 main.post-article{
+    min-height:1200px;
     padding: 0;
     background: white;
     border:1px solid lightgrey;
@@ -456,4 +457,7 @@ main.post-article{
 .delete-post{
     float: left;
 
+}
+.post-body{
+    padding:20px;
 }

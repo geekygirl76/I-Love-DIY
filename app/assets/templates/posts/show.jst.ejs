@@ -35,10 +35,6 @@
   }
 
 
-   img{
-
-    margin-bottom: 20px;
-  }
 
   textarea.comment{
     width:400px;
@@ -56,7 +52,22 @@
   .title{
       color: black;
       display: inline;
+
   }
+  figure.post-picture{
+      border: 1px solid grey;
+      margin-bottom:20px;
+      padding:20px;
+      border-radius:5px;
+      background: #F8F8F8;
+      box-shadow: 0 10px 10px #ccc;
+  }
+
+
+  img.post-image{
+      border:0;
+
+ }
 
   </style>
 </head>
@@ -90,8 +101,9 @@
   </ul>
 </header>
 
+<div class="post-body">
 <figure class="post-picture">
-<img src="<%= post.get("photo_url") %>">
+<img class="post-image" src="<%= post.get("photo_url") %>">
 </figure>
 
 <article class="post-article">
@@ -153,6 +165,7 @@
 
   <% }) %>
 </ul>
+</div>
 </main>
 
 </body>
