@@ -13,7 +13,10 @@
 <main class="create-diy">
 <form class="post-form" id="new-post-form">
 
-<nav class="new-post-nav">
+<nav class="new-post-nav ">
+<ul class="group post-form-nav">
+
+<li class="choose-forum">
  <label for="post_sub_id">Subforum</label>
  <select name="post[sub_id]" id="post_sub_id">
    <option value="">Choose Category(Sub)</option>
@@ -28,24 +31,31 @@
 
   <% }) %>
  </select>
+</li>
 
- <label>
+<li class='choose-pic'>
+ <label class="upload-pic">
    Upload Picture
 
    <input id="file-upload" type="file" name="post[photo]" value="<%= post.escape("photo_url") %>">
 
  </label>
-
+</li>
+<li class='choose-button'>
  <button class="create-post">Publish</button>
+</li>
+</ul>
 </nav>
 
 <label for="post_title">
-  Title
+
 <input
   type="text"
   name="post[title]"
   value="<%= post.escape("title") %>"
-  id="post_title">
+  id="post_title"
+       placeholder="Title"
+       autofocus>
 </label>
 
  <label for="post_body" >

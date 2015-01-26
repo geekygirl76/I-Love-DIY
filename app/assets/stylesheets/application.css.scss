@@ -249,32 +249,7 @@ li{
   border: 1px solid grey;
 }
 
-.post-form{
-  margin: auto;
-  padding: 20px;
-  margin: 20px 80px;
-  background: white;
-  border: 1px solid black;
-  size: 20px;
-}
 
-.post-form >label{
-  font-weight: bold;
-  display: block;
-  margin: 20px 0 5px 0;
-}
-
-.post-form textarea {
-  size: 20px;
-  font-weight: bold;
-}
-
-.post-form >button{
-  background: green;
-  padding: 10px 15px;
-  font-weight: bold;
-  color: white;
-}
 
 .post-comments{
   margin: 20px;
@@ -592,6 +567,7 @@ button#post-comment{
     border-radius: 10px;
     padding: 20px;
     background: #F6F6F6;
+    height: 50px;
 }
 
 button.create-post{
@@ -599,4 +575,64 @@ button.create-post{
     padding: 10px;
     color: white;
     border-radius: 5px;
+}
+
+label.upload-pic{
+    padding-left: 40px;
+
+}
+
+ul.post-form-nav{
+    position: relative;
+    width: 100%;
+}
+.post-form-nav > li{
+    position: absolute;
+    display: block;
+    float: left;
+}
+.post-form-nav > li.choose-forum{
+    left:0;
+
+}
+.post-form-nav > li.choose-pic{
+    left: 40%;
+
+}
+.post-form-nav > li.choose-button{
+    left: 90%;
+
+}
+.post-form input{
+    padding: 20px;
+    width: 750px;
+
+}
+.post-form{
+  margin: auto;
+  padding: 20px;
+  margin: 20px 80px;
+  background: white;
+  border: 1px solid black;
+  size: 20px;
+}
+
+.post-form >label{
+  font-weight: bold;
+  display: block;
+  margin: 20px 0 5px 0;
+}
+
+.post-form textarea {
+  size: 20px;
+  font-weight: bold;
+  width: 750px;
+  margin:auto;
+}
+
+.post-form >button{
+  background: green;
+  padding: 10px 15px;
+  font-weight: bold;
+  color: white;
 }
