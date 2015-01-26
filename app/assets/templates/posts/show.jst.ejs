@@ -2,7 +2,7 @@
   <style>
 
   nav.post-show{
-    width: 700px;
+    width: 1000px;
     height: 60px;
     margin:auto;
     background: rgb(228, 234, 233);
@@ -15,39 +15,6 @@
       height: 60px;
      margin:auto;
       padding: 5px 10px;
-  }
-
-  main.post-article{
-    width:700px;
-    min-height:500px;
-    background: rgb(241, 246, 245);
-    margin:auto;
-  padding: 5px 10px;
-  border: 1px solid lightblue;
-  }
-
-  footer.post-footer{
-      width:700px;
-      height:60px;
-      background: rgb(228, 234, 233);
-      margin:auto;
-    padding: 5px 10px;
-    border: 1px solid lightblue;
-  }
-
-  .post-footer > ul{
-    float:left;
-  }
-
-  .post-footer > ul > li{
-    float: right;
-  padding: 10px 15px;
-  }
-
-  .post-footer  button{
-    color: blue
-      background: transparent
-    margin-top:0
   }
 
   .post-show > ul {
@@ -87,6 +54,37 @@
   button.reply-button{
     color: white;
   }
+
+  button.delete{
+      border: 0
+      background: transparent;
+  }
+  .title{
+      color: black;
+      display: inline;
+  }
+
+  .like{
+      float: left;
+      width:20px;
+      height: 20px;
+      margin-left: 40%;
+       box-shadow: 0 0 2px #000;
+      padding: 5px 20px;
+      border-radius: 10px;
+      background: #F2F2F2;
+  }
+
+  .dislike{
+      float: right;
+      width: 20px;
+      height: 20px;
+      margin-right: 40%;
+      box-shadow: 0 0 2px #000;
+      padding:5px 20px;
+      border-radius: 10px;
+      background: #F2F2F2;
+  }
   </style>
 </head>
 
@@ -96,28 +94,29 @@
 <body>
 
 <nav class="post-show">
-  <ul class="group">
+  <ul class=" group">
 
-      <li><h3 >Channel: <a href="#/channels/<%= channel.id %>"><%= channel.escape("title") %></a></h3></li>
-      <li><h3 >Subforum: <a href="#/subs/<%= sub.id %>"><%= sub.escape("title") %></a></h3></li>
+    <% if (window.currentUser.id === post.get("user_id")){ %>
+      <li><a><button class="delete" data-id="<%= post.id %>">Delete Post</button></a></li>
+      <li><a href="#/posts/<%= post.id %>/edit"><button>Edit Post</button></a></li>
+   <% } %>
 
-  </ul>
+</ul>
 </nav>
 
 
 
 
-<main class="post-article">
+<main class="post-article other">
 <header class="post-header">
 
   <h1 class="title"><%= post.escape("title") %></h1>
-  by: <a href="/users/<%=post.escape("user_id")%>/public"><%= post.escape("author_name") %></a>
 
-  <ul class="group">
-  <li><%=post.escape("created_at")%></li>
-     <li>(Score: <%=post.escape("score")%>)</li>
-      <li><a href="/posts/<%=post.id%>/upvote">like</a></li>
-      <li><a href="/posts/<%=post.id%>/downvote">dislike</a></li>
+
+  <ul class=" icons group">
+
+      <li><a href="/posts/<%=post.id%>/upvote"><img class="like" src="assets/thumb_up.png"></a></li>
+      <li><a href="/posts/<%=post.id%>/downvote"><img class="dislike" src="assets/thumb_down.png"></a></li>
   </ul>
 </header>
 
@@ -186,20 +185,6 @@
 </ul>
 </main>
 
-<footer class="post-footer">
-  <ul class="footer-ul group">
-
-
-    <% if (window.currentUser.id === post.get("user_id")){ %>
-      <li><a><button class="delete" data-id="<%= post.id %>">Delete Post</button></a></li>
-      <li><a href="#/posts/<%= post.id %>/edit">Edit Post</a></li>
-   <% } %>
-
-
-
-
-</ul>
-</footer>
 </body>
 
 

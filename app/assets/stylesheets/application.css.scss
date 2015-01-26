@@ -199,7 +199,7 @@ h2{
   width: 700px;
   height: 60px;
   background: white;
-color: red;
+
 font-weight: bold;
 font-size: 24px;
 border-radius: 10px;
@@ -279,12 +279,14 @@ li{
 }
 
 button{
-  background: green;
-  margin: 5px;
-  padding: 10px 15px;
-  color: white;
-  font-weight: bold;
+    border: 0;
+    background: transparent;
+    font-size: 15px;
 }
+button:hover{
+    cursor:pointer;
+    color: grey;
+};
 
 .nested-comments{
   padding-left: 20px;
@@ -400,4 +402,19 @@ main.photo-grid > ul > li{
     padding:5px;
     padding-top:15px;
     border: 1px solid #E6E6E6;
+}
+main.other{
+    width:1000px;
+    min-height:1200px;
+
+    margin:auto;
+    margin-top:0;
+    margin-bottom:0;
+
+}
+main.post-article{
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #848484;
+    border:0;
 }
