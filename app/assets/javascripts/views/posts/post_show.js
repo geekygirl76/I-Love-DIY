@@ -20,15 +20,20 @@ Diy.Views.PostShow = Backbone.View.extend({
 
 
   submitComment: function(event){
-    event.preventDefault;
-
+    event.preventDefault();
+    event.stopPropagation();
+    if (window.currentUser.id == -1){
+        alert("Please log in or sign up first!");
+        $("textarea.comment").val("");
+        return;
+    }
     var view = this;
 
 
     var attrs = this.$el.find(".post-comment-form").serializeJSON();
-    console.log("attrs: ", attrs);
+
     var newComment = new Diy.Models.Comment(attrs["comment"]);
-    console.log("newComment", newComment);
+    // console.log("newComment", newComment);
     newComment.collection = this.model.comments();
 
     newComment.save({}, {

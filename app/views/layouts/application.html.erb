@@ -26,13 +26,36 @@
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
   <script>
+  $(
+      function(){
+          $(".create-new-post").click(function(event){
+              event.preventDefault();
+              event.stopPropagation();
+              <% if !current_user %>
+                  alert("Please log in or sign up!");
+                  return;
+              <% else %>
+                  if( !window.currentUser){
+                      alert("This is a bug need to fix!");
+                      return;
+                  }
+                  Backbone.history.navigate("posts/new", { trigger: true });
+              <% end %>
+
+          });
+
+
+      }
+
+  );
+
   </script>
 </head>
 <body>
   <header class="header">
     <nav class="header group">
       <ul class="header-ul-left group">
-        <li><a href="/#/posts/new">Create Post</a></li>
+        <li><a class="create-new-post" href="/#/posts/new">Create Post</a></li>
 
         <li><a href="/#/posts">Posts</a></li>
     <li><a href="/">Home</a></li>

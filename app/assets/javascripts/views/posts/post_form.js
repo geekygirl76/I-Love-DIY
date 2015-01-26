@@ -19,9 +19,15 @@ Diy.Views.PostForm = Backbone.View.extend({
   },
 
   submit: function(event){
-    console.log("backbone submit");
+    event.preventDefault();
+    event.stopPropagation();
+    console.log(window.currentUser.id == -1);
+    if (window.currentUser.id == -1){
+        alert("Please log in or sign up!");
+        return;
+    }
     var that = this;
-      event.preventDefault();
+
 
       var attrs = this.$el.find("#new-post-form").serializeJSON();
 

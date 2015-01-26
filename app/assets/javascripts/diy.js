@@ -19,7 +19,7 @@ window.Diy = {
     Diy.posts.fetch({
       success: function(){
 
-        new Diy.Routers.Router({
+         new Diy.Routers.Router({
           $rootEl: $("#content"),
           posts: Diy.posts
         });

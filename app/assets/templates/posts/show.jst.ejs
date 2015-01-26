@@ -90,14 +90,16 @@
 
   <ul class=" icons group">
 
+
+<% if (window.currentUser.id === post.get("user_id")){ %>
       <li><a  class="like" href="/posts/<%=post.id%>/upvote"></a></li>
       <li><a class="dislike" href="/posts/<%=post.id%>/downvote"></a></li>
 
-  <% if (window.currentUser.id === post.get("user_id")){ %>
+
 
     <li class="edit-post"><a href="#/posts/<%= post.id %>/edit"><button>Edit Post</button></a></li>
       <li class="delete_post"><a><button class="delete" data-id="<%= post.id %>">Delete Post</button></a></li>
- <% } else { %>
+
 
 <% } %>
   </ul>

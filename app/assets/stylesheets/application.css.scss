@@ -586,3 +586,17 @@ button#post-comment{
 
 
 }
+
+.new-post-nav{
+    border: 3px solid lightgrey;
+    border-radius: 10px;
+    padding: 20px;
+    background: #F6F6F6;
+}
+
+button.create-post{
+    background: #FF8000;
+    padding: 10px;
+    color: white;
+    border-radius: 5px;
+}
