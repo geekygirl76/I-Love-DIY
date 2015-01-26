@@ -68,33 +68,7 @@
  pre{
      white-space: pre-wrap;
  }
- .post-comment-form{
-     width: 80%;
-     margin:auto;
-     background: white;
-     border: 1px solid grey;
- }
- textarea.comment{
-   width:500px;
-   height: 100px;
-   border: 1px solid grey;
-   border-radius: 5px;
-   float:right;
-   display:block;
-   clear:both;
-   margin-top:10px;
-   margin-right: 10px;
- }
 
- button#post-comment{
-     float:right;
-     margin-top:20px;
-     margin-right:40px;
-     padding: 10px;
-     background:#FF8000;
-     color: white;
-     border-radius:3px;
- }
   </style>
 </head>
 
@@ -146,6 +120,8 @@
          value="<%= post.id %>">
 
  <div class="comment-body group">
+     <div class="comment-head">
+     </div>
    <label for="comment_body" >
 
    <textarea class="comment"
