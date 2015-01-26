@@ -18,6 +18,7 @@ html, body, header, nav, ul, li, h2, a,form{
   border: 0;
   padding: 0;
   font: inherit;
+  font-family: serif, sans-serif;
 vertical-align: baseline;
 }
 
@@ -93,6 +94,7 @@ body{
   padding: 0;
   size: 20px;
   width:100%;
+  overflow-y:visible;
 }
 
 
@@ -411,7 +413,7 @@ main.other{
     margin:auto;
     margin-top:0;
     margin-bottom:0;
-
+    overflow-y:scroll;
 }
 main.post-article{
     min-height:1200px;
@@ -422,7 +424,9 @@ main.post-article{
     box-shadow: 0 0 10px #848484;
 
     margin-top:20px;
+
 }
+
 
 .like{
     float: left;
