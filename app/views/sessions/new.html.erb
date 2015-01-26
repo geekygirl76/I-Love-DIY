@@ -1,62 +1,38 @@
 <head>
     <script>
+    var pics = ["flower", "braid", "garden"];
+    var i =0;
+      setInterval(function(){
 
+          $(".home").removeClass(pics[i % 3]).addClass(pics[(i+1)% 3]);
+
+          $(".item").html("");
+          var word = pics[(i+1)% 3];
+          var j = 0;
+          setInterval(function(){
+              $(".item").append(word[j]);
+              j++;
+          }, 100);
+
+          i++;
+
+      }, 2000);
     </script>
 
 </head>
 <body>
-<main class="start ">
-  <!-- <header>
-    <ul class="header-list">
-     <li class="header-left"><h3>home: login </h3></li>
-     <li class="header-right"><h4><a class="signup" href="<%= new_user_url %>">sign up</a></h4></li>
-   </ul>
-  </header>
-<form action="<%= session_url %>" method="post">
+<main class="home">
 
-  <input  type="hidden" name="authenticity_token"
-         value="<%= form_authenticity_token %>" />
-
-  <label  for="user_username">Username:</label>
-  <input class="space"
-    type="text"
-    name="user[username]"
-    value="<%= @user.username %>"
-    id="user_username">
-    <br>
-
-  <label   for="user_password">Password:</label>
-  <input class="space"
-    type="password"
-    name="user[password]"
-    value="<%= @user.password %>"
-    id="user_password">
-    <br>
-
-  <label  for="user_email">Email:</label>
-  <input class="space"
-    type="email"
-    name="user[email]"
-    value="<%= @user.email %>"
-    id="user_email">
-    <br>
+    <h1 class="make">Let's make </h1><h3 class="item"></h3>
 
 
- <button class="submit-button">
-  <input  type="submit" value="Log In!">
-  </button>
-</form>
 
 
-<p>
-<a class="signin-button facebook"  href="/auth/facebook"> or Facebook Log In</a>
 
 
-<a class="signin-button signup" href="<%= new_user_url %>">or Sign Up Now</a>
 
 
-<button id="demo"><a class="demo" href="<%= demo_session_url %> ">Demo User</a> </button>
-</p> -->
+
 </main>
 
 <footer>

@@ -473,6 +473,7 @@ main.post-article{
     margin:auto;
     background: white;
     border: 1px solid grey;
+    margin-bottom:20px;
 }
 
 div.comment-head{
@@ -480,11 +481,11 @@ div.comment-head{
     height: 140px;
 
     float: left;
-    margin-top: 10px;
+
     margin-left: 10px;
     background-image: image-url("user.png");
     background-repeat: no-repeat;
-    marging-top:20px;
+    margin-top:20px;
 }
 textarea.comment{
   width:540px;
@@ -509,3 +510,44 @@ button#post-comment{
     border-radius:3px;
 }
 
+.comment{
+
+    padding:20px;
+    border-top: 1px solid lightgrey;
+    width: 80%;
+    margin:auto;
+}
+
+.user-avatar{
+
+    width: 100px;
+    height: 100px;
+    display: block;
+    float: left;
+    margin-top: 10px;
+    margin-left: 0;
+    margin-right: 10px;
+    background-image: image-url("user.png");
+    background-repeat: no-repeat;
+
+}
+.main-comment{
+
+
+}
+.main-comment >div{
+
+}
+.main-comment > .comment-user-name{
+
+}
+.main-comment > .comment-user-comment{
+}
+.comment-time{
+
+
+}
+.comment-time >div{
+
+
+}
