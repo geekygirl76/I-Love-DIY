@@ -17,9 +17,9 @@
 <ul class="group post-form-nav">
 
 <li class="choose-forum">
- <label for="post_sub_id">Subforum</label>
+ <label for="post_sub_id">Forum</label>
  <select name="post[sub_id]" id="post_sub_id">
-   <option value="">Choose Category(Sub)</option>
+   <option value="">Choose Forum</option>
    <% subs.each(function(sub){ %>
      <option
        <%= post.escape("sub_id") == sub.id ? "selected" : null  %>
