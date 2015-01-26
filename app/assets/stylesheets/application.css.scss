@@ -533,20 +533,32 @@ button#post-comment{
     background-repeat: no-repeat;
 
 }
+.right-comment{
+    width: 620px;
+    float: left;
+    margin-left:20px;
+}
 .main-comment{
 
 
 }
 .main-comment >div{
+    display: inline;
+    margin-top: 100px;
+}
+.reply-comment{
+    margin-top:-20px;
+    padding-top: 0;
 
 }
-.main-comment > .comment-user-name{
-
+.main-comment > .comment-user-name >a{
+    margin-right: 20px;
+    color: #FF8000;
 }
 .main-comment > .comment-user-comment{
 }
 .comment-time{
-
+    margin-top: 20px;
 
 }
 .comment-time >div{

@@ -151,6 +151,7 @@
        <li class="root-comment comment group">
                <div class="user-avatar"></div>
 
+                <div class="right-comment">
                <div class="main-comment group">
 
                 <div class="comment-user-name"><a href="/users/<%=comment.get("user_id")%>/public">User<%=  comment.escape("user_id") %></a></div>
@@ -162,6 +163,7 @@
                <div class="comment-time">
                  <div class="comment-user-comment"><%= comment.escape("body") %></div>
               </div>
+              </div>
        </li>
 
 
@@ -171,10 +173,13 @@
 
          <li class="comment group">
                <div class="user-avatar"></div>
+
+              <div class="right-comment">
                <div class="main-comment">
 
                 <div class="comment-user-name"><a href="/users/<%=comment.get("user_id")%>/public">User<%=  comment.escape("user_id") %></a></div>
-                 <div><%=comment.escape("created_at")%></div>
+                 <div><%=  comment.escape("created_at")%></div>
+
                  <div><button id="post-comment" class='reply-comment'>Reply</button></div>
 
                </div>
@@ -182,7 +187,7 @@
                <div class="comment-time">
                  <div class="comment-user-comment"><%= comment.escape("body") %></div>
               </div>
-
+            </div>
          </li>
 
       </ul>
