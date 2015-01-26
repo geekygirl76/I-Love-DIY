@@ -13,6 +13,32 @@
 <main class="create-diy">
 <form class="post-form" id="new-post-form">
 
+<nav class="new-post-nav">
+ <label for="post_sub_id">Subforum</label>
+ <select name="post[sub_id]" id="post_sub_id">
+   <option value="">Choose Category(Sub)</option>
+   <% subs.each(function(sub){ %>
+     <option
+       <%= post.escape("sub_id") == sub.id ? "selected" : null  %>
+       value="<%= sub.id %>"
+       >
+
+       <%= sub.escape("title") %>
+     </option>
+
+  <% }) %>
+ </select>
+
+ <label>
+   Upload Picture
+
+   <input id="file-upload" type="file" name="post[photo]" value="<%= post.escape("photo_url") %>">
+
+ </label>
+
+ <button class="create-post">Publish</button>
+</nav>
+
 <label for="post_title">
   Title
 <input
@@ -33,54 +59,7 @@
  </label>
 
 
- <label for="post_sub_id">Subforum</label>
- <select name="post[sub_id]" id="post_sub_id">
-   <option value="">Choose Category(Sub)</option>
-   <% subs.each(function(sub){ %>
-     <option
-       <%= post.escape("sub_id") == sub.id ? "selected" : null  %>
-       value="<%= sub.id %>"
-       >
 
-       <%= sub.escape("title") %>
-     </option>
-
-  <% }) %>
-
-
- </select>
- <br>
-
-
- <label for="post_channel_id">Channel</label>
- <select name="post[channel_id]" id="post_channel_id">
-   <option value="">Choose Channel</option>
-   <% channels.each(function(channel){ %>
-     <option
-       <%= post.escape("channel_id") == channel.id ? "selected" : null  %>
-       value="<%= channel.id %>"
-       >
-
-       <%= channel.escape("title") %>(<%= (Diy.subs.get(channel.get("sub_id"))).escape("title") %>)
-     </option>
-
-  <% }) %>
-
-
- </select>
- <br>
-
- <label>
-   Upload Picture
-
-   <input id="file-upload" type="file" name="post[photo]" value="<%= post.escape("photo_url") %>">
-
- </label>
-
-
-
-
- <button class="create-post">Submit</button>
 </form>
 
 </main>
