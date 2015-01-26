@@ -16,9 +16,12 @@
 
     <% if(post.get("sub_id") === sub.id){ %>
 
-     <li ><a href="#/posts/<%= post.id %>"><%= post.escape("title") %><img src="<%= post.get("photo_url") %>"></a>
+     <li ><a href="#/posts/<%= post.id %>">
+        <div class='post-pic'><img class='post-img' src="<%= post.get("photo_url") %>"></div>
+        <div class='post-info'><%= post.escape("title") %></div>
+        <div class='post-score'>Score: <%= post.escape("score")%></div>
 
-
+        </a>
      </li>
 
   <% } %>

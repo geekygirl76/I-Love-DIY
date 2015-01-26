@@ -9,22 +9,13 @@
 <main class="all-posts photo-grid">
 <ul class="group">
   <% posts.sort().each(function(post){ %>
-    <li>
-    <a href="#/posts/<%= post.id %>"><%= post.escape("title") %>  Score: <%=post.escape("score")%>)
+     <li ><a href="#/posts/<%= post.id %>">
+        <div class='post-pic'><img class='post-img' src="<%= post.get("photo_url") %>"></div>
+        <div class='post-info'><%= post.escape("title") %></div>
+        <div class='post-score'>Score: <%= post.escape("score")%></div>
 
-
-
-
-    <img src="<%= post.get("photo_url") %>">
-
-    </a>
-
-
-
-
-    </li>
-
-
+        </a>
+     </li>
   <% }); %>
 
 
