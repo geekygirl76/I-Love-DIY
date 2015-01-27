@@ -19,14 +19,11 @@ Diy.Views.PostShow = Backbone.View.extend({
       };
       var $a = $(event.currentTarget);
       var post = this.model;
-      Backbone.sync("read", post, {
-          url: this.url + "/upvote",
-          success: function(post){
-              alert("Upvote success!");
-          },
-          error: function(e){
-              alert("You can't vote the same post twice!!");
-          }
+
+      $.ajax({url: this.model.url() + "/upvote"}).done(function(){
+          alert("Upvote success!");
+      }).fail(function(){
+          alert("You can't vote the same post twice!");
       });
   },
 
@@ -39,14 +36,10 @@ Diy.Views.PostShow = Backbone.View.extend({
       };
       var $a = $(event.currentTarget);
       var post = this.model;
-      Backbone.sync("read", post, {
-          url: this.url + "/downvote",
-          success: function(post){
-              alert("Downvote success!");
-          },
-          error: function(e){
-              alert("You can't vote the same post twice!");
-          }
+      $.ajax({url: this.model.url() + "/upvote"}).done(function(){
+          alert("Upvote success!");
+      }).fail(function(){
+          alert("You can't vote the same post twice!");
       });
   },
 

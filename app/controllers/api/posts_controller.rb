@@ -3,28 +3,43 @@ module Api
     before_action :require_current_user, except: [:index]
     before_action :require_owner, only: [:edit, :update, :destroy]
 
-    # def upvote
- #      @post = Post.find(params[:id])
- #      if @post
- #
- #        @voterecord = Voterecord.new(user_id: current_user.id, post_id: @post.id)
- #        if @voterecord.save
- #          @post.add_score
- #          render "show"
- #        else
- #          render json: { errors: @post.errors.full_messages }, status: 422;
- #        end
- #      else
- #
- #        render json: { errors: @post.errors.full_messages }, status: 422;
- #      end
- #
- #
- #    end
+    def upvote
+      @post = Post.find(params[:id])
+      if @post
 
-    # def downvote
- #      render "show"
- #    end
+        @voterecord = Voterecord.new(user_id: current_user.id, post_id: @post.id)
+        if @voterecord.save
+          @post.add_score
+          render "show"
+        else
+          render json: { errors: @post.errors.full_messages }, status: 422;
+        end
+      else
+
+        render json: { errors: @post.errors.full_messages }, status: 422;
+      end
+
+
+    end
+
+    def downvote
+      @post = Post.find(params[:id])
+      if @post
+
+        @voterecord = Voterecord.new(user_id: current_user.id, post_id: @post.id)
+        if @voterecord.save
+          @post.down_score
+          render "show"
+        else
+          render json: { errors: @post.errors.full_messages }, status: 422;
+        end
+      else
+
+        render json: { errors: @post.errors.full_messages }, status: 422;
+      end
+
+
+    end
 
     def create
       @post = current_user.posts.new(post_params)
