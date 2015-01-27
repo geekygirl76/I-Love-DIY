@@ -3,7 +3,7 @@ Diy.Collections.Posts = Backbone.Collection.extend({
   model: Diy.Models.Post,
 
   comparator: function(post){
-    return -post.get("score");
+    return (-1 *  post.get("score"));
   },
 
 

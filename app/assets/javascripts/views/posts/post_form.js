@@ -55,7 +55,8 @@ Diy.Views.PostForm = Backbone.View.extend({
              success: function (post) {
 
                that.collection.add(post);
-               Backbone.history.navigate("posts", { trigger: true });
+
+               Backbone.history.navigate("posts/"+ post.get("id"), { trigger: true });
              },
 
              error: function (e) {
