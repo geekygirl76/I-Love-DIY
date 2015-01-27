@@ -22,7 +22,9 @@ html, body, header, nav, ul, li, h2, a,div, form{
 vertical-align: baseline;
 }
 
-
+main{
+    position:relative;
+}
 
 input[type="submit"] {
   -webkit-appearance: none;
@@ -651,4 +653,30 @@ ul.post-form-nav{
   padding: 10px 15px;
   font-weight: bold;
   color: white;
+}
+
+.no-display{
+    display:none;
+}
+
+.reply-modal{
+    position:absolute;
+    top:20px;
+    left: 20%;
+    background: black;
+    border: 1px solid grey;
+    border-radius: 10px;
+    box-shadow: 0 0 10px grey;
+}
+.reply-modal-form{
+    width: 500px;
+    background: white;
+}
+#reply-body{
+    width:400px;
+    height: 100px;
+    border: 1px solid grey;
+    border-radius: 10px;
+    margin-left:10px;
+    margin-top: 10px;
 }

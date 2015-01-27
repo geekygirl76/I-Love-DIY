@@ -202,6 +202,21 @@
   <% }) %>
 </ul>
 </div>
+
+<div class='reply-modal'>
+
+<form class="reply-modal-form" >
+  <input type="hidden"
+         name="comment[post_id]"
+         value="<%= post.id %>">
+
+
+   <textarea class="" autofucs name="comment[body]" id="reply-body"></textarea>
+
+     <button class="reply-comment">Make Comment</button>
+
+</form>
+</div>
 </main>
 
 </body>

@@ -59,6 +59,7 @@ Diy.Views.PostShow = Backbone.View.extend({
     event.preventDefault();
     event.stopPropagation();
     if (!window.currentUser || window.currentUser.id == -1){
+
         alert("Please log in or sign up first!");
         $("textarea.comment").val("");
         return;
@@ -91,12 +92,30 @@ Diy.Views.PostShow = Backbone.View.extend({
       event.preventDefault();
       event.stopPropagation();
       if (!window.currentUser || window.currentUser.id == -1){
+
           alert("Please log in or sign up first!");
 
           return;
       }
+
       var view = this;
-      //consult submitComment method
+      var attrs = this.$el.find(".reply-modal-form").serializeJSON();
+      var newComment = new Diy.Models.Comment(attrs["comment"]);
+      // console.log("newComment", newComment);
+      newComment.collection = this.model.comments();
+
+      newComment.save({}, {
+
+        success: function(){
+
+          // console.log("Successfully saved!");
+          view.model.comments().add(newComment);
+          view.render();
+        },
+        error: function(){
+            alert("Content can't be blank!");
+        }
+      });
 
   },
 
