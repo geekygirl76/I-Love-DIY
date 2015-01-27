@@ -15,6 +15,7 @@ Diy.Views.PostShow = Backbone.View.extend({
     var post = Diy.posts.get($target.attr("data-id"));
 
     post.destroy();
+    Backbone.history.navigate("posts", {trigger:true});
   },
 
 

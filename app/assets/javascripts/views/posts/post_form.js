@@ -21,7 +21,7 @@ Diy.Views.PostForm = Backbone.View.extend({
   submit: function(event){
     event.preventDefault();
     event.stopPropagation();
-    console.log(window.currentUser.id == -1);
+    // console.log(window.currentUser.id == -1);
     if (window.currentUser.id == -1){
         alert("Please log in or sign up!");
         return;
@@ -31,9 +31,9 @@ Diy.Views.PostForm = Backbone.View.extend({
 
       var attrs = this.$el.find("#new-post-form").serializeJSON();
 
-      console.log(attrs);
+      // console.log(attrs);
        that.model.collection = that.collection;
-       console.log(this.model);
+       // console.log(this.model);
 
       var picFile = this.$el.find("#file-upload")[0].files[0];
 
@@ -43,24 +43,24 @@ Diy.Views.PostForm = Backbone.View.extend({
         var reader = new FileReader();
          reader.onload = function(e) {
 
-           console.log(this.result);
+           // console.log(this.result);
 
 
            attrs.post["photo"] = this.result;
-
+           alert("Publishing... One second please.");
            that.model.save(attrs.post, {
 
 
 
              success: function (post) {
-                 // console.log("success!");
+
                that.collection.add(post);
-               Backbone.history.navigate("", { trigger: true });
+               Backbone.history.navigate("posts", { trigger: true });
              },
 
              error: (function (e) {
                // console.log();
-                    alert(e);
+                    alert("Please fill in all the information.");
                 }),
 
 
