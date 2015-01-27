@@ -4,7 +4,7 @@ Diy.Views.PostShow = Backbone.View.extend({
 
   events: {
     "click button#post-comment" : "submitComment",
-    "click button#comment-comment" : "submitChildComment",
+    "click button.reply-comment" : "submitChildComment",
     "click .delete": "destroyPost",
       "click a.like": "upvote",
       "click a.dislike": "downvote"
@@ -86,6 +86,19 @@ Diy.Views.PostShow = Backbone.View.extend({
     });
   },
 
+
+  submitChildComment: function(event){
+      event.preventDefault();
+      event.stopPropagation();
+      if (!window.currentUser || window.currentUser.id == -1){
+          alert("Please log in or sign up first!");
+
+          return;
+      }
+      var view = this;
+      //consult submitComment method
+
+  },
 
   initialize: function(){
     this.listenTo(this.model, "sync", this.render);

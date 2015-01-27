@@ -497,8 +497,17 @@ textarea.comment{
   margin-right: 10px;
   font-weight: normal;
 }
-
 button#post-comment{
+    float:right;
+    margin-top:20px;
+    margin-right:40px;
+    padding: 10px;
+    background:#FF8000;
+    color: white;
+    border-radius:3px;
+}
+
+button.reply-comment{
     float:right;
     margin-top:20px;
     margin-right:40px;
