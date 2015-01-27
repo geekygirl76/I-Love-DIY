@@ -7,7 +7,18 @@ Diy.Views.PostShow = Backbone.View.extend({
     "click button.submit-modal-comment" : "submitChildComment",
     "click .delete": "destroyPost",
       "click a.like": "upvote",
-      "click a.dislike": "downvote"
+      "click a.dislike": "downvote",
+      "click button.reply-comment": "openModal"
+  },
+
+  openModal: function(event){
+      event.preventDefault();
+      event.stopPropagation();
+
+      var $button = $(event.currentTarget);
+      $(".overlay").removeClass("no-display");
+      $(".reply-modal").removeClass("no-display");
+       $("main").scrollTop(0);
   },
 
   upvote: function(event){
@@ -107,7 +118,7 @@ Diy.Views.PostShow = Backbone.View.extend({
       newComment.save({}, {
 
         success: function(){
-
+            $(".reply-modal").addClass("no-display");
           // console.log("Successfully saved!");
           view.model.comments().add(newComment);
           view.render();
