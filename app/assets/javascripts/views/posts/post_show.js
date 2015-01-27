@@ -4,7 +4,7 @@ Diy.Views.PostShow = Backbone.View.extend({
 
   events: {
     "click button#post-comment" : "submitComment",
-    "click button.reply-comment" : "submitChildComment",
+    "click button.submit-modal-comment" : "submitChildComment",
     "click .delete": "destroyPost",
       "click a.like": "upvote",
       "click a.dislike": "downvote"
