@@ -16,22 +16,38 @@ Diy.Views.PostShow = Backbone.View.extend({
       if (!window.currentUser || window.currentUser.id ==-1){
           alert("Please log in or sign up!");
           return;
-      }
+      };
       var $a = $(event.currentTarget);
       var post = this.model;
       Backbone.sync("read", post, {
           url: this.url + "/upvote",
           success: function(post){
-              alert("You just liked this post!");
+              alert("Upvote success!");
           },
           error: function(e){
-              alert("Already liked!");
+              alert("You can't vote the same post twice!!");
           }
       });
   },
 
   downvote: function(event){
-
+      event.preventDefault();
+      event.stopPropagation();
+      if (!window.currentUser || window.currentUser.id ==-1){
+          alert("Please log in or sign up!");
+          return;
+      };
+      var $a = $(event.currentTarget);
+      var post = this.model;
+      Backbone.sync("read", post, {
+          url: this.url + "/downvote",
+          success: function(post){
+              alert("Downvote success!");
+          },
+          error: function(e){
+              alert("You can't vote the same post twice!");
+          }
+      });
   },
 
   destroyPost:function(event){
