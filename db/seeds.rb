@@ -54,7 +54,7 @@ Sub.find(6).channels.create!( title: "Camping")
 Sub.find(6).channels.create!( title: "Birding")
 
 
-
+p = Post.new(user_id:8, title:"new", body:"new",  photo_file_name: "data.jpeg", photo_content_type: "image/jpeg", photo_file_size: 283516, photo_updated_at: "2015-01-27 01:36:00", score: 0, sub_id:2)
 
 
 

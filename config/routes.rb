@@ -20,8 +20,9 @@ Rails.application.routes.draw do
   end
 
   namespace :api, defaults: { format: :json } do
-    resources :posts, only: [:index, :show, :create, :update,:destroy] do
+    resources :posts do
       resources :comments, only: [:index, :create, :show]
+      get :upvote, :downvote, on: :member
     end
   end
 

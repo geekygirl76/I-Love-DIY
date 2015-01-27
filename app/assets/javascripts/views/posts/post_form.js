@@ -6,7 +6,7 @@ Diy.Views.PostForm = Backbone.View.extend({
   },
 
   render: function(){
-    console.log("here in backbone post form:", this.model);
+    // console.log("here in backbone post form:", this.model);
     var content = this.template({
       post: this.model,
 
@@ -58,10 +58,10 @@ Diy.Views.PostForm = Backbone.View.extend({
                Backbone.history.navigate("posts", { trigger: true });
              },
 
-             error: (function (e) {
+             error: function (e) {
                // console.log();
-                    alert("Please fill in all the information.");
-                }),
+               alert("Please fill in all the information!");
+                }
 
 
            });

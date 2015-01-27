@@ -5,7 +5,33 @@ Diy.Views.PostShow = Backbone.View.extend({
   events: {
     "click button#post-comment" : "submitComment",
     "click button#comment-comment" : "submitChildComment",
-    "click .delete": "destroyPost"
+    "click .delete": "destroyPost",
+      "click a.like": "upvote",
+      "click a.dislike": "downvote"
+  },
+
+  upvote: function(event){
+      event.preventDefault();
+      event.stopPropagation();
+      if (!window.currentUser || window.currentUser.id ==-1){
+          alert("Please log in or sign up!");
+          return;
+      }
+      var $a = $(event.currentTarget);
+      var post = this.model;
+      Backbone.sync("read", post, {
+          url: this.url + "/upvote",
+          success: function(post){
+              alert("You just liked this post!");
+          },
+          error: function(e){
+              alert("Already liked!");
+          }
+      });
+  },
+
+  downvote: function(event){
+
   },
 
   destroyPost:function(event){
@@ -41,7 +67,7 @@ Diy.Views.PostShow = Backbone.View.extend({
 
       success: function(){
 
-        console.log("Successfully saved!");
+        // console.log("Successfully saved!");
         view.model.comments().add(newComment);
         view.render();
       }
@@ -56,8 +82,8 @@ Diy.Views.PostShow = Backbone.View.extend({
 
   render: function(){
 
-    console.log("In backbone post show view");
-   console.log("This post:", this.model);
+    // console.log("In backbone post show view");
+//    console.log("This post:", this.model);
     var content = this.template({
       post: this.model,
       sub: Diy.subs.get(this.model.get("sub_id")),
