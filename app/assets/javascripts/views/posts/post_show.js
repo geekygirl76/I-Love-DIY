@@ -58,7 +58,7 @@ Diy.Views.PostShow = Backbone.View.extend({
   submitComment: function(event){
     event.preventDefault();
     event.stopPropagation();
-    if (window.currentUser.id == -1){
+    if (!window.currentUser || window.currentUser.id == -1){
         alert("Please log in or sign up first!");
         $("textarea.comment").val("");
         return;
@@ -79,6 +79,9 @@ Diy.Views.PostShow = Backbone.View.extend({
         // console.log("Successfully saved!");
         view.model.comments().add(newComment);
         view.render();
+      },
+      error: function(){
+          alert("Content can't be blank!");
       }
     });
   },
@@ -99,6 +102,7 @@ Diy.Views.PostShow = Backbone.View.extend({
       channel: Diy.channels.get(this.model.get("channel_id"))
     });
     this.$el.html(content);
+
     return this;
   }
 
