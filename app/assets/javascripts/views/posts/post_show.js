@@ -36,8 +36,8 @@ Diy.Views.PostShow = Backbone.View.extend({
       };
       var $a = $(event.currentTarget);
       var post = this.model;
-      $.ajax({url: this.model.url() + "/upvote"}).done(function(){
-          alert("Upvote success!");
+      $.ajax({url: this.model.url() + "/downvote"}).done(function(){
+          alert("Downvote success!");
       }).fail(function(){
           alert("You can't vote the same post twice!");
       });
