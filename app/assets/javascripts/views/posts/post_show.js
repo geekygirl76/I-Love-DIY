@@ -12,13 +12,17 @@ Diy.Views.PostShow = Backbone.View.extend({
   },
 
   openModal: function(event){
+      $("main").scrollTop(0);
       event.preventDefault();
       event.stopPropagation();
 
       var $button = $(event.currentTarget);
+
       $(".overlay").removeClass("no-display");
       $(".reply-modal").removeClass("no-display");
-       $("main").scrollTop(0);
+
+      $(".reply-modal").css({"top":"0", left:"30%"});
+
   },
 
   upvote: function(event){
@@ -99,6 +103,8 @@ Diy.Views.PostShow = Backbone.View.extend({
   },
 
 
+
+
   submitChildComment: function(event){
       event.preventDefault();
       event.stopPropagation();
@@ -108,6 +114,11 @@ Diy.Views.PostShow = Backbone.View.extend({
 
           return;
       }
+
+      var buttonCount = $("button.reply-comment").length;
+      var lastButton = $("button.reply-comment")[buttonCount-1];
+      var top = $(lastButton).offset().top;
+
 
       var view = this;
       var attrs = this.$el.find(".reply-modal-form").serializeJSON();
@@ -122,6 +133,8 @@ Diy.Views.PostShow = Backbone.View.extend({
           // console.log("Successfully saved!");
           view.model.comments().add(newComment);
           view.render();
+
+          $("main").scrollTop(top);
         },
         error: function(){
             alert("Content can't be blank!");
@@ -133,6 +146,7 @@ Diy.Views.PostShow = Backbone.View.extend({
   initialize: function(){
     this.listenTo(this.model, "sync", this.render);
     this.listenTo(this.model.comments(), "sync add change:title remove", this.render);
+
   },
 
   render: function(){

@@ -28,6 +28,8 @@
   <script>
   $(
       function(){
+
+
           $(".create-new-post").click(function(event){
               event.preventDefault();
               event.stopPropagation();
@@ -92,12 +94,46 @@
   <% elsif flash[:notice] %>
     <h2><%=  flash[:notice].html_safe %></h2>
   <% end %>
+<%= yield %>
 
-<div class="login-modal no-display">
-login
+<div class='login-overlay '>
 </div>
 
-<%= yield %>
+<div class="login-modal ">
+    <form class="login-form" action="<%= session_url %>" method="post" enctype="multipart/form-data">
+      <input type="hidden" name="authenticity_token"
+             value="<%= form_authenticity_token %>" >
+
+
+      <label for="user_email">Email </label>
+      <input class="space"
+        type="email"
+        name="user[email]"
+
+        id="user_email">
+
+
+      <label for="user_username">Username</label>
+      <input class="space"
+        type="text"
+        name="user[username]"
+
+        id="user_username">
+
+
+      <label for="user_password">Password </label>
+      <input class="space"
+        type="password"
+        name="user[password]"
+
+        id="user_password">
+
+    <input type="submit" value="Log In" id="login-button">
+
+    </form>
+</div>
+
+
 
 </body>
 </html>
