@@ -19,16 +19,14 @@ class UsersController < ApplicationController
 
     @user = User.new(user_params)
 
-    if !@user.password_match
-      flash.now[:errors] = ["Password don't match!"]
-      render :new
-    elsif @user.save
+
+    if @user.save
 
       UserMailer.activation_email(@user).deliver!
-      redirect_to subs_url, notice:"Successfully created your account! Check your inbox for an activation email."
+      redirect_to root_url, notice:"Successfully created your account! Check your inbox for an activation email."
     else
       flash.now[:errors] = @user.errors.full_messages
-      render:new
+      redirect_to root_url
     end
   end
 
@@ -38,10 +36,10 @@ class UsersController < ApplicationController
     if @user
       @user.activate!
       log_in(@user)
-      redirect_to subs_url, notice: "Welcome!" + @user.username
+      redirect_to root_url, notice: "Welcome!" + @user.username
     else
       flash.now[:errors] = "Invalid activation!"
-      redirect_to subs_url
+      redirect_to root_url
     end
   end
 
