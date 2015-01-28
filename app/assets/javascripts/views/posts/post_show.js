@@ -12,16 +12,22 @@ Diy.Views.PostShow = Backbone.View.extend({
   },
 
   openModal: function(event){
-      $("main").scrollTop(0);
+
+      var myTop = this.$el.find("main").scrollTop();
+
       event.preventDefault();
       event.stopPropagation();
 
       var $button = $(event.currentTarget);
+      var off= $button.offset().top;
 
+
+      $(".reply-modal").animate({top: (myTop +off/2 )+"px"},200);
+      this.$el.find("main").animate({scrollTop:(myTop +off/2) }, 200);
       $(".overlay").removeClass("no-display");
       $(".reply-modal").removeClass("no-display");
 
-      $(".reply-modal").css({"top":"0", left:"30%"});
+
 
   },
 
@@ -97,6 +103,9 @@ Diy.Views.PostShow = Backbone.View.extend({
         // console.log("Successfully saved!");
         view.model.comments().add(newComment);
         view.render();
+        view.$el.find("main").animate({scrollTop: 500}, 200);
+        // var topPos = $(view.$el.find(".reply-comment")[5]).offset().top;
+        alert("Comment published!");
       },
       error: function(){
           alert("Content can't be blank!");
@@ -135,8 +144,8 @@ Diy.Views.PostShow = Backbone.View.extend({
           // console.log("Successfully saved!");
           view.model.comments().add(newComment);
           view.render();
-
-          $("main").scrollTop(top);
+          alert("Reply published!");
+          view.$el.find("body").animate({scrollTop: 500}, 200);
         },
         error: function(){
             alert("Content can't be blank!");
