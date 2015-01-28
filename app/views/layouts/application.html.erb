@@ -26,6 +26,40 @@
   $(
       function(){
 
+          $("#signup-button").click(function(event){
+              event.preventDefault();
+              event.stopPropagation();
+              var blank = false;
+              $(".signup-modal").find("input.signup-info").each(function(i,v){
+                  if ($(v).val().length <1){
+                      blank = true;
+                  }
+              });
+
+              if(blank){
+                  alert("Please fill in all the information!");
+                  return;
+              } else {
+                  if ($($(".signup-modal").find("input.signup-info")[2]).val().length < 6){
+                      alert("Password too short. Minimum 6 characters!");
+                      return;
+                  }
+              };
+
+              var attrs = $(".signup-modal").find("form").serializeJSON();
+              $.ajax({
+                  type: "POST",
+                  url: "<%= users_url%>",
+                  data: attrs,
+                  success:function(){
+                      $("button#cancel-signup").trigger('click');
+                  },
+                  error: function(){
+                      alert("Email or username already taken!");
+                  }
+              });
+          });
+
           $("button#cancel-signup").click(function(event){
               event.preventDefault();
               event.stopPropagation();
@@ -46,7 +80,7 @@
           $("a#nav-login").click(function(event){
               event.preventDefault();
               event.stopPropagation();
-              $(".login-modal").find("input.login-info").val("");
+
               $(".login-overlay").removeClass("no-display");
               $(".login-modal").removeClass("no-display");
           });
@@ -54,7 +88,7 @@
           $("a#nav-signup").click(function(event){
               event.preventDefault();
               event.stopPropagation();
-              $(".signup-modal").find("input.signup-info").val("");
+
               $(".signup-overlay").removeClass("no-display");
               $(".signup-modal").removeClass("no-display");
           });
@@ -170,7 +204,7 @@
 </div>
 
 <div class="signup-modal no-display">
-    <form class="login-form" action="<%= users_url %>" method="post" enctype="multipart/form-data">
+    <form class="login-form"  enctype="multipart/form-data">
       <input type="hidden" name="authenticity_token"
              value="<%= form_authenticity_token %>" >
 

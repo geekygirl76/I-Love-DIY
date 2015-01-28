@@ -25,7 +25,7 @@ class UsersController < ApplicationController
       UserMailer.activation_email(@user).deliver!
       redirect_to root_url
     else
-
+      render json: { errors: @user.errors.full_messages }, status: 422;
       redirect_to root_url
     end
   end
