@@ -28,15 +28,18 @@
   <script>
   $(
       function(){
-
+          $("a#nav-login").click(function(event){
+              event.preventDefault();
+              event.stopPropagation();
+              $(".login-overlay").removeClass("no-display");
+              $(".login-modal").removeClass("no-display");
+          });
 
           $(".create-new-post").click(function(event){
               event.preventDefault();
               event.stopPropagation();
               <% if !current_user %>
-              $(".login-overlay").removeClass("no-display");
-              $(".login-modal").removeClass("no-display");
-
+              alert("Please log in or sign up first!");
 
               <% else %>
                   if( !window.currentUser){
@@ -82,8 +85,8 @@
       <% else %>
 
           <ul class="header-ul-right group">
-              <li><a  href="/auth/facebook">Facebook Log In</a></li>
-            <li><a href="<%= demo_session_url %>">Guest Log In</a></li>
+
+            <li><a id="nav-login">Log In</a></li>
             <li><a href="<%= new_user_url %>">Sign Up</a></li>
           </ul>
 
@@ -131,6 +134,8 @@
         id="user_password">
 
     <input type="submit" value="Log In" id="login-button">
+    <a  class="login-button" href="/auth/facebook">Facebook Log In</a>
+    <a  class="login-button" href="<%= demo_session_url %>">Guest Log In</a>
 
     </form>
 </div>

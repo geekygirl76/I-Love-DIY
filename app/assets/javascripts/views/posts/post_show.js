@@ -29,8 +29,8 @@ Diy.Views.PostShow = Backbone.View.extend({
       event.preventDefault();
       event.stopPropagation();
       if (!window.currentUser || window.currentUser.id ==-1){
-          $(".login-overlay").removeClass("no-display");
-          $(".login-modal").removeClass("no-display");
+          alert("Please log in or sign up first!");
+
           return;
       };
       var $a = $(event.currentTarget);
@@ -47,8 +47,7 @@ Diy.Views.PostShow = Backbone.View.extend({
       event.preventDefault();
       event.stopPropagation();
       if (!window.currentUser || window.currentUser.id ==-1){
-          $(".login-overlay").removeClass("no-display");
-          $(".login-modal").removeClass("no-display");
+          alert("Please log in or sign up first!");
           return;
       };
       var $a = $(event.currentTarget);
@@ -77,8 +76,7 @@ Diy.Views.PostShow = Backbone.View.extend({
     event.stopPropagation();
     if (!window.currentUser || window.currentUser.id == -1){
 
-        $(".login-overlay").removeClass("no-display");
-        $(".login-modal").removeClass("no-display");
+        alert("Please log in or sign up first!");
 
         $("textarea.comment").val("");
         return;

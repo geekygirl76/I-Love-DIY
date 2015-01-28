@@ -731,3 +731,16 @@ ul.post-form-nav{
     border-radius:5px;
     margin-top:20px;
 }
+#login-button:hover{
+    color: lightgrey;
+    text-decoration:underline;
+};
+.login-button{
+    padding: 10px;
+    border: 1px solid green;
+    color: white;
+    font-weight: bold;
+    background:green;
+    border-radius:5px;
+    margin-top:20px;
+}
