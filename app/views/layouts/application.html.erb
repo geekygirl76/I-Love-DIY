@@ -35,6 +35,13 @@
               $(".login-modal").removeClass("no-display");
           });
 
+          $("a#nav-signup").click(function(event){
+              event.preventDefault();
+              event.stopPropagation();
+              $(".signup-overlay").removeClass("no-display");
+              $(".signup-modal").removeClass("no-display");
+          });
+
           $(".create-new-post").click(function(event){
               event.preventDefault();
               event.stopPropagation();
@@ -87,7 +94,7 @@
           <ul class="header-ul-right group">
 
             <li><a id="nav-login">Log In</a></li>
-            <li><a href="<%= new_user_url %>">Sign Up</a></li>
+            <li><a id="nav-signup">Sign Up</a></li>
           </ul>
 
       <% end  %>
@@ -140,6 +147,50 @@
     </form>
 </div>
 
+<div class='signup-overlay no-display'>
+</div>
+
+<div class="signup-modal no-display">
+    <form class="login-form" action="<%= users_url %>" method="post" enctype="multipart/form-data">
+      <input type="hidden" name="authenticity_token"
+             value="<%= form_authenticity_token %>" >
+
+
+      <label for="user_email">Email </label>
+      <input class="space"
+        type="email"
+        name="user[email]"
+
+        id="user_email">
+
+
+      <label for="user_username">Username</label>
+      <input class="space"
+        type="text"
+        name="user[username]"
+
+        id="user_username">
+
+
+      <label for="user_password">Password </label>
+      <input class="space"
+        type="password"
+        name="user[password]"
+
+        id="user_password">
+
+    <label>
+      Upload Picture
+
+      <input type="file" name="user[photo]" >
+
+    </label>
+
+    <input type="submit" value="Sign Up" id="login-button">
+
+
+    </form>
+</div>
 
 
 </body>

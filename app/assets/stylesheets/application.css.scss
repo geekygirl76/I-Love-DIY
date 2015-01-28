@@ -709,6 +709,16 @@ ul.post-form-nav{
     opacity: 0.8;
     filter: alpha(opacity=80);
 }
+.signup-overlay{
+    position:fixed;
+    width:100%;
+    height: 100%;
+    top:0;
+    left: 0;
+    background:grey;
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+}
 .login-modal{
     position:absolute;
     top: 100px;
@@ -719,6 +729,17 @@ ul.post-form-nav{
     border-radius: 10px;
 
 }
+.signup-modal{
+    position:absolute;
+    top: 100px;
+    left: 500px;
+    width:500px;
+    height: 200px;
+
+    border-radius: 10px;
+
+}
+
 .login-form{
     padding: 20px;
 }
