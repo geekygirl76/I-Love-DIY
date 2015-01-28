@@ -8,7 +8,30 @@ Diy.Views.PostShow = Backbone.View.extend({
     "click .delete": "destroyPost",
       "click a.like": "upvote",
       "click a.dislike": "downvote",
-      "click button.reply-comment": "openModal"
+      "click button.reply-comment": "openModal",
+      "click button.delete-comment": "deleteComment",
+      "click button.cancel-reply":"cancelReply"
+  },
+
+  cancelReply: function(event){
+
+      event.preventDefault();
+      event.stopPropagation();
+      var $button = $(event.currentTarget);
+
+      $(".reply-modal").find("textarea").val("");
+      $(".reply-modal").addClass("no-display");
+      $(".overlay").addClass("no-display");
+  },
+
+  deleteComment: function(event){
+      event.preventDefault();
+      event.stopPropagation();
+      var $button = $(event.currentTarget);
+      var commentId=  $button.data("id");
+      //need to write comment getOrFetch method, getorfetch comment,destroy, view render
+
+      //find the comment and destroy it in both server and browser
   },
 
   openModal: function(event){

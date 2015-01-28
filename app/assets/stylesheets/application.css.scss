@@ -799,3 +799,12 @@ button#cancel-signup:hover{
     color: grey;
     text-decoration:underline;
 };
+button.cancel-reply{
+    float:right;
+    margin-top:20px;
+    margin-right:40px;
+    padding: 10px;
+    background:#FF8000;
+    color: white;
+    border-radius:3px;
+}

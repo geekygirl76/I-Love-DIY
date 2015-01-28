@@ -174,7 +174,12 @@
 
                 <div class="comment-user-name"><a href="/users/<%=comment.get("user_id")%>/public">User <%=  comment.escape("user_id") %></a></div>
                  <div><%=comment.escape("created_at")%></div>
-                 <div><button  class='reply-comment'>Reply</button></div>
+                 <div><button  class='reply-comment'>Reply</button>
+                    <% if (window.currentUser && window.currentUser.id != -1){ %>
+                        <button class="delete-comment" data-id="<%=comment.get("id")%>">Delete</button>
+                    <% }%>
+
+                 </div>
 
                </div>
 
@@ -231,6 +236,7 @@
    <textarea class="" autofucs name="comment[body]" id="reply-body"></textarea>
 
      <button class="submit-modal-comment">Reply</button>
+     <button class="cancel-reply">Cancel</button>
 
 </form>
 </div>
