@@ -34,8 +34,10 @@
               event.preventDefault();
               event.stopPropagation();
               <% if !current_user %>
-                  alert("Please log in or sign up!");
-                  return;
+              $(".login-overlay").removeClass("no-display");
+              $(".login-modal").removeClass("no-display");
+
+
               <% else %>
                   if( !window.currentUser){
                       alert("This is a bug need to fix in application.html.erb!");
@@ -96,10 +98,10 @@
   <% end %>
 <%= yield %>
 
-<div class='login-overlay '>
+<div class='login-overlay no-display'>
 </div>
 
-<div class="login-modal ">
+<div class="login-modal no-display">
     <form class="login-form" action="<%= session_url %>" method="post" enctype="multipart/form-data">
       <input type="hidden" name="authenticity_token"
              value="<%= form_authenticity_token %>" >
