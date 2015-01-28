@@ -780,6 +780,10 @@ button#cancel-signup{
     border-radius:5px;
     margin-top:20px;
 }
+button#cancel-signup:hover{
+    color: grey;
+    text-decoration:underline;
+};
 #signup-button{
     margin-left:-10%;
     padding: 10px;
@@ -791,3 +795,7 @@ button#cancel-signup{
     margin-top:20px;
     margin-right:0;
 }
+#signup-button:hover{
+    color: grey;
+    text-decoration:underline;
+};

@@ -26,11 +26,13 @@ class SessionsController < ApplicationController
 
     if @user
       log_in(@user)
-      redirect_to "/"
-    else
-      render json: { errors: @user.errors.full_messages }, status: 422;
-      @user = User.new
       redirect_to root_url
+
+    else
+      @user = User.new
+      render json: { errors: @user.errors.full_messages }, status: 422;
+
+
     end
   end
 

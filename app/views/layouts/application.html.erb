@@ -40,14 +40,17 @@
                   return;
               };
               var attrs = $(".login-modal").find("form").serializeJSON();
-              
+
               $.ajax({
                   type: "POST",
                   url: "<%= session_url%>",
                   data: attrs,
-                  success:function(){
+                  success:function(data){
+
                       $("button#cancel-login").trigger('click');
-                      console.log("sucess");
+                      $("#home-link").trigger("click");
+                      alert("Log in success! Please go to home page to start!");
+
                   },
                   error: function(){
                       alert("Email or username or password not correct!");
@@ -152,7 +155,7 @@
         <li><a class="create-new-post" href="/#/posts/new">Create Post</a></li>
 
         <li><a href="/#/posts">Posts</a></li>
-    <li><a href="/">Home</a></li>
+    <li><a id="home-link" href="/">Home</a></li>
       </ul>
 
       <% if current_user %>
