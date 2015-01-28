@@ -3,7 +3,17 @@
 
 .title>b{
     font-weight: normal;
-    font-size:15px;
+    font-size:12px;
+    color:grey;
+}
+.title >b >a{
+    font-weight: normal;
+    font-size:12px;
+    color:grey;
+}
+.title >b >a:hover{
+    cursor:pointer;
+    text-decoration:underline;
 }
 
   div.post-title{
@@ -89,7 +99,7 @@
 
 <header class="post-header">
 
-  <h1 class="title"><%= post.escape("title") %> <b> by tomato</b> </h1>
+  <h1 class="title"><%= post.escape("title") %> <b>  by <a href="/users/<%=post.get("user_id")%>/public"><%= post.get("author_name")%></a></b> </h1>
 
 
   <ul class=" icons group">
@@ -162,7 +172,7 @@
                 <div class="right-comment">
                <div class="main-comment group">
 
-                <div class="comment-user-name"><a href="/users/<%=comment.get("user_id")%>/public">User<%=  comment.escape("user_id") %></a></div>
+                <div class="comment-user-name"><a href="/users/<%=comment.get("user_id")%>/public">User <%=  comment.escape("user_id") %></a></div>
                  <div><%=comment.escape("created_at")%></div>
                  <div><button  class='reply-comment'>Reply</button></div>
 

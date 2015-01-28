@@ -23,9 +23,9 @@ class UsersController < ApplicationController
     if @user.save
 
       UserMailer.activation_email(@user).deliver!
-      redirect_to root_url, notice:"Successfully created your account! Check your inbox for an activation email."
+      redirect_to root_url
     else
-      flash.now[:errors] = @user.errors.full_messages
+
       redirect_to root_url
     end
   end
@@ -36,7 +36,7 @@ class UsersController < ApplicationController
     if @user
       @user.activate!
       log_in(@user)
-      redirect_to root_url, notice: "Welcome!" + @user.username
+      redirect_to root_url
     else
       flash.now[:errors] = "Invalid activation!"
       redirect_to root_url

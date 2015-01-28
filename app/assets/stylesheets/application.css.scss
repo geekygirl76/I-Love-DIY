@@ -755,3 +755,39 @@ ul.post-form-nav{
     border-radius:5px;
     margin-top:20px;
 }
+
+button#cancel-login{
+    padding: 10px;
+
+    color: white;
+    font-weight: bold;
+    background:#FF8000;
+    border-radius:5px;
+    margin-top:20px;
+}
+button#cancel-login:hover{
+    cursor:pointer;
+    color:grey;
+    text-decoration:underline;
+}
+button#cancel-signup{
+    margin-left: 0px;
+    padding: 10px;
+
+    color: white;
+    font-weight: bold;
+    background:#FF8000;
+    border-radius:5px;
+    margin-top:20px;
+}
+#signup-button{
+    margin-left:-10%;
+    padding: 10px;
+
+    color: white;
+    font-weight: bold;
+    background:#FF8000;
+    border-radius:5px;
+    margin-top:20px;
+    margin-right:0;
+}

@@ -25,9 +25,28 @@
   <script>
   $(
       function(){
+
+          $("button#cancel-signup").click(function(event){
+              event.preventDefault();
+              event.stopPropagation();
+              $(".signup-modal").find("input.signup-info").val("");
+              $(".signup-overlay").addClass("no-display");
+              $(".signup-modal").addClass("no-display");
+          });
+
+          $("button#cancel-login").click(function(event){
+              event.preventDefault();
+              event.stopPropagation();
+
+              $(".login-modal").find("input.login-info").val("");
+              $(".login-overlay").addClass("no-display");
+              $(".login-modal").addClass("no-display");
+          });
+
           $("a#nav-login").click(function(event){
               event.preventDefault();
               event.stopPropagation();
+              $(".login-modal").find("input.login-info").val("");
               $(".login-overlay").removeClass("no-display");
               $(".login-modal").removeClass("no-display");
           });
@@ -35,6 +54,7 @@
           $("a#nav-signup").click(function(event){
               event.preventDefault();
               event.stopPropagation();
+              $(".signup-modal").find("input.signup-info").val("");
               $(".signup-overlay").removeClass("no-display");
               $(".signup-modal").removeClass("no-display");
           });
@@ -109,13 +129,15 @@
 </div>
 
 <div class="login-modal no-display">
+
     <form class="login-form" action="<%= session_url %>" method="post" enctype="multipart/form-data">
       <input type="hidden" name="authenticity_token"
              value="<%= form_authenticity_token %>" >
 
 
-      <label for="user_email">Email </label>
-      <input class="space"
+
+      <label for="user_email" >Email </label>
+      <input class="space login-info"
         type="email"
         name="user[email]"
 
@@ -123,15 +145,15 @@
 
 
       <label for="user_username">Username</label>
-      <input class="space"
+      <input class="space login-info"
         type="text"
         name="user[username]"
 
         id="user_username">
 
 
-      <label for="user_password">Password </label>
-      <input class="space"
+      <label for="user_password" >Password </label>
+      <input class="space login-info"
         type="password"
         name="user[password]"
 
@@ -140,7 +162,7 @@
     <input type="submit" value="Log In" id="login-button">
     <a  class="login-button" href="/auth/facebook">Facebook Log In</a>
     <a  class="login-button" href="<%= demo_session_url %>">Guest Log In</a>
-
+    <button id="cancel-login">Cancel</button>
     </form>
 </div>
 
@@ -153,24 +175,24 @@
              value="<%= form_authenticity_token %>" >
 
 
-      <label for="user_email">Email </label>
-      <input class="space"
+      <label for="user_email" class="">Email </label>
+      <input class="space signup-info"
         type="email"
         name="user[email]"
 
         id="user_email">
 
 
-      <label for="user_username">Username</label>
-      <input class="space"
+      <label for="user_username" class="">Username</label>
+      <input class="space signup-info"
         type="text"
         name="user[username]"
 
         id="user_username">
 
 
-      <label for="user_password">Password</label>
-      <input class="space"
+      <label for="user_password" class="">Password</label>
+      <input class="space signup-info"
         type="password"
         name="user[password]"
 
@@ -178,16 +200,16 @@
 
 
 
-    <label>
+    <label class="signup-upload">
       Upload Picture
 
       <input type="file" name="user[photo]" >
 
     </label>
 
-    <input type="submit" value="Sign Up" id="login-button">
+    <input type="submit" value="Sign Up" id="signup-button">
 
-
+    <button id="cancel-signup">Cancel</button>
     </form>
 </div>
 

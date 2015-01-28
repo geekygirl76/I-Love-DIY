@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
 
      log_in(user)
 
-     flash.now[:success] = ["Logged in with facebook!"]
+
      redirect_to "/"
    end
 
@@ -28,7 +28,7 @@ class SessionsController < ApplicationController
       log_in(@user)
       redirect_to "/"
     else
-      flash[:errors] = ["Invalid Username Or Password"]
+
       @user = User.new
       redirect_to root_url
     end
