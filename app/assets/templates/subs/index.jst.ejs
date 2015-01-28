@@ -40,24 +40,24 @@
   border: 0;
   }
 
-  form{
+  form#search-form{
       margin-top:10px;
       height:auto;
       padding:10px;
       background: transparent;
   }
 
-  form>a {
+  form#search-form>a {
       color: white;
       font-weight:bold;
       font-size: 30px;
   }
 
-  form > a :hover{
+  form#search-form > a :hover{
       cursor:pointer;
       color:white;
   }
-  form>label{
+  form#search-form>label{
       color:white;
       font-weight: bold;
       background: transparent;
@@ -98,7 +98,7 @@
 
 <main class="home">
 <nav class="home">
-  <form action="/posts" method="get">
+  <form id="search-form" action="/posts" method="get">
 
 
     <label for="search_tag">
