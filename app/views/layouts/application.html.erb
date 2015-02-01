@@ -132,10 +132,12 @@
               alert("Please log in or sign up first!");
 
               <% else %>
-                  if( !window.currentUser){
-                      alert("This is a bug need to fix in application.html.erb!");
-                      return;
-                  }
+                  // if( !window.currentUser){
+//                       alert("This is a bug need to fix in application.html.erb!");
+//                       return;
+//                   }
+window.currentUser = {id: <%= current_user.id %>s};
+// console.log(window.currentUser);
                   Backbone.history.navigate("posts/new", { trigger: true });
               <% end %>
 
