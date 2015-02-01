@@ -1,12 +1,18 @@
 <head>
   <style>
   nav.user{
-    width: 700px;
-    height: 60px;
+
+
+  border-bottom: 1px solid lightgrey;
+  padding:10px;
+  background: #F8F8F8;
+
+    width: 100%;
+    height: 48px;
     margin:auto;
-    background: rgb(228, 234, 233);
-  padding: 5px 10px;
-  border: 1px solid lightblue;
+
+
+
   }
 
   nav.user > ul{
@@ -61,6 +67,7 @@
 </head>
 
 <body>
+<main class="post-article other user-profile">
 
 <nav class="user">
   <ul class="group">
@@ -81,7 +88,7 @@
 
 
 
-<main class="user">
+
   <div class="welcome">
   <h1>Welcome!<%= current_user.username == "" ? "Guest" : current_user.username %></h1>
   </div>
