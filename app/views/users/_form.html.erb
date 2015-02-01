@@ -7,7 +7,7 @@
 <body>
 <% action_url = (action == :edit ? user_url(user) : users_url) %>
 
-<form action="<%= action_url %>" method="post" enctype="multipart/form-data">
+<form  class="edit-user" action="<%= action_url %>" method="post" enctype="multipart/form-data">
   <input type="hidden" name="authenticity_token"
          value="<%= form_authenticity_token %>" >
 
@@ -16,62 +16,66 @@
      <% end %>
 
 
-  <label for="user_email">Email (Required)</label>
+ <div class="edit-form-element">
+  <label for="user_email">Email</label>
   <input class="space"
     type="email"
     name="user[email]"
   value="<%= user.email %>"
     id="user_email">
+</div>
 
-
-  <label for="user_username">Username (Required)</label>
+ <div class="edit-form-element">
+  <label for="user_username">Username</label>
   <input class="space"
     type="text"
     name="user[username]"
     value="<%= user.username %>"
     id="user_username">
+</div>
 
-
-  <label for="user_password">Password (Required)</label>
+ <div class="edit-form-element">
+  <label for="user_password">Password</label>
   <input class="space"
     type="password"
     name="user[password]"
   value="<%= user.confirm_password %>"
     id="user_password">
+</div>
 
-
-
-  <label for="user_confirm_password">Confirm Password (Required)</label>
+ <div class="edit-form-element">
+  <label for="user_confirm_password">Confirm Password</label>
   <input class="space"
     type="password"
     name="user[confirm_password]"
   value="<%= user.confirm_password %>"
     id="user_confirm_password">
+</div>
 
-
-
-  <label for="user_age">Age (Optional)</label>
+ <div class="edit-form-element">
+  <label for="user_age">Age</label>
   <input class="space"
     type="text"
     name="user[age]"
   value="<%= user.age %>"
     id="user_age">
+</div>
 
 
 
-
-
+ <div class="edit-form-element">
   <label for="user_zip">
-    Zip (Optional)
+    Zip
     <input class="space"
       type="text"
       name="user[zip]"
     value="<%= user.zip %>"
       id="user_zip">
   </label>
+</div>
 
-
-  <label for="user_gender">Gender (Optional)</label>
+ <div class="edit-form-element">
+  <label for="user_gender">Gender</label>
   <select name="user[gender]" id="user_gender">
     <option></option>
     <% User::GENDERS.each do |gender| %>
@@ -82,17 +86,19 @@
       </option>
     <% end %>
   </select>
+</div>
 
-
-<br>
+ <div class="edit-form-element">
   <label>
     Upload Picture
 
     <input type="file" name="user[photo]" value="<%= user.photo %>">
 
   </label>
-<button class="submit-button">
-  <input  type="submit" value="<%= action == :edit ? "Edit" : "Sign Up!"%>">
+</div>
+
+<button class="edit-profile-button">
+  <input  type="submit" value="<%= action == :edit ? "Update Profile" : "Sign Up!"%>">
   </button>
 </form>
 
