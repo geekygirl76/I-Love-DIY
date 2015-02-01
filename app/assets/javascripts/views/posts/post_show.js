@@ -1,4 +1,4 @@
-Diy.Views.PostShow = Backbone.View.extend({
+Diy.Views.PostShow = Backbone.CompositeView.extend({
   template: JST["posts/show"],
 
 
@@ -44,8 +44,9 @@ Diy.Views.PostShow = Backbone.View.extend({
       var $button = $(event.currentTarget);
       var off= $button.offset().top;
 
-
-      $(".reply-modal").animate({top: (myTop +off/2 )+"px"},200);
+      this.parent_comment_id = $button.data("id");
+      // console.log(this.parent_comment_id);
+      $(".reply-modal").animate({top: (myTop +off/2 )+"px"},500);
       this.$el.find("main").animate({scrollTop:(myTop +off/2) }, 200);
       $(".overlay").removeClass("no-display");
       $(".reply-modal").removeClass("no-display");
@@ -110,22 +111,23 @@ Diy.Views.PostShow = Backbone.View.extend({
         $("textarea.comment").val("");
         return;
     }
-    var view = this;
 
+    var view = this;
+    view.parent_comment_id = null;
 
     var attrs = this.$el.find(".post-comment-form").serializeJSON();
-
+     attrs["comment"].parent_comment_id =  view.parent_comment_id;
     var newComment = new Diy.Models.Comment(attrs["comment"]);
-    // console.log("newComment", newComment);
+
     newComment.collection = this.model.comments();
 
     newComment.save({}, {
 
-      success: function(){
+      success: function(newComment){
 
-        // console.log("Successfully saved!");
+
         view.model.comments().add(newComment);
-        view.render();
+
         view.$el.find("main").animate({scrollTop: 500}, 200);
         // var topPos = $(view.$el.find(".reply-comment")[5]).offset().top;
         alert("Comment published!");
@@ -156,19 +158,22 @@ Diy.Views.PostShow = Backbone.View.extend({
 
       var view = this;
       var attrs = this.$el.find(".reply-modal-form").serializeJSON();
+      attrs["comment"].parent_comment_id =  view.parent_comment_id;
+      var parent_comment = view.model.comments().getOrFetch(attrs["comment"].parent_comment_id);
       var newComment = new Diy.Models.Comment(attrs["comment"]);
       // console.log("newComment", newComment);
-      newComment.collection = this.model.comments();
+      newComment.collection = parent_comment.childComments();
 
       newComment.save({}, {
 
-        success: function(){
+        success: function(data){
             $(".reply-modal").addClass("no-display");
-          // console.log("Successfully saved!");
-          view.model.comments().add(newComment);
+            // console.log(data.get("post_id"));
+          parent_comment.childComments().add(data);
+
           view.render();
           alert("Reply published!");
-          view.$el.find("body").animate({scrollTop: 500}, 200);
+
         },
         error: function(){
             alert("Content can't be blank!");
@@ -179,7 +184,21 @@ Diy.Views.PostShow = Backbone.View.extend({
 
   initialize: function(){
     this.listenTo(this.model, "sync", this.render);
-    this.listenTo(this.model.comments(), "sync add change:title remove", this.render);
+    this.collection = this.model.comments();
+    this.listenTo(this.model.comments(), "add", this.addComment);
+
+  },
+
+  addComment: function(comment){
+      if(!comment.parent_comment_id){
+          // console.log(comment.get("id"));
+          var view = new Diy.Views.CommentShow({
+              model: comment
+          });
+          this.addSubview("#comments", view);
+      } else {
+          return;
+      }
 
   },
 
@@ -194,7 +213,20 @@ Diy.Views.PostShow = Backbone.View.extend({
     });
     this.$el.html(content);
 
+    this.renderComments();
+
     return this;
+  },
+
+  renderComments: function(){
+      var view = this;
+       this.model.comments().each(function(v, i){
+           // console.log(v);
+           if (!(v.get("parent_comment"))){
+
+               view.addComment(v);
+           }
+       });
   }
 
 

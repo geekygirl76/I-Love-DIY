@@ -49,14 +49,15 @@ Diy.Routers.Router = Backbone.Router.extend({
 
 
   show: function (id) {
-    var that = this;
-    this._getPost(id, function (post) {
-      post.comments().fetch();
+
+      var post = Diy.posts.getOrFetch(id);
+
+
       var showView = new Diy.Views.PostShow({
         model: post
       });
-      that._swapView(showView);
-    });
+      this._swapView(showView);
+
   },
 
   edit: function (id) {

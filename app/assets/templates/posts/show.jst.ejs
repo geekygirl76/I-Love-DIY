@@ -157,69 +157,13 @@
 
 </form>
 
-<ul class="comments"></ul>
+
 
 <div class="comments-new"></div>
 
-<ul class="comments">
-  <% post.comments().each(function(comment){ %>
-
-     <% if (comment.get("parent_comment_id") === null ) { %>
-
-       <li class="root-comment comment group">
-               <div class="user-avatar"></div>
-
-                <div class="right-comment">
-               <div class="main-comment group">
-
-                <div class="comment-user-name"><a href="/users/<%=comment.get("user_id")%>/public">User <%=  comment.escape("user_id") %></a></div>
-                 <div><%=comment.escape("created_at")%></div>
-                 <div><button  class='reply-comment'>Reply</button>
-                    <% if (window.currentUser && window.currentUser.id != -1){ %>
-                        <button class="delete-comment" data-id="<%=comment.get("id")%>">Delete</button>
-                    <% }%>
-
-                 </div>
-
-               </div>
-
-               <div class="comment-time">
-                 <div class="comment-user-comment"><%= comment.escape("body") %></div>
-              </div>
-              </div>
-       </li>
+<ul id="comments"></ul>
 
 
-    <% } else { %>
-      <ul class="nested-comments">
-
-
-         <li class="comment group">
-               <div class="user-avatar"></div>
-
-              <div class="right-comment">
-               <div class="main-comment">
-
-                <div class="comment-user-name"><a href="/users/<%=comment.get("user_id")%>/public">User<%=  comment.escape("user_id") %></a></div>
-                 <div><%=  comment.escape("created_at")%></div>
-
-                 <div><button  class='reply-comment'>Reply</button></div>
-
-               </div>
-
-               <div class="comment-time">
-                 <div class="comment-user-comment"><%= comment.escape("body") %></div>
-              </div>
-            </div>
-         </li>
-
-      </ul>
-
-    <% }%>
-
-
-  <% }) %>
-</ul>
 </div>
 
 <div class="overlay no-display">

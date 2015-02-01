@@ -22,13 +22,13 @@ Diy.Views.PostsIndex = Backbone.View.extend({
     var $target = $(event.target);
 
     var post = this.collection.get($target.attr("data-id"));
-    console.log("Before destroy:",this.collection.models);
+    // console.log("Before destroy:",this.collection.models);
     post.destroy();
-    console.log("After destroy:",this.collection.models);
+    // console.log("After destroy:",this.collection.models);
   },
 
   render:function(){
-    console.log("In backbone post index view");
+    // console.log("In backbone post index view");
     var content = this.template({
       posts: this.collection
     });

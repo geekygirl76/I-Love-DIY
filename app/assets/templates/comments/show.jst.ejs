@@ -1,0 +1,30 @@
+
+
+
+
+<li class="root-comment comment group">
+        <div class="user-avatar"></div>
+
+         <div class="right-comment">
+        <div class="main-comment group">
+
+         <div class="comment-user-name"><a href="/users/<%=comment.get("user_id")%>/public">User <%=  comment.get("user_id") %></a></div>
+          <div><%=comment.get("created_at")%></div>
+          <div><button  data-id="<%=comment.get("id")%>" class='reply-comment'>Reply</button>
+             <% if (window.currentUser && window.currentUser.id != -1){ %>
+                 <button class="delete-comment" data-id="<%=comment.get("id")%>">Delete</button>
+             <% }%>
+
+          </div>
+
+        </div>
+
+        <div class="comment-time">
+          <div class="comment-user-comment"><%= comment.get("body") %></div>
+                 <ul id="children"></ul>
+       </div>
+       </div>
+
+
+</li>
+

@@ -3,6 +3,7 @@ window.Diy = {
   Collections: {},
   Views: {},
   Routers: {},
+  Utils: {},
   initialize: function() {
     // alert('Hello from Backbone!');
 
