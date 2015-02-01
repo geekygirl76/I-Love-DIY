@@ -1,46 +1,27 @@
 <head>
-   <style>
 
-
-   </style>
 </head>
 
 
 <body>
+<main class="all-posts photo-grid">
 
 
-<nav class="all-posts">
-  <form action="<%= posts_url %>" method="get">
-    <input type="hidden" name="authenticity_token"
-           value="<%= form_authenticity_token %>" />
 
-    <label for="search_tag">
-      Let's Make
-    <input
-      type="text"
-      name="post[search]"
-
-      id="post_search">
-    </label>
-
-    <a><input type="submit" value="Go!"></a>
-  </form>
-  <h4>Sorted by Time</h4>
-</nav>
-
-<main class="all-posts">
 <ul class="group">
 
   <% @posts.each do |post| %>
-    <li>
-      <div class="thumb-pic">
-        <a href="<%= post_url(post) %>">
-          <%= post.title %>( Score: <%= post.score %>)<%= image_tag post.photo.url(:medium) %>
-        </a>
+      <li ><a href="/#/posts/<%= post.id %>">
+         <div class='post-pic'><%= image_tag post.photo.url(:medium) %></div>
+         <div class='post-info'><%= post.title %></div>
+         <div class='post-score'>Score: <%= post.score%></div>
 
-    </div>
+         </a>
+      </li>
 
-    </li>
+
+
+
 
   <% end %>
 

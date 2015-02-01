@@ -58,6 +58,8 @@ module Api
     end
 
     def index
+
+
       @posts = Post.all
 
       render "index"
