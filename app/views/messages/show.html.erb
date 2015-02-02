@@ -1,77 +1,48 @@
 <head>
   <style>
 
-  nav.message{
-    width: 700px;
-    height: 30px;
-    margin:auto;
-    background: rgb(228, 234, 233);
-  padding: 5px 10px;
-  border: 1px solid lightblue;
+  nav.user > ul{
+
   }
 
-  nav.message > a{
-    padding: 10px 15px;
-    padding-top:10px;
-  }
-
-  main.message{
-    width:660px;
-    min-height:500px;
-    background: rgb(241, 246, 245);
-    margin:auto;
-  padding: 5px 10px;
-  border: 1px solid lightblue;
-  }
-
-  main.message{
-    padding:30px;
-  }
-
-  h1{
-
-
-
-    text-align: center;
-  }
-
-  li.letter-info{
-
-
-    padding: 30px 0;
-  }
-
-  p{
-    width: 460px;
-    min-height: 500px;
-    border: 1px solid grey;
-    margin: auto;
-    padding:20px;
-    font-size: 16px;
-    font-weight: bold;
-    background: rgb(228, 234, 233);
-  }
-
-  h3{
-    text-align:center;
-  }
-
-  footer >  ul > li{
-    float: left;
+  nav.user > ul > li{
+    float:left;
     padding: 10px 15px;
   }
+
+
+
   </style>
 </head>
 
 <body>
 
+<main class="post-article other user-profile">
+    <nav class="user">
+      <ul class="group">
+      <li><a href="<%= messages_url %>">Back To Inbox</a></li>
 
-    <nav class="message">
-      <a href="<%= messages_url %>">Back To Inbox</a>
+      <% if current_user.id == @message.receiver_id %>
+        <li><a href="<%= trash_message_url(@message) %>">Move To Trash</a></li>
+      <% end %>
+
+      <% if @message.receiver_id == current_user.id %>
+        <li><%= link_to "Block User", block_message_url(@message) %></li>
+      <% end %>
+
+
+
+      <% if @message.draft == "Y" %>
+
+        <li><a href="<%= edit_message_url(@message) %>">Edit</a></li>
+      <% end %>
+
+
+      </ul>
     </nav>
 
 
-<main class="message">
+
   <div class="letter-head">
   <ul class="group">
   <% if @message.draft == "Y" %>
@@ -103,23 +74,6 @@
 </div>
 </main>
 
-<footer>
-  <ul class="group">
-<% if current_user.id == @message.receiver_id %>
-  <li><a href="<%= trash_message_url(@message) %>">Move To Trash</a></li>
-<% end %>
 
-<% if @message.receiver_id == current_user.id %>
-  <li><%= link_to "Block User", block_message_url(@message) %></li>
-<% end %>
-<li><a><%= button_to "Delete", message_url(@message), method: :delete %></a></li>
-
-
-<% if @message.draft == "Y" %>
-
-  <li><a href="<%= edit_message_url(@message) %>">Edit</a></li>
-<% end %>
-</ul>
-</footer>
 
 </body>
