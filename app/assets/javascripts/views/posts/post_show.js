@@ -11,7 +11,10 @@ Diy.Views.PostShow = Backbone.CompositeView.extend({
       "click button.reply-comment": "openModal",
       "click button.delete-comment": "deleteComment",
       "click button.cancel-reply":"cancelReply"
+
   },
+
+
 
   cancelReply: function(event){
 
