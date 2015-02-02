@@ -5,34 +5,15 @@
     height: auto;
   }
 
-  nav.user{
-    width: 700px;
-    height: 60px;
-    margin:auto;
-    background: rgb(228, 234, 233);
-  padding: 5px 10px;
-  border: 1px solid lightblue;
+  main > .user-info{
+
+    margin:50px;
   }
 
-  nav.user > ul{
-
-  }
-
-  nav.user > ul > li{
-    float:left;
+  main > .user-info > ul > li{
     padding: 10px 15px;
+    font-weight: bold;
   }
-
-  main.user{
-    width:700px;
-    min-height:500px;
-    background: rgb(241, 246, 245);
-    margin:auto;
-  padding: 5px 10px;
-  border: 1px solid lightblue;
-  }
-
-
 
   </style>
 </head>
@@ -40,12 +21,14 @@
 
 
 <body>
-
+<main class="post-article other user-profile">
   <nav class="user">
+      <ul class="group">
     <li><%= link_to "Write To Author", new_message_url %></li>
+    </ul>
   </nav>
 
-  <main class="user">
+    <div class="user-info">
     <ul class="group">
       <li><h3>Username: <%= @user.username %></h3></li>
 
@@ -62,10 +45,9 @@
     <%= image_tag @user.photo.url(:thumb) %>
   </figure>
   </div>
+  </div>
 </main>
 
-<footer>
-  <li><h4>Do It Yourself, Make It Unique!</h4></li>
-</footer>
+
 
 </body>
