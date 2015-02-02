@@ -43,7 +43,7 @@
 
 
 
-
+<nav class="post-header">
 <ul class="group">
 
  <div class="letter-title">
@@ -61,9 +61,10 @@
 
 
 <%  if @message.draft == "Y" %>
-  <a href="<%=  senddraft_message_url(@message) %>">Send</a>
+  <a  class="send-button" href="<%=  senddraft_message_url(@message) %>">Send</a>
 <% end %>
  </ul>
+</nav>
 
 
 <article class="post-article">
