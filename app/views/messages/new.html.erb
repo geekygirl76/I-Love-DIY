@@ -1,23 +1,5 @@
 <head>
  <style>
-   nav.new-message{
-     width: 700px;
-     height: auto;
-     margin:auto;
-     background: rgb(228, 234, 233);
-   padding: 5px 10px;
-   border: 1px solid lightblue;
-   }
-
-   form.message-form{
-     width:700px;
-     min-height:500px;
-     background: rgb(241, 246, 245);
-     margin:auto;
-   padding: 5px 10px;
-   border: 1px solid lightblue;
-   }
-
 
  </style>
 </head>
@@ -25,10 +7,8 @@
 
 <body>
 
-  <nav class='new-message'>
-      <h1><a href="<%= messages_url %>">Inbox</a></h1>
-   </nav>
-<form class="message-form" action="<%= messages_url %>" method="post" >
+<main class="create-diy">
+<form class="post-form" id="new-post-form" action="<%= messages_url %>" method="post" >
   <input type="hidden" name="authenticity_token"
          value="<%= form_authenticity_token %>" >
 
@@ -96,7 +76,5 @@
 
 </form>
 
-<footer>
-  <li><h4>Do It Yourself, Make It Unique!</h4></li>
-</footer>
+</main>
 </body>
