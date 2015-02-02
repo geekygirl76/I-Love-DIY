@@ -1,57 +1,41 @@
 <head>
   <style>
-  nav.child{
-    width: 700px;
-    height: auto;
-    margin:auto;
-    background: rgb(228, 234, 233);
-  padding: 5px 10px;
-  border: 1px solid lightblue;
-  }
 
-  main.child{
-    width:700px;
-    min-height:500px;
-    background: rgb(241, 246, 245);
-    margin:auto;
-  padding: 5px 10px;
-  border: 1px solid lightblue;
-  }
   </style>
 </head>
 
 
 <body>
-  <nav class="child">
+<main class="post-article other user-profile">
+  <nav class="user">
     <a href="<%= messages_url %>">Back To Inbox</a>
   </nav>
 
 
-<main class="child">
 
+ <ul class="group collect-posts">
 <% @messages.each do |msg| %>
   <% if  msg.receiver_id == current_user.id  && msg.draft == "N" && !msg.read && !msg.blocked %>
-    <a href="<%= open_message_url(msg) %>"><%= msg.title %></a>
+    <li class="group"><a href="<%= open_message_url(msg) %>"><%= msg.title %></a></li>
 
-    <br>
+
     <% elsif msg.receiver_id == current_user.id  && msg.draft == "N" && msg.read && !msg.blocked && !msg.trashed %>
-       <a href="<%= message_url(msg) %>"><%= msg.title %></a>
-       <br>
+       <li class="group"><a href="<%= message_url(msg) %>"><%= msg.title %></a></li>
+
 
     <% elsif   msg.receiver_id == current_user.id && msg.draft == "N" && msg.trashed  && !msg.blocked %>
-      <a href="<%= message_url(msg) %>"><%= msg.title %></a>
-      <br>
+      <li class="group"><a href="<%= message_url(msg) %>"><%= msg.title %></a></li>
+
 
     <% else %>
-      <a href="<%= message_url(msg) %>"><%= msg.title %></a>
-      <br>
+      <li class="group"><a href="<%= message_url(msg) %>"><%= msg.title %></a></li>
+
 
     <% end  %>
 <% end %>
+</ul>
 </main>
 
-<footer>
-  <li><h4>Do It Yourself, Make It Unique!</h4></li>
-</footer>
+
 
 </body>
