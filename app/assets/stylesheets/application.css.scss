@@ -849,3 +849,25 @@ nav.user >h1{
 .edit-form-element{
     margin-top:30px;
 }
+ .collect-posts{
+     margin:auto;
+     padding: 30px;
+ }
+
+ .collect-posts > li{
+     padding: 20px;
+     border-top: 1px solid lightgrey;
+ }
+
+.collect-posts > li > div{
+    float: left;
+    display: inline-block;
+}
+ .collect-posts > li > a{
+     display: inline-block;
+     float: left;
+     padding-top: 35px;
+     padding-left: 30px;
+     color: #086A87;
+     font-weight: bold;
+ }

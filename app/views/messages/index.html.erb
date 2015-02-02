@@ -1,32 +1,12 @@
 <head>
   <style>
-  nav.inbox{
-    width: 700px;
-    height: auto;
-    margin:auto;
-    background: rgb(228, 234, 233);
-  padding: 5px 10px;
-  border: 1px solid lightblue;
+  nav.user > ul >li{
+      display: inline-block;
+      float: left;
+      padding: 0 20px;
   }
-
-  nav.inbox > ul> li{
-    float: left;
-    padding: 10px 15px;
-  }
-
-  main.inbox{
-    width:700px;
-    min-height:500px;
-    background: rgb(241, 246, 245);
-    margin:auto;
-  padding: 5px 10px;
-  border: 1px solid lightblue;
-  }
-
-  main.inbox> h3{
-    font-size: 36px;
-    font-weight: bold;
-    padding-left:200px;
+  nav.user > ul >li > a{
+      font-weight: normal;
 
   }
 
@@ -34,23 +14,25 @@
 </head>
 
 <body>
-
-  <nav class="inbox">
+<main class="post-article other user-profile">
+  <nav class="user">
     <ul class="group">
       <li><h3><a href="<%= readmessages_messages_url %>">Read </a></h3></li>
+      <li><h3><a href="<%= unreadmessages_messages_url %>">Unread</h3></li>
       <li><h3><a href="<%= sentmsgs_messages_url %>">Sent</a></h3></li>
       <li><h3><a href="<%= trashedmessages_messages_url %>">Trash</a></h3></li>
       <li><h3><a href="<%= drafts_messages_url %>">Drafts</a></h3></li>
+
     </ul>
   </nav>
 
-  <main class="inbox">
-    <h3><a href="<%= unreadmessages_messages_url %>">Unread Messages</h3>
-  </main>
+  <ul class="group collect-posts">
+     <% @messages.each do |m|%>
+     <li class="group"><a href="<%= message_url(m.id) %>"><%= m.title %></a></li>
+     <% end %>
+  </ul>
 
-  <footer class="inbox">
-    <h3><a href="<%= users_url %>">Blocked Users</a></h3>
-  </footer>
 
+</main>
 </body>
 
