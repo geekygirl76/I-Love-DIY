@@ -104,6 +104,7 @@ Diy.Views.PostShow = Backbone.CompositeView.extend({
   submitComment: function(event){
     event.preventDefault();
     event.stopPropagation();
+
     if (!window.currentUser || window.currentUser.id == -1){
 
         alert("Please log in or sign up first!");
@@ -125,7 +126,7 @@ Diy.Views.PostShow = Backbone.CompositeView.extend({
 
       success: function(newComment){
 
-
+          $("textarea.comment").val("");
         view.model.comments().add(newComment);
 
         view.$el.find("main").animate({scrollTop: 500}, 200);
