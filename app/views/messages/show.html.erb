@@ -43,35 +43,34 @@
 
 
 
-  <div class="letter-head">
-  <ul class="group">
-  <% if @message.draft == "Y" %>
-    <li><h5>Draft:</h5></li>
-  <% end %>
+
+<ul class="group">
+
  <div class="letter-title">
   <li><h1><%= @message.title %></h1></li>
 </div>
 
 <% if @message.sender_id == current_user.id %>
 
-  <li class="letter-info"><h3>Send to: <%= User.find(@message.receiver_id).username %></h3></li>
+   <li class="letter-info"><h3>Send to: <%=  User.find(@message.receiver_id).username %></h3></li>
 <% elsif @message.receiver_id == current_user.id %>
 
 
   <li class="letter-info"><h3>Send by: <%= User.find(@message.sender_id).username %></h3></li>
 <% end %>
- </ul>
- </div>
 
-<div class="letter">
-  <p><%= @message.body %></p>
-  </div>
 
-<div class="send-draft">
 <%  if @message.draft == "Y" %>
   <a href="<%=  senddraft_message_url(@message) %>">Send</a>
 <% end %>
-</div>
+ </ul>
+
+
+<article class="post-article">
+  <pre><%= @message.body %></pre>
+ </article>
+
+
 </main>
 
 
