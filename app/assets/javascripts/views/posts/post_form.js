@@ -71,8 +71,27 @@ Diy.Views.PostForm = Backbone.View.extend({
          reader.readAsDataURL(picFile);
 
       } else {
-      alert("You have to upload a picture!")
-      }
+          alert("Publishing... One second please.");
+          that.model.save(attrs.post, {
+
+
+
+            success: function (post) {
+
+              that.collection.add(post);
+
+              Backbone.history.navigate("posts/"+ post.get("id"), { trigger: true });
+            },
+
+            error: function (e) {
+              // console.log();
+              alert("Please fill in all the information!");
+               }
+
+
+          });
+        }
+
 
       // var reader = new FileReader();
 //        reader.onload = function(e) {

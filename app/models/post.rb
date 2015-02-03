@@ -10,7 +10,7 @@ class Post < ActiveRecord::Base
   has_many :voterecords, dependent: :destroy
   has_many :collects, dependent: :destroy
 
-  has_attached_file :photo, :styles => { :medium => "300x300>", :thumb => "100x100#" }, :default_url => "placeholder.jpeg"
+  has_attached_file :photo, :styles => { :medium => "300x300>", :thumb => "100x100#" }, :default_url => "placeholder.jpg"
   validates_attachment_content_type :photo, :content_type => [/\Aimage\/.*\Z/,'application/xml']
 
   validates :title, :body,:sub_id, :user_id,  presence: true
