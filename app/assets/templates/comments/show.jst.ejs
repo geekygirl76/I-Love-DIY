@@ -9,7 +9,7 @@
         <div class="main-comment group">
 
          <div class="comment-user-name"><a href="/users/<%=comment.get("user_id")%>/public">User <%=  comment.get("user_id") %></a></div>
-          <div><%=comment.get("created_at")%></div>
+          <div class="publish-time">Published at: <%=comment.get("publish_time")%></div>
           <div><button  data-id="<%=comment.get("id")%>" class='reply-comment'>Reply</button>
 
 
