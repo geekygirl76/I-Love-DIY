@@ -163,7 +163,7 @@ window.currentUser = {id: <%= current_user.id %>s};
       <% if current_user %>
 
         <ul class="header-ul-right group">
-          <li><a href="<%= user_url(current_user) %>">You</a></li>
+          <li><a href="<%= user_url(current_user) %>">Your Profile</a></li>
           <li>
             <form class="ul-right-form" action="<%= session_url %>" method="post">
               <input type="hidden" name="authenticity_token"
