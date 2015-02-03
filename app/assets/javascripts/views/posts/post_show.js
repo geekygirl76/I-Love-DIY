@@ -134,7 +134,7 @@ Diy.Views.PostShow = Backbone.CompositeView.extend({
 
         view.$el.find("main").animate({scrollTop: 500}, 200);
         // var topPos = $(view.$el.find(".reply-comment")[5]).offset().top;
-        alert("Comment published!");
+
       },
       error: function(){
           alert("Content can't be blank!");
