@@ -15,6 +15,25 @@
   padding:0;
   padding-right:10px;
   }
+
+  .dropdown-li{
+      position:relative;
+  }
+  .header-dropdown{
+      position: absolute;
+      left: 0;
+      top: 100%;
+      width: 80%;
+  }
+
+  .dropdown-li:hover .header-dropdown{
+
+      background: #F6F6F6;
+      z-index: 1000;
+      border:0;
+      box-shadow: 0 10px 10px grey;
+
+  }
   </style>
 
   <title>Diy</title>
@@ -157,8 +176,8 @@ window.currentUser = {id: <%= current_user.id %>s};
         <li><a class="create-new-post" href="/#/posts/new">Create Post</a></li>
 
         <li><a href="/#/posts">Posts</a></li>
-        <li>
-            <a>Sub Forums</a>
+        <li class="dropdown-li">
+            <a href="/#" class="dropdown-link">Sub Forums</a>
             <ul class="header-dropdown">
 
                 <li><a href="/#/subs/1">Living</a></li>
