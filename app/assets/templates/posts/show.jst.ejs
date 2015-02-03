@@ -121,7 +121,7 @@
 <main class="post-article other">
 
 <header class="post-header">
-
+  <h4 class="sub-info">You are in sub forum: <a href="/#/subs/<%= post.escape("sub_id")%>"><strong><%= post.escape("sub_name")%></strong></a></h4>
   <h1 class="title"><%= post.escape("title") %> <b>  by <a class="post-author" href="/users/<%=post.get("user_id")%>/public"><%= post.get("author_name")%></a></b> </h1>
 
 
