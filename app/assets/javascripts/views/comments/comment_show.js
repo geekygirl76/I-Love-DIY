@@ -12,8 +12,8 @@ Diy.Views.CommentShow = Backbone.CompositeView.extend({
   },
 
   renderChildren: function(){
-      console.log(this.model.get("body"));
-      console.log( this.model.childComments());
+      // console.log(this.model.get("body"));
+//       console.log( this.model.childComments());
       this.model.childComments().each(this.addChildComment.bind(this));
   },
 

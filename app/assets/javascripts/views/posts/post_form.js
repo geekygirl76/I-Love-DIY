@@ -36,7 +36,7 @@ Diy.Views.PostForm = Backbone.View.extend({
        // console.log(this.model);
 
       var picFile = this.$el.find("#file-upload")[0].files[0];
-
+      // console.log(picFile);
 
       if (picFile){
 
@@ -47,6 +47,7 @@ Diy.Views.PostForm = Backbone.View.extend({
 
 
            attrs.post["photo"] = this.result;
+           // console.log(attrs.post["photo"]);
            alert("Publishing... One second please.");
            that.model.save(attrs.post, {
 
