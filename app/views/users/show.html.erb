@@ -82,7 +82,7 @@
 
  <li><a href="<%= personal_posts_url %>">Your Posts</a></li>
  <li><a href="<%= edit_user_url(current_user) %>">Edit Profile</a></li>
- <li>Joined at: <%= current_user.created_at.to_formatted_s(:short)%></li>
+ <li>Joined at: <%= current_user.created_at.to_formatted_s(:long)%></li>
 </ul>
 </nav>
 
