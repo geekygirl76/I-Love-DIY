@@ -51,7 +51,25 @@
   .join-time{
       float:right;
   }
+  .middle{
+      padding: 20px;
+      border-bottom: 2px solid lightgrey;
+  }
+  .middle>div{
+      display: inline-block;
+      float: left;
+      padding: 20px;
+  }
 
+  .user-link a{
+      font-size: 20px;
+      color: grey;
+  }
+  .user-link a:hover{
+      cursor: pointer;
+      color: darkgrey;
+      text-decoration: underline;
+  }
   </style>
 
   <script>
@@ -81,32 +99,35 @@
 </nav>
 
 
-<div class="middle">
-  <li><a href="<%= new_message_url %>">Write Message</a></li>
+<div class="middle group">
+
+    <div class="user-pic">
+    <figure class="user">
+      <%= image_tag @user.photo.url(:thumb) %>
+    </figure>
+    </div>
+
+     <div class="user-link">
+    <ul class="group">
+      <li><a href="<%= new_message_url %>">Write Message</a></li>
+
+      <li><a href="<%= messages_url %>">Inbox(Unread: <%= @user.received_messages.select { |msg| msg.draft == "N" && !msg.read && !msg.blocked }.count %>)</a></li>
+
+     <li><a href="<%= collects_url %>">Collection</a></li>
+
+     <li><a href="<%= personal_posts_url %>">Your Posts</a></li>
+     <li><a href="<%= edit_user_url(current_user) %>">Edit Profile</a></li>
+
+    </ul>
+    </div>
 
 
-
-
-  <li><a href="<%= messages_url %>">Inbox</a>(Unread: <%= @user.received_messages.select { |msg| msg.draft == "N" && !msg.read && !msg.blocked }.count %>)</li>
-
- <li><a href="<%= collects_url %>">Collection</a></li>
-
-
- <li><a href="<%= personal_posts_url %>">Your Posts</a></li>
- <li><a href="<%= edit_user_url(current_user) %>">Edit Profile</a></li>
-
-
-  <div class="user-pic">
-  <figure class="user">
-    <%= image_tag @user.photo.url(:thumb) %>
-  </figure>
-  </div>
 
   <div class="user-info">
   <ul class="group">
-     <li>Age: <%= current_user.age || "Not Available" %></li>
-     <li>Gender: <%= current_user.gender || "Not Available" %></li>
-     <li>Zip: <%= current_user.zip || "Not Available"%></li>
+     <li><strong>Age: </strong><%= current_user.age || "Not Available" %></li>
+     <li><strong>Gender: </strong><%= current_user.gender || "Not Available" %></li>
+     <li><strong>Zip: </strong><%= current_user.zip || "Not Available"%></li>
   </ul>
   </div>
 
