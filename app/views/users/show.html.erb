@@ -70,6 +70,18 @@
       color: darkgrey;
       text-decoration: underline;
   }
+  .user-posts{
+      padding: 30px;
+
+  }
+  .user-posts > h2{
+      font-weight: bold;
+      margin-bottom: 20px;
+  }
+  .post-pic{
+      width: 200px;
+
+  }
   </style>
 
   <script>
@@ -132,6 +144,19 @@
   </div>
 
 </div>
+
+<div class='user-posts'>
+    <h2>Your posts</h2>
+    <ul class="group collect-posts">
+        <% current_user.posts.each do |p| %>
+         <li class="group">
+             <div class='post-pic'><%= image_tag p.photo.url(:medium) %></div>
+             <a href="/#/posts/<%= p.id %>"><%= p.title %></a>
+         </li>
+        <% end %>
+    </ul>
+</div>
+
 </main>
 
 
