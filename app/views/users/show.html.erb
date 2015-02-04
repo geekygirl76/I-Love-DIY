@@ -26,14 +26,9 @@
     height: auto;
   }
 
-  main.welcome{
 
 
-  }
 
-  main > .welcome > h1{
-    margin: 50px;
-  }
 
   main > .user-pic{
 
@@ -49,6 +44,12 @@
   main > .user-info > ul > li{
     padding: 10px 15px;
     font-weight: bold;
+  }
+  .welcome>h1{
+      margin: 0;
+  }
+  .join-time{
+      float:right;
   }
 
   </style>
@@ -70,6 +71,17 @@
 
 <nav class="user">
   <ul class="group">
+
+
+   <li class="welcome">
+   <h1><%= current_user.username == "" ? "Guest" : current_user.username %></h1>
+ </li>
+ <li class="join-time">Joined at: <%= current_user.created_at.to_formatted_s(:long)%></li>
+</ul>
+</nav>
+
+
+<div class="middle">
   <li><a href="<%= new_message_url %>">Write Message</a></li>
 
 
@@ -82,16 +94,7 @@
 
  <li><a href="<%= personal_posts_url %>">Your Posts</a></li>
  <li><a href="<%= edit_user_url(current_user) %>">Edit Profile</a></li>
- <li>Joined at: <%= current_user.created_at.to_formatted_s(:long)%></li>
-</ul>
-</nav>
 
-
-
-
-  <div class="welcome">
-  <h1>Welcome!<%= current_user.username == "" ? "Guest" : current_user.username %></h1>
-  </div>
 
   <div class="user-pic">
   <figure class="user">
@@ -107,11 +110,10 @@
   </ul>
   </div>
 
+</div>
 </main>
 
-<footer>
-  <li><h4>Do It Yourself, Make It Unique!</h4></li>
-</footer>
+
 
 </body>
 
