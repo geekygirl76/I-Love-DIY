@@ -103,11 +103,15 @@ body{
 
 
 .header{
-  background: rgb(233, 235, 235);
+    background: -webkit-linear-gradient(white, grey);
+    background: -o-linear-gradient(white, grey);
+    background: -moz-linear-gradient(white, grey);
+    background: linear-gradient(white, grey);
   width: 100%;
 
   display: block;
   border-right: 1px solid darkgrey;
+  border-bottom: 1px solid darkgrey;
 }
 
 .header > nav {
