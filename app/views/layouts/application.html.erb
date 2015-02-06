@@ -176,6 +176,25 @@ window.currentUser = {id: <%= current_user.id %>s};
   <header class="header">
     <nav class="header group">
       <ul class="header-ul-left group">
+          <li id="search-li">
+
+            <form id="search-form" action="/posts" method="get">
+
+
+
+
+              <input
+                type="text"
+                name="post[search]"
+
+                id="post_search">
+
+
+              <a><input type="submit"  value="Search"></a>
+
+            </form>
+
+         </li>
         <li><a class="create-new-post" href="/#/posts/new">Create Post</a></li>
 
         <li><a href="/#/posts">Posts</a></li>

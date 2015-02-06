@@ -901,3 +901,47 @@ nav.user >h1{
      color: grey;
      font-size: 15px;
  }
+
+  nav.search-home{
+      // position:absolute;
+//       left: 50%;
+//       top:10%;
+    width: 700px;
+    height: auto;
+    margin:auto;
+    background: transparent;
+  padding: 0;
+  border: 0;
+  }
+
+  form#search-form{
+      position:relative;
+      height: 100%;
+      width: 200%;
+      background: transparent;
+  }
+
+  form#search-form>a {
+      position: absolute;
+      top: -10px;
+      left: 50%;
+
+  }
+  input#post-search{
+      padding:3px;
+
+      margin:0;
+      border: 0;
+      width: 100px;
+  }
+
+  form#search-form > a :hover{
+      cursor:pointer;
+
+  }
+  li#search-li:hover{
+      background: -webkit-linear-gradient(white, #BDBDBD);
+      background: -o-linear-gradient(white, #BDBDBD);
+      background: -moz-linear-gradient(white, #BDBDBD);
+      background: linear-gradient(white, #BDBDBD);
+  }
