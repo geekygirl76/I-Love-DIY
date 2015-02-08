@@ -4,12 +4,12 @@ I used rails, backbone, CSS and HTML to write this app, with Rspec to test each 
 
 The technologies I used in this app include:
 
-Basic CRUD
-Authentication
-ActionMailer/Sendgrid
-Partials, helpers
-Routing
-File upload (paperclip)
-Omniauth
-Backbone
-Building my own API for consumption by Backbone
+Basic CRUD,
+Authentication,
+ActionMailer/Sendgrid,
+Partials, helpers,
+Routing,
+File upload (paperclip),
+Omniauth,
+Backbone,
+Building my own API for consumption by Backbone.
