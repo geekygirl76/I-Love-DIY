@@ -1,3 +1,5 @@
+#I Love DIY
+
 This is my final project. I am cloning instructable.com to build a web app for people to communicate about DIY experience.
 
 I used rails, backbone, CSS and HTML to write this app, with Rspec to test each model.
