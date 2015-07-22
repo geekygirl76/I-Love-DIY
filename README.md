@@ -21,4 +21,14 @@ All CSS is hand-written from scratch and organized into the appropriate SASS ass
 
 #### Javascript
 
+Log In and Sign Up are implemented using AJAX requests to RESTful Rails controllers. JQuery is also used to make a light carousel on the home page, creating a smotth transition between images and texts. JQuery also is heavily used on the comments page to create modals.
+
+####Backbone.js
+
+The majority of the front-end of the application is written in Backbone.js, using the appropriate front-end MVC architecture. This is built on top of a RESTful Rails API serving up JSON responses to AJAX requests, making the application significantly faster in terms of UX and keeping the front-end Javascript properly organized.
+
+####Database
+
+
+
 
