@@ -29,6 +29,14 @@ The majority of the front-end of the application is written in Backbone.js, usin
 
 ####Database
 
+Custom advanced SQL queries are written for a number of database-intensive queries to decrease server load and increase the granularity/accuracy of query results.
 
+####Testing
+
+Implemented RSpec and Capybara to do unit tests and feature tests.
+
+####To-Do
+
+Use Google Maps API to show user locations.
 
 
