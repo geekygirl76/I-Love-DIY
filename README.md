@@ -1,17 +1,9 @@
 #I Love DIY
 
-This is my final project. I am cloning instructable.com to build a web app for people to communicate about DIY experience.
 
-I used rails, backbone, CSS and HTML to write this app, with Rspec to test each model.
+[###Live Demo](www.ilovediy.ninja)
 
-The technologies I used in this app include:
+I love DIY is a social platform for DIY enthusiasts to share their DIY (Do It Yourself) experiments. It is inspired by my super-handy husband who likes to build things himself. Users can publish posts, upload pictures, make comments, collect posts, and can use an "inbox" to send messages to each other. Of course, they also have the freedom to put somebody's messages into "Trash", or even block some other evil users from messaging them. So it is a fun place for DIY enthusiasts to share experience, learn tips, communicate with each other, and make friends.
 
-Basic CRUD,
-Authentication,
-ActionMailer/Sendgrid,
-Partials, helpers,
-Routing,
-File upload (paperclip),
-Omniauth,
-Backbone,
-Building my own API for consumption by Backbone.
+Written as a capstone project for [*App Academy*](www.appacademy.io) (NYC May 2014 cohort).
+
